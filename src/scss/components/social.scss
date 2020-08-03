@@ -1,0 +1,27 @@
+.Social {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  svg {
+    fill: currentColor;
+    height: rem(24);
+    width: auto;
+  }
+
+  .Button {
+    margin-right: rem(18);
+  }
+
+  a:not(.Button) {
+    display: block;
+    padding: rem(4.5);
+    text-decoration: none;
+  }
+
+  a[href*='twitter'] {
+    svg {
+      height: rem(22);
+    }
+  }
+}

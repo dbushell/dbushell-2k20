@@ -1,0 +1,33 @@
+.Button {
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--color-background2);
+  border: rem(2) solid rgbvar(--color-primary, 0.5);
+  border-top: 0;
+  border-left: 0;
+  border-radius: rem(5);
+  box-shadow: rem(-1) rem(-1) 0 var(--color-quaternary),
+    rem(2) rem(2) 0 0 rgbvar(--db-black, 0.1);
+  color: var(--color-primary);
+  display: inline-block;
+  font-size: var(--step-s);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: rem(0.5);
+  padding: rem(8) rem(14);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 200ms, border 200ms;
+
+  &:focus,
+  &:hover {
+    border-color: rgbvar(--color-primary, 1);
+    color: var(--color-tertiary);
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

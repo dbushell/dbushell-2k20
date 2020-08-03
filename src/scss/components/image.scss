@@ -1,0 +1,29 @@
+.Image {
+  img {
+    display: block;
+    background-color: rgbvar(--db-black, 0.2);
+    border-radius: rem(3);
+    border: rem(2) solid var(--color-background);
+    box-shadow: rem(-4) 0 0 rem(-2) var(--color-secondary),
+      rem(4) rem(4) 0 0 rgbvar(--db-black, 0.2);
+    margin: rem(36) 0;
+    position: relative;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.Image--basic {
+  img {
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+}

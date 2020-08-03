@@ -1,0 +1,12 @@
+[build]
+  publish = "./public"
+  command = "npm run build:prod"
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = "default-src 'self'; frame-ancestors 'none'"

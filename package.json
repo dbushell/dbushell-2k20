@@ -1,0 +1,56 @@
+{
+  "name": "dbushell-2k20",
+  "version": "11.0.6",
+  "private": true,
+  "description": "dbushell.com",
+  "main": "",
+  "scripts": {
+    "serve": "http-server -a dbushell.localhost ./public/",
+    "webpack:prod": "NODE_ENV=production npx webpack",
+    "webpack:dev": "NODE_ENV=development npx webpack",
+    "build:dev": "NODE_ENV=development npx babel-node src/build.js && npm run webpack:dev",
+    "build:prod": "NODE_ENV=production npx babel-node src/build.js && npm run webpack:prod"
+  },
+  "author": "David Bushell <david@dbushell.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "csso": "^4.0.3",
+    "front-matter": "^4.0.2",
+    "fs-extra": "^9.0.1",
+    "marked": "^1.1.1",
+    "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
+    "node-sass-magic-importer": "^5.3.2",
+    "preact": "^10.4.6",
+    "prismjs": "^1.20.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "striptags": "^3.1.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-react"
+      ],
+      [
+        "@babel/preset-env",
+        {
+          "debug": false,
+          "bugfixes": true,
+          "targets": {
+            "esmodules": true
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {}
+}

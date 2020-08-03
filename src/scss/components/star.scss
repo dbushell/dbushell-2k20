@@ -1,0 +1,30 @@
+.Star,
+.List li,
+.Prose ul:not([class*='List']) li {
+  position: relative;
+
+  &:before {
+    content: '•';
+    color: transparent;
+    background-image: var(--star);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: rem(16) auto;
+    margin-left: rem(-36);
+    position: absolute;
+    width: rem(36);
+  }
+}
+
+@media screen and (max-width: rem(959)) {
+  .Star,
+  .List li,
+  .Prose ul:not([class*='List']) li {
+    &:before {
+      background-size: rem(12) auto;
+      background-position: center center;
+      margin-left: rem(-27);
+      width: rem(27);
+    }
+  }
+}

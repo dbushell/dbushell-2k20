@@ -1,0 +1,42 @@
+.Featured {
+  display: grid;
+  grid-row-gap: rem(36);
+  grid-template-columns: 1fr;
+  margin: 0 auto rem(36) auto;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & > * {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: rem(1240)) {
+  .Featured {
+    display: grid;
+    grid-column-gap: rem(36);
+    grid-template-columns: 1.5fr rem(9) 1fr;
+
+    .Bio {
+      grid-column: 1 / 2;
+    }
+
+    .Card {
+      grid-column: 1 / 2;
+
+      &:last-child {
+        grid-column: 3 / 4;
+        grid-row: 1 / 5;
+      }
+    }
+
+    .Rule {
+      grid-column: 2 / 3;
+      grid-row: 1 / 5;
+      height: 100%;
+      width: rem(1);
+    }
+  }
+}

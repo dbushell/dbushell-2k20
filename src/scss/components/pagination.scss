@@ -1,0 +1,11 @@
+.Pagination {
+  margin: 0 rem(-9) rem(36) rem(-9);
+
+  .Button {
+    margin: 0 rem(9);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

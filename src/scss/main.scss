@@ -1,0 +1,342 @@
+@function rem($px, $base: 16) {
+  @return ($px / $base) + rem;
+}
+
+@function rgbvar($color, $alpha: 1) {
+  @return unquote('rgba(var(#{$color}-rgb), #{$alpha})');
+}
+
+@font-face {
+  font-family: 'Satisfy';
+  src: url('/assets/fonts/satisfy-regular.woff2') format('woff2');
+  font-display: block;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Komika';
+  src: url('/assets/fonts/komika-title.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@import "src/scss/includes/utopia.scss";
+
+:root {
+  // Light
+  --db-light-r: 255;
+  --db-light-g: 250;
+  --db-light-b: 240;
+  --db-light-rgb: var(--db-light-r), var(--db-light-g), var(--db-light-b);
+  --db-light: rgb(var(--db-light-r), var(--db-light-g), var(--db-light-b));
+
+  // Dark
+  --db-dark-r: 80;
+  --db-dark-g: 70;
+  --db-dark-b: 70;
+  --db-dark-rgb: var(--db-dark-r), var(--db-dark-g), var(--db-dark-b);
+  --db-dark: rgb(var(--db-dark-r), var(--db-dark-g), var(--db-dark-b));
+
+  // Pink
+  --db-pink-r: 255;
+  --db-pink-g: 100;
+  --db-pink-b: 125;
+  --db-pink-rgb: var(--db-pink-r), var(--db-pink-g), var(--db-pink-b);
+  --db-pink: rgb(var(--db-pink-r), var(--db-pink-g), var(--db-pink-b));
+
+  // Red
+  --db-red-r: 210;
+  --db-red-g: 55;
+  --db-red-b: 80;
+  --db-red-rgb: var(--db-red-r), var(--db-red-g), var(--db-red-b);
+  --db-red: rgb(var(--db-red-r), var(--db-red-g), var(--db-red-b));
+
+  // Green
+  --db-green-r: 150;
+  --db-green-g: 230;
+  --db-green-b: 200;
+  --db-green-rgb: var(--db-green-r), var(--db-green-g), var(--db-green-b);
+  --db-green: rgb(var(--db-green-r), var(--db-green-g), var(--db-green-b));
+
+  // Blue
+  --db-blue-r: 20;
+  --db-blue-g: 150;
+  --db-blue-b: 190;
+  --db-blue-rgb: var(--db-blue-r), var(--db-blue-g), var(--db-blue-b);
+  --db-blue: rgb(var(--db-blue-r), var(--db-blue-g), var(--db-blue-b));
+
+  // Blue (darker)
+  --db-blue2-r: 15;
+  --db-blue2-g: 110;
+  --db-blue2-b: 155;
+  --db-blue2-rgb: var(--db-blue2-r), var(--db-blue2-g), var(--db-blue2-b);
+  --db-blue2: rgb(var(--db-blue2-r), var(--db-blue2-g), var(--db-blue2-b));
+
+  // Yellow
+  --db-yellow-r: 255;
+  --db-yellow-g: 250;
+  --db-yellow-b: 190;
+  --db-yellow-rgb: var(--db-yellow-r), var(--db-yellow-g), var(--db-yellow-b);
+  --db-yellow: rgb(var(--db-yellow-r), var(--db-yellow-g), var(--db-yellow-b));
+
+  // White
+  --db-white-rgb: 255, 255, 255;
+  --db-white: rgb(var(--db-white-rgb));
+
+  // Black
+  --db-black-rgb: 55, 50, 50;
+  --db-black: rgb(var(--db-black-rgb));
+}
+
+:root {
+  --wrapper-margin: #{rem(27)};
+  --wrapper-max: calc(
+    #{rem(1920)} - var(--wrapper-margin) * 2
+  ); // #{rem(1440)};
+  --wrapper-min: calc(#{rem(320)} - var(--wrapper-margin) * 2);
+}
+
+@media screen and (min-width: rem(600)) {
+  :root {
+    --wrapper-margin: 5vw;
+  }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  border: 0;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+button {
+  background: transparent;
+  appearance: none;
+  border: none;
+  outline: none;
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration-line: underline;
+  text-decoration-thickness: 5%;
+  text-decoration-skip-ink: all;
+  text-decoration-color: rgbvar(--color-primary, 0.5);
+  text-underline-offset: 15%;
+  transition: color 200ms, background 200ms, text-underline-offset 200ms,
+    text-decoration 200ms;
+
+  &:focus,
+  &:hover {
+    color: var(--color-tertiary);
+    text-decoration-thickness: 15%;
+    text-decoration-color: rgbvar(--color-primary, 0.1);
+    text-underline-offset: 10%;
+  }
+
+  &:focus {
+    text-decoration-color: rgbvar(--color-tertiary, 1);
+    outline: none;
+  }
+
+  &:hover:not(:focus) {
+    text-decoration-skip-ink: none;
+  }
+
+  p:not([class]) > &,
+  cite > &,
+  small > & {
+    &:not(:focus):not(:hover) {
+      color: var(--color-primary2, var(--color-primary));
+    }
+  }
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+abbr {
+  &[title] {
+    border: none;
+    text-decoration: none;
+  }
+}
+
+small {
+  font-size: var(--step-s);
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: var(--step-0);
+  margin: 0 0 rem(18) 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    font-weight: 500;
+  }
+}
+
+blockquote {
+  margin: rem(36) 0 rem(36) rem(18);
+  padding-left: rem(18);
+  border-left: rem(1) solid var(--color-tertiary);
+
+  p {
+    font-style: italic;
+  }
+
+  cite {
+    font-size: var(--step-s);
+    font-weight: 500;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: rem(36) 0 rem(18) 0;
+  position: relative;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  font-size: var(--step-5);
+  line-height: 1.25;
+  margin-bottom: rem(36);
+}
+
+@media screen and (min-width: rem(600)) {
+  h1 {
+    margin-bottom: rem(45);
+  }
+}
+
+h2 {
+  font-size: var(--step-2);
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: var(--step-1);
+
+  .Cursive {
+    font-size: var(--step-0);
+  }
+}
+
+.Large {
+  font-size: var(--step-1);
+}
+
+.Comic {
+  font-family: 'Komika', 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+
+  .Hyphen {
+    display: inline-block;
+    transform: translateX(20%) translateY(5%);
+  }
+}
+
+.Cursive {
+  color: var(--color-secondary2, var(--color-secondary));
+  font-family: 'Satisfy', 'Raleway', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.Error {
+  color: var(--db-red);
+}
+
+pre,
+code {
+  font-family: 'Fira Code', monospace;
+  font-weight: 300;
+}
+
+p > code {
+  // background: white;
+  display: inline-block;
+  font-size: var(--step-s);
+  padding: 0 rem(5);
+}
+
+pre {
+  background: var(--db-dark); // #282a36;
+  color: var(--db-light);
+  font-size: var(--step-s);
+  margin: rem(36) 0 rem(36) rem(-18);
+  padding: rem(18);
+
+  overflow: auto;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 2;
+  hyphens: none;
+}
+
+@import 'src/scss/components/**/*.scss';

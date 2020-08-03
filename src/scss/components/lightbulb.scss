@@ -1,0 +1,51 @@
+.Lightbulb {
+  --lightbulb-stroke: var(--db-pink);
+  --lightbulb-fill: var(--db-yellow);
+  --lightbulb-rays: 1;
+  height: auto;
+  position: absolute;
+  left: var(--wrapper-margin);
+  transform: translateY(rem(10));
+  transition: transform 100ms;
+  width: rem(45);
+
+  &:before {
+    background: var(--lightbulb-stroke);
+    bottom: calc(100% - 1px);
+    content: '';
+    display: block;
+    height: rem(30);
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: rem(2);
+  }
+
+  &:focus,
+  &:hover {
+    transform: translateY(rem(20));
+    --lightbulb-stroke: var(--db-blue);
+    --lightbulb-fill: transparent;
+    --lightbulb-rays: 0;
+  }
+
+  path {
+    transition: fill 100ms, opacity 100ms;
+  }
+
+  .Noscript & {
+    display: none;
+  }
+
+  .Darkmode & {
+    --lightbulb-stroke: var(--db-green);
+    --lightbulb-fill: transparent;
+    --lightbulb-rays: 0;
+
+    &:focus,
+    &:hover {
+      --lightbulb-stroke: var(--db-yellow);
+      --lightbulb-rays: 1;
+    }
+  }
+}

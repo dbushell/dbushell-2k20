@@ -1,0 +1,127 @@
+.Form {
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: rem(36);
+
+    &:before {
+      display: none;
+    }
+  }
+
+  label {
+    display: block;
+    font-size: var(--step-0);
+    margin-bottom: rem(9);
+  }
+
+  textarea,
+  input[type='text'],
+  input[type='email'] {
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--color-background2);
+    border: rem(2) solid var(--color-quaternary);
+    border-top: 0;
+    border-left: 0;
+    border-radius: rem(5);
+    box-shadow: rem(-1) rem(-1) 0 rem(1) rgbvar(--color-primary, 0.5),
+      rem(2) rem(2) 0 0 rgbvar(--db-black, 0.1);
+    color: var(--color-foreground);
+    display: block;
+    font-size: var(--step-s);
+    font-family: 'Raleway', sans-serif;
+    max-width: rem(300);
+    outline: none;
+    padding: rem(9);
+    transition: color 200ms, border-color 200ms;
+    width: 100%;
+
+    &:focus {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  textarea {
+    max-width: none;
+  }
+
+  input[type='checkbox'] {
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    & + span {
+      cursor: pointer;
+      padding-left: rem(36);
+      position: relative;
+
+      &:after,
+      &:before {
+        background: var(--color-background2);
+        border: rem(2) solid var(--color-quaternary);
+        border-top: 0;
+        border-left: 0;
+        border-radius: rem(5);
+        box-shadow: rem(-1) rem(-1) 0 rem(1) rgbvar(--color-primary, 0.5),
+          rem(2) rem(2) 0 0 rgbvar(--db-black, 0.1);
+        content: '';
+        cursor: pointer;
+        display: block;
+        height: rem(20);
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(20);
+      }
+
+      &:after {
+        background: var(--check) center center no-repeat;
+        background-size: 60% auto;
+        box-shadow: none;
+        opacity: 0;
+        transition: opacity 100ms;
+      }
+    }
+
+    &:checked + span {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.Privacy {
+  align-items: center;
+  display: flex;
+
+  svg {
+    fill: currentColor;
+    margin-right: rem(9);
+  }
+}
+
+.Noscript {
+  form[action*='/contact/'] {
+    display: none;
+  }
+}
+
+// .Loading {
+//   height: rem(30);
+//   opacity: 0;
+//   pointer-events: none;
+//   user-select: none;
+//   width: rem(30);
+// }

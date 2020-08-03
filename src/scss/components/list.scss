@@ -1,0 +1,176 @@
+.List,
+.Prose ul:not([class]),
+.Prose ol:not([class]) {
+  margin: rem(36) 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  li {
+    font-size: var(--step-0);
+    margin-bottom: rem(9);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    font-weight: 500;
+  }
+}
+
+// .Star,
+// .List li,
+// .Prose ul:not([class*='List']) li {
+//   position: relative;
+
+//   &:before {
+//     content: '•';
+//     color: transparent;
+//     background-image: var(--star);
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-size: rem(16) auto;
+//     margin-left: rem(-36);
+//     position: absolute;
+//     width: rem(36);
+//   }
+// }
+
+.List--ordered,
+.Prose ol:not([class]) {
+  counter-reset: ol-counter;
+  list-style: none outside;
+
+  & > li {
+    &:before {
+      background: none;
+      content: counter(ol-counter) '.';
+      counter-increment: ol-counter;
+      color: var(--color-secondary);
+      display: inline-block;
+      font-family: 'Fira Code', monospace;
+      font-weight: 500;
+      font-size: var(--step-s);
+      margin: 0 0 0 rem(-36);
+      padding-right: calc(1ch / 2);
+      text-align: right;
+      width: rem(36);
+    }
+
+    &:nth-child(1n + 10):before {
+      font-size: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: rem(959)) {
+  .List--ordered,
+  .Prose ol:not([class]) {
+    &:before {
+      font-size: 70%;
+      margin-left: rem(-27);
+      width: rem(27);
+    }
+  }
+}
+
+.List--small {
+  li {
+    font-size: var(--step-s);
+  }
+}
+
+.List--folio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: rem(18);
+  grid-row-gap: rem(18);
+  margin: rem(45) 0;
+  max-width: rem(320 + 320 + 18);
+
+  li {
+    background: transparent !important;
+    margin: 0;
+    max-width: max-content;
+
+    &:before {
+      display: none;
+    }
+
+    &:nth-child(odd) img {
+      transform: scale(0.9) rotateY(-15deg) rotateX(2deg);
+    }
+    &:nth-child(even) img {
+      transform: scale(0.9) rotateY(15deg) rotateX(2deg);
+    }
+  }
+
+  a {
+    display: block;
+    perspective: 500px;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      img {
+        transform: translateZ(0);
+      }
+    }
+  }
+
+  img {
+    backface-visibility: hidden;
+    background-color: rgbvar(--db-black, 0.2);
+    border-radius: rem(9);
+    border: rem(2) solid var(--color-background);
+    box-shadow: rem(-4) 0 0 rem(-2) var(--color-secondary),
+      rem(4) rem(4) 0 0 rgbvar(--db-black, 0.2);
+    display: block;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+    transition: transform 300ms;
+  }
+}
+
+.List--columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: rem(36);
+}
+
+@media screen and (min-width: rem(600)) {
+  .List--large {
+    margin: rem(36) 0;
+
+    li {
+      font-size: var(--step-1);
+      margin-bottom: rem(18);
+    }
+  }
+
+  .List--folio {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: none;
+  }
+
+  .List--columns {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .List--folio {
+    grid-row-gap: rem(36);
+  }
+}
+
+@media screen and (max-width: rem(959)) {
+  .List--columns {
+    grid-column-gap: rem(27);
+  }
+}

@@ -1,0 +1,264 @@
+/* PrismJS 1.14.0
+http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+actionscript+ada+apacheconf+apl+applescript+c+arff+asciidoc+asm6502+aspnet+autohotkey+autoit+bash+basic+batch+bison+brainfuck+bro+cpp+csharp+arduino+coffeescript+clojure+ruby+csp+css-extras+d+dart+diff+django+docker+eiffel+elixir+elm+markup-templating+erlang+fsharp+flow+fortran+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+http+hpkp+hsts+ichigojam+icon+inform7+ini+io+j+java+jolie+json+julia+keyman+kotlin+latex+less+liquid+lisp+livescript+lolcode+lua+makefile+markdown+erb+matlab+mel+mizar+monkey+n4js+nasm+nginx+nim+nix+nsis+objectivec+ocaml+opencl+oz+parigp+parser+pascal+perl+php+php-extras+sql+powershell+processing+prolog+properties+protobuf+pug+puppet+pure+python+q+qore+r+jsx+typescript+renpy+reason+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+plsql+soy+stylus+swift+tcl+textile+twig+tsx+vbnet+velocity+verilog+vhdl+vim+visual-basic+wasm+wiki+xeora+xojo+yaml&plugins=line-numbers+toolbar+show-language */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+/*
+* Dracula Theme for Prism.JS
+*
+* @author Gustavo Costa
+* e-mail: gusbemacbe@gmail.com
+*
+* @contributor Jon Leopard
+* e-mail: jonlprd@gmail.com
+*
+* @license MIT 2016-2018
+*/
+
+// pre::-webkit-scrollbar {
+//   width: 14px;
+// }
+
+// pre::-webkit-scrollbar-track {
+//   background-color: #6272a4;
+//   border-radius: 0px;
+// }
+
+// pre::-webkit-scrollbar-thumb {
+//   background-color: #bd93f9;
+//   border-radius: 0px;
+// }
+
+/*
+pre[class*="language-"] {
+  background: rgba(40, 41, 54, 1) !important;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  height: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: rgba(40, 41, 54, 1);
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: 4px 7px;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+*/
+
+/*
+.limit-300
+{
+  height: 300px !important;
+}
+
+.limit-400
+{
+  height: 400px !important;
+}
+
+.limit-500
+{
+  height: 500px !important;
+}
+
+.limit-600
+{
+  height: 600px !important;
+}
+
+.limit-700
+{
+  height: 700px !important;
+}
+
+.limit-800
+{
+  height: 800px !important;
+}
+*/
+
+.token.comment {
+  color: rgba(98, 114, 164, 1);
+}
+
+.token.prolog {
+  color: rgba(207, 207, 194, 1);
+}
+
+.token.tag {
+  color: rgba(220, 104, 170, 1);
+}
+
+.token.entity {
+  color: rgba(139, 233, 253, 1);
+}
+
+.token.atrule {
+  color: rgba(98, 239, 117, 1);
+}
+
+.token.url {
+  color: rgba(102, 217, 239, 1);
+}
+
+.token.selector {
+  color: rgba(207, 207, 194, 1);
+}
+
+.token.string {
+  color: rgba(241, 250, 140, 1);
+}
+
+.token.property {
+  color: rgba(255, 184, 108, 1);
+}
+
+.token.important {
+  color: rgba(255, 121, 198, 1);
+  font-weight: bold;
+}
+
+.token.punctuation {
+  color: rgba(248, 248, 242, 1);
+}
+
+.token.number {
+  color: rgba(189, 147, 249, 1);
+}
+
+.token.function {
+  color: rgba(80, 250, 123, 1);
+}
+
+.token.class-name {
+  color: rgba(255, 184, 108, 1);
+}
+
+.token.keyword {
+  color: rgba(255, 121, 198, 1);
+}
+
+.token.boolean {
+  color: rgba(255, 184, 108, 1);
+}
+
+.token.operator {
+  color: rgba(139, 233, 253, 1);
+}
+
+.token.char {
+  color: rgba(255, 135, 157, 1);
+}
+
+.token.regex {
+  color: rgba(80, 250, 123, 1);
+}
+
+.token.variable {
+  color: rgba(80, 250, 123, 1);
+}
+
+.token.constant {
+  color: rgba(255, 184, 108, 1);
+}
+
+.token.symbol {
+  color: rgba(255, 184, 108, 1);
+}
+
+.token.builtin {
+  color: rgba(255, 121, 198, 1);
+}
+
+.token.attr-value {
+  color: #7ec699;
+}
+
+.token.deleted {
+  color: #e2777a;
+}
+
+.token.namespace {
+  color: #e2777a;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token {
+  color: #ff79c6;
+}
+
+.language-cpp .token.string {
+  color: #8be9fd;
+}
+
+.language-c .token.string {
+  color: #8be9fd;
+}
+
+.language-css .token.selector {
+  color: rgba(80, 250, 123, 1);
+}
+
+.language-css .token.property {
+  color: rgba(255, 184, 108, 1);
+}
+
+.language-java span.token.class-name {
+  color: #8be9fd;
+}
+
+.language-java .token.class-name {
+  color: #8be9fd;
+}
+
+.language-markup .token.attr-value {
+  color: rgba(102, 217, 239, 1);
+}
+
+.language-markup .token.tag {
+  color: rgba(80, 250, 123, 1);
+}
+
+.language-objectivec .token.property {
+  color: #66d9ef;
+}
+
+.language-objectivec .token.string {
+  color: #50fa7b;
+}
+
+.language-php .token.boolean {
+  color: #8be9fd;
+}
+
+.language-php .token.function {
+  color: #ff79c6;
+}
+
+.language-php .token.keyword {
+  color: #66d9ef;
+}
+
+.language-ruby .token.symbol {
+  color: #8be9fd;
+}
+
+.language-ruby .token.class-name {
+  color: #cfcfc2;
+}

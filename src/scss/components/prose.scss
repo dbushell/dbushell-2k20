@@ -1,0 +1,20 @@
+.Prose {
+  margin: 0 0 rem(36) 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & > iframe {
+    display: block;
+    margin: rem(36) 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

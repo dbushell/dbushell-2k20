@@ -1,0 +1,13 @@
+.Wrapper {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--wrapper-margin), auto)
+    minmax(var(--wrapper-min), var(--wrapper-max))
+    minmax(var(--wrapper-margin), auto);
+
+  & > * {
+    grid-column: 2 / 3;
+    min-width: 0;
+    max-width: 100%;
+  }
+}

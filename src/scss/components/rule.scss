@@ -1,0 +1,13 @@
+.Rule,
+.Prose > hr {
+  background: rgbvar(--color-quaternary, 1);
+  border: none;
+  height: rem(1);
+  margin: 0;
+  outline: none;
+  width: 100%;
+}
+
+.Prose > hr {
+  margin: rem(36) 0;
+}

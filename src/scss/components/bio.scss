@@ -1,0 +1,38 @@
+.Bio {
+  align-items: flex-start;
+  display: flex;
+  margin: 0 0 rem(18) 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.Bio__aside {
+  flex: 0 0 rem(80);
+  order: 2;
+}
+
+.Bio__main {
+  flex: 1 1 auto;
+  margin-right: rem(18);
+}
+
+.Bio__image {
+  border: rem(2) solid var(--color-secondary);
+  border-radius: 100%;
+  height: rem(80);
+  width: rem(80);
+}
+
+@supports (shape-outside: circle(50%)) {
+  .Bio {
+    display: block;
+  }
+
+  .Bio__aside {
+    float: right;
+    shape-outside: circle(50%);
+    margin: 0 0 rem(9) rem(9);
+  }
+}

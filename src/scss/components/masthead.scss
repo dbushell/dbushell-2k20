@@ -1,0 +1,36 @@
+.Masthead {
+  position: relative;
+
+  .Logo {
+    position: absolute;
+    top: 21%;
+    right: calc(17% + 0.5 * var(--wrapper-margin));
+    width: 75%;
+  }
+
+  .Sign {
+    position: absolute;
+    top: 5%;
+    right: calc(0.5 * var(--wrapper-margin));
+    width: 30%;
+  }
+}
+
+.Masthead__circle {
+  padding-bottom: 50%;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    background: var(--masthead-primary);
+    border-radius: 100%;
+    content: '';
+    display: block;
+    height: 140%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-67%) rotateZ(-8deg);
+    width: 110%;
+  }
+}

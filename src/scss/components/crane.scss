@@ -1,0 +1,40 @@
+.Crane {
+  align-items: center;
+  display: grid;
+  grid-gap: rem(18);
+  grid-template-columns: 100%;
+  margin-bottom: rem(36);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  img {
+    filter: saturate(0.7) brightness(1.3) hue-rotate(-10deg);
+    margin: 0;
+    max-width: 50%;
+    transform: translateX(-5%) scaleX(-1);
+
+    .Darkmode & {
+      filter: contrast(1.5) saturate(0.7) brightness(1.3) hue-rotate(40deg);
+      mix-blend-mode: multiply;
+    }
+  }
+}
+
+@media screen and (min-width: rem(400)) {
+  .Crane {
+    grid-template-columns: minmax(auto, 50%) auto;
+
+    img {
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: rem(600)) {
+  .Crane {
+    grid-gap: rem(36);
+  }
+}

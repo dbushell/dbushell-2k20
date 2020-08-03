@@ -1,0 +1,15 @@
+/*
+!.github
+!.gitignore
+!package.json
+!README.md
+!src
+!webpack.config.js
+!netlify.toml
+!public
+public/*
+!public/assets
+!public/manifest.webmanifest
+!public/sitemap.xml
+!public/rss.xml
+!public/robots.txt
