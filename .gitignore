@@ -1,7 +1,7 @@
 /*
 .netlify
 !.lfsconfig
-!.github
+!.gitattributes
 !.gitignore
 !package.json
 !README.md
