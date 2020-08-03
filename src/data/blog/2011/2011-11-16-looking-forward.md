@@ -9,7 +9,7 @@ title: Looking Forward
 Watch this [TEDxSantaCruz talk by **Roger McNamee**](http://www.youtube.com/watch?v=aR6jLD1USW0&feature=player_embedded) published in July. He made five very compelling hypothesis around the future of the internet and the web.
 
 
-<p class="b-post__image"><span class="b-fitvid" style="padding-top:56.25%"><iframe src="http://www.youtube.com/embed/aR6jLD1USW0" frameborder="0"></iframe></span></p>
+<p class="b-post__image"><span class="b-fitvid" style="padding-top:56.25%"><iframe src="https://www.youtube.com/embed/aR6jLD1USW0" frameborder="0"></iframe></span></p>
 
 
 💤 _Please ignore the irony of the above video if it happens to embed with Flash! YouTube promises HTML5 video in the future through the wonders of this iframe..._
