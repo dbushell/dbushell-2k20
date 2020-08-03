@@ -12,6 +12,7 @@
 !public
 public/*
 !public/assets
+!public/images
 !public/manifest.webmanifest
 !public/sitemap.xml
 !public/rss.xml
