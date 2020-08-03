@@ -8,6 +8,6 @@ title: Designing Obama
 
 Look what arrived today:
 
-![Designing Obama - The Book - featured on Design Heroes](http://designheroes.co.uk/file/dhp-2667.jpg)
+![Designing Obama - The Book - featured on Design Heroes](/images/blog/2010/dhp-2667.jpg)
 
 [Click here to see and read more!](http://designheroes.co.uk/link/designing-obama-the-book)

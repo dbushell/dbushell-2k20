@@ -4,6 +4,7 @@
 !package.json
 !README.md
 !src
+!README.md
 !webpack.config.js
 !netlify.toml
 !public

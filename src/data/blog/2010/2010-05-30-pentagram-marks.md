@@ -10,7 +10,7 @@ I just so happened to feature the book [Pentagram Marks on Design Heroes](http:/
 
 ### My review of Pentagram Marks *
 
-![Pentagram Marks](http://designheroes.co.uk/file/dhp-2614.jpg)
+![Pentagram Marks](/images/blog/2010/dhp-2614.jpg)
 
 **Pentagram Marks** arrived in the post this week!
 
