@@ -58,18 +58,6 @@
   --db-black: rgb(var(--db-black-rgb));
 }
 
-:root {
-  --wrapper-margin: #{rem(27)};
-  --wrapper-max: calc(#{rem(1920)} - var(--wrapper-margin) * 2);
-  --wrapper-min: calc(#{rem(320)} - var(--wrapper-margin) * 2);
-}
-
-@media screen and (min-width: rem(600)) {
-  :root {
-    --wrapper-margin: 5vw;
-  }
-}
-
 *,
 *:after,
 *:before {
@@ -212,7 +200,7 @@ h6 {
   font-size: var(--step-1);
   font-weight: 600;
   line-height: 1.5;
-  margin: rem(36) 0 rem(18) 0;
+  margin: rem(27) 0 rem(18) 0;
   position: relative;
 
   &:first-child {
@@ -227,12 +215,16 @@ h6 {
 h1 {
   font-size: var(--step-5);
   line-height: 1.25;
-  margin-bottom: rem(36);
+  margin: rem(18) 0;
 }
 
 @media screen and (min-width: rem(600)) {
   h1 {
-    margin-bottom: rem(45);
+    margin: rem(36) 0;
+  }
+
+  h2, h3 {
+    margin-top: rem(36);
   }
 }
 

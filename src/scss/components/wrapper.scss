@@ -11,3 +11,21 @@
     max-width: 100%;
   }
 }
+
+:root {
+  --wrapper-margin: #{rem(27)};
+  --wrapper-max: calc(#{rem(1920)} - var(--wrapper-margin) * 2);
+  --wrapper-min: calc(#{rem(320)} - var(--wrapper-margin) * 2);
+}
+
+@media screen and (min-width: rem(400)) {
+  :root {
+    --wrapper-margin: 7vw;
+  }
+}
+
+@media screen and (min-width: rem(768)) {
+  :root {
+    --wrapper-margin: 5vw;
+  }
+}

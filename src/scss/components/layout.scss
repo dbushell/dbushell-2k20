@@ -3,17 +3,17 @@
   margin: 0 auto;
 
   .Masthead {
-    width: percentage(1 / 1.333);
+    width: 100%;
     margin: 0 calc(-0.5 * var(--wrapper-margin)) rem(18) auto;
   }
+}
 
-  .Main {
-    max-width: rem(720);
- }
-
- .Featured {
-    max-width: rem(720);
- }
+@media screen and (min-width: rem(400)) {
+  .Layout {
+    .Masthead {
+      width: percentage(1 / 1.25);
+    }
+  }
 }
 
 @media screen and (min-width: rem(600)) {
@@ -24,7 +24,7 @@
   }
 }
 
-@media screen and (min-width: rem(960)) {
+@media screen and (min-width: rem(768)) {
   .Layout {
     align-items: start;
     display: grid;

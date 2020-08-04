@@ -1,16 +1,16 @@
 ---
 date: 2020-08-05 10:00:00+00:00
-slug: a-new-dbushell-com
-title: 'I’ve Only Gone and Redesigned my Website Again'
+slug: i-have-only-gone-and-redesigned-my-website-again
+title: 'I’ve Only Gone and Redesigned my Website, Again'
 description: 'The one where I redesign my website for the tenth time.'
 ---
 This is the tenth iteration of my website in about as many years. It's hard to keep track. I have the old versions on ice somewhere (and a project in mind).
 
-[My last major redesign](/2016/02/29/a-bit-of-a-new-look/) back in 2016 – that seems so long ago! – was quite the rebrand. Overall I'm happy with the job I did. It added much more life to my old monochromatic style. Maybe I over did it? Either way, I've grown a little tired of it and felt motivated to give the site a fresh coat of paint.
+[My last redesign](/2016/02/29/a-bit-of-a-new-look/) back in 2016 – that seems so long ago! – was a fairly large rebrand. Overall I'm happy with the job I did. It added much needed vitality to my old monochromatic style. Maybe I over did it? Either way, I've grown a little tired of it and felt motivated to give the site a fresh coat of paint.
 
 My primary goals for this design were to:
 
-* Find a new haromony between my past designs over the years
+* Find a new haromony between all my past designs
 * Keep the colourful brand but return to a more minimal style
 * Lose the framed layout and allow whitespace to flow
 * **Do it all in four days**
@@ -33,7 +33,7 @@ A secondary goal of this project was to rewrite my CSS from scratch. I threw awa
 
 I used the [Utopia calculator](https://utopia.fyi/) by **James Gilyead** & **Trys Mudford** as the foundation for my typographic scaling. I was playing around with something similar, though much more basic, for my [MuteSwan project](https://muteswan.app/). Utopia is cleverer that anything I could code.
 
-I'm still using React for server-side rendering. I've disabled the [front-end hydration](/2018/05/21/pwa-progressive-web-apps/) of the entire page for now. That set up did allow pages to load via smaller JSON requests but the service worker didn't cached the "true" page HTML. Because the site wasn't a SPA — "single page app" – a refresh of those URLs hit a cold cache. Anyway, I could fix this but suffice it to say I'm avoiding any technical debt for now.
+I'm still using React for server-side rendering. I've disabled the [front-end hydration](/2018/05/21/pwa-progressive-web-apps/) of the entire page for now. That configuration did allow pages to load via smaller JSON requests but the service worker didn't cached the "true" page HTML. Because the site wasn't a SPA — "single page app" – a refresh of those URLs hit a cold cache. Anyway, I could fix this but suffice it to say I'm avoiding any technical debt for now.
 
 ### Dark Mode
 

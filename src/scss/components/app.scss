@@ -1,3 +1,6 @@
 .App {
+  margin: 0 auto;
+  max-width: calc((var(--fluid-max-width) / 16) * 1rem);
   overflow: hidden;
+  position: relative;
 }

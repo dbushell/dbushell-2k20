@@ -4,7 +4,6 @@ import Logo from './logo';
 const Masthead = () => {
   return (
     <div className='Masthead'>
-      <div className='Masthead__circle'></div>
       <div id='logo'>
         <Logo />
       </div>

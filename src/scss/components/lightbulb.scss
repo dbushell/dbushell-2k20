@@ -1,31 +1,35 @@
 .Lightbulb {
-  --lightbulb-stroke: var(--db-pink);
+  --lightbulb-stroke: var(--db-blue);
   --lightbulb-fill: var(--db-yellow);
   --lightbulb-rays: 1;
   height: auto;
-  position: absolute;
   left: var(--wrapper-margin);
-  transform: translateY(rem(10));
+  padding: rem(9);
+  padding-top: rem(18);
+  position: absolute;
+  top: 0;
+  transform: translateY(rem(-9));
   transition: transform 100ms;
   width: rem(45);
+  z-index: 10;
 
   &:before {
     background: var(--lightbulb-stroke);
-    bottom: calc(100% - 1px);
+    bottom: calc(100% - #{rem(19)});
     content: '';
     display: block;
-    height: rem(30);
+    height: rem(36);
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
-    width: rem(2);
+    width: rem(1);
   }
 
   &:focus,
   &:hover {
-    transform: translateY(rem(20));
+    transform: translateY(0);
     --lightbulb-stroke: var(--db-blue);
-    --lightbulb-fill: transparent;
+    --lightbulb-fill: #{rgbvar(--db-blue, 0.5)};
     --lightbulb-rays: 0;
   }
 
@@ -45,6 +49,7 @@
     &:focus,
     &:hover {
       --lightbulb-stroke: var(--db-yellow);
+      --lightbulb-fill: #{rgbvar(--db-yellow, 0.5)};
       --lightbulb-rays: 1;
     }
   }

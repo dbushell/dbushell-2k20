@@ -11,9 +11,9 @@
 
   img {
     filter: saturate(0.7) brightness(1.3) hue-rotate(-10deg);
-    margin: 0;
-    max-width: 50%;
+    margin: auto;
     transform: translateX(-5%) scaleX(-1);
+    width: auto;
 
     .Darkmode & {
       filter: contrast(1.5) saturate(0.7) brightness(1.3) hue-rotate(40deg);
@@ -22,14 +22,25 @@
   }
 }
 
+@media screen and (max-width: rem(399)) {
+  .Crane {
+    img {
+      max-width: 50%;
+    }
+
+    .List,
+    .Button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: max-content;
+    }
+  }
+}
+
 @media screen and (min-width: rem(400)) {
   .Crane {
     grid-template-columns: minmax(auto, 50%) auto;
-
-    img {
-      margin: auto;
-      max-width: 100%;
-    }
   }
 }
 

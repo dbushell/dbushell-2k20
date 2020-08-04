@@ -2,7 +2,7 @@
   --step-s: #{rem(14)};
 }
 
-@media screen and (min-width: rem(960)) {
+@media screen and (min-width: rem(768)) {
   :root {
     --step-s: #{rem(15)};
   }
