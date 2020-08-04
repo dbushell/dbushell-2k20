@@ -10,7 +10,7 @@ This is the tenth iteration of my website in about as many years. It's hard to k
 
 My primary goals for this design were to:
 
-* Find a new haromony between all my past designs
+* Find a new harmony between my past designs
 * Keep the colourful brand but return to a more minimal style
 * Lose the framed layout and allow whitespace to flow
 * **Do it all in four days**
@@ -21,19 +21,31 @@ It's not "finished" but there is enough to launch and build upon.
 
 My old homepage was probably a little over-designed in retrospect. Especially with the animations. Sub-pages were a bit boring. I never got around to actually designing them. This time I've started with a single template that feels more balanced across all pages.
 
-The one area I'm still not happy with is [my portfolio](/showcase/). Most of my client work over the past few years can't really be shown off in this format. For the now I'll leave it up as an historic archive until I decide what to do.
+## Design Process
+
+For weeks I'd been mulling over design ideas and sketching them in a barely comprehensible fashion. I wasn't planning any content changes so sketches didn't quite visualise all I had in mind. On a client-free day inspiration struck and I moved into Adobe XD to experiment with the colour palette and typography.
+
+<p class="Image">
+  <img loading="lazy" srcset="
+    /images/blog/2020/dbushell-2k20-adobe-xd@1x.png,
+    /images/blog/2020/dbushell-2k20-adobe-xd@2x.png 2x"
+    src="/images/blog/2020/dbushell-2k20-adobe-xd@1x.png"
+    alt="dbushell.com prototype designs in Adobe XD"
+    width="666"
+    height="802">
+</p>
+
+By my fourth coffee I was pretty chuffed with where the design was heading. I hadn't nailed it but I was on the right track. By the afternoon I'd fallen into a slump and was just pushing pixels. This was my cue to move into code. I opened up CodePen and found my groove again. The following morning I'd basically designed and built the base template. It was fairly late in the day when I decided to flip the layout. From that moment everything fell into place and I started focusing on the finer details.
 
 ## Front-end Features
 
 A secondary goal of this project was to rewrite my CSS from scratch. I threw away all the legacy code. Some of it was IE6 years old. This gave me an opportunity to:
 
-* Use Modern CSS grid layout
+* Use modern CSS grid layout
 * Use CSS custom properties
 * Set up an improved static build workflow
 
 I used the [Utopia calculator](https://utopia.fyi/) by **James Gilyead** & **Trys Mudford** as the foundation for my typographic scaling. I was playing around with something similar, though much more basic, for my [MuteSwan project](https://muteswan.app/). Utopia is cleverer that anything I could code.
-
-I'm still using React for server-side rendering. I've disabled the [front-end hydration](/2018/05/21/pwa-progressive-web-apps/) of the entire page for now. That configuration did allow pages to load via smaller JSON requests but the service worker didn't cached the "true" page HTML. Because the site wasn't a SPA — "single page app" – a refresh of those URLs hit a cold cache. Anyway, I could fix this but suffice it to say I'm avoiding any technical debt for now.
 
 ### Dark Mode
 
@@ -43,13 +55,35 @@ My new design comes with a dark mode theme!
   <img loading="lazy" srcset="
     /images/blog/2020/dbushell-2k20-darkmode@1x.png,
     /images/blog/2020/dbushell-2k20-darkmode@2x.png 2x"
-    src="/images/blog/2020/dbushell-2k20-darkmode@1x.png.png"
+    src="/images/blog/2020/dbushell-2k20-darkmode@1x.png"
     alt="dbushell.com dark mode design"
     width="1024"
     height="384">
 </p>
 
-This is possible through the power of CSS custom properties. Click the lightbulb in the top-left. It will soon be activated automatically via media queries once I've perfected it. Check back very soon for a blog post discussing this feature.
+This is possible by the power of [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). Click the lightbulb in the top-left corner. It will soon be activated automatically via media queries once I've perfected it. Check back very soon for a blog post discussing this feature.
+
+### SVG Favicon
+
+I bookmarked **Antoine Boulanger's** article ["Are you using SVG favicons yet?"](https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df) a while ago and have been delivering SVG icons for clients ever since. Prior to that I'd just assumed `favicon.ico` was a relic never to change. Thanks Antoine!
+
+My own favicon was based on a raster image of my origami crane mascot. I launched Adobe Illustrator and whipped up a quick vector version.
+
+<p class="Image">
+  <img loading="lazy" srcset="
+    /images/blog/2020/dbushell-2k20-favicon@1x.png,
+    /images/blog/2020/dbushell-2k20-favicon@2x.png 2x"
+    src="/images/blog/2020/dbushell-2k20-favicon@1x.png"
+    alt="dbushell.com SVG favicon"
+    width="512"
+    height="256">
+</p>
+
+Kinda rough but at 16×16 it works far better than I was expecting. One day I'll vectorize it in more detail as I'd like to experiment with it on my homepage too.
+
+### React
+
+I'm still using React to server-side render static page. I've disabled the [front-end hydration](/2018/05/21/pwa-progressive-web-apps/) of the entire page for now. That configuration did allow pages to load via smaller JSON requests but the service worker didn't cached the canonical HTML page. Because the site wasn't a SPA — "single page app" – a refresh of those URLs hit a cold cache. Anyway, I could have fix that but suffice it to say I'm avoiding any technical debt for now.
 
 ### Netlify Hosted
 
@@ -59,8 +93,10 @@ My old hosting solution was GitHub Pages fronted by Cloudflare. My [contact form
 
 ## Archival Project
 
-As I alluded to in the opening paragraph I've kept all the old versions of my website in one form or another. I'd like to stick the various homepages up on sub-domains for a nostalgic trip through time.
+As I alluded to in the opening paragraph I've kept all the old versions of my website in one form or another. I'd like to stick the homepages up on sub-domains for a nostalgia trip. That may be my next side project.
 
-That project and more tweaks to the new design are in the pipeline. I'll be blogging in more detail on certain aspects. To stay up to date [follow me on Twitter](https://twitter.com/dbushell) or [subscribe to my RSS feed](https://dbushell.com/rss.xml) – yep, that still exists!
+The one area of my site I'm still not happy with is [my portfolio](/showcase/). Most of my client work in recent years can't really be shown off in this format. For now I'll leave it up as-is until I decide what to do. That and more tweaks to the new design are in the pipeline. I'll be blogging in more detail on certain aspects.
+
+To stay up to date [follow me on Twitter](https://twitter.com/dbushell) or [subscribe to my RSS feed](https://dbushell.com/rss.xml) – yep, that still exists!
 
 Source code is on [GitHub](https://github.com/dbushell/dbushell-2k20) as always if you're interested in the custom build process.
