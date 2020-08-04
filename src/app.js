@@ -33,9 +33,10 @@ document.head.appendChild($prism);
 
 const $fira = document.createElement('link');
 $fira.rel = 'stylesheet';
-$fira.href = 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap';
+$fira.href =
+  'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap';
 document.head.appendChild($fira);
 
-// if ('serviceWorker' in window.navigator) {
-//   window.navigator.serviceWorker.register('/sw.js');
-// }
+if ('serviceWorker' in window.navigator) {
+  window.navigator.serviceWorker.register('/sw.js');
+}
