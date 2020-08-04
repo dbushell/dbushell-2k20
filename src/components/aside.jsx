@@ -21,8 +21,8 @@ const AgencyCard = () => {
       href='/working-with-agencies/'
     >
       <p>
-        I’m reliable and flexible, priding myself in communication and
-        initiative to ensure smooth delivery.
+        I’m reliable, flexible, and pride myself in communication and initiative
+        to ensure smooth delivery on time and within budget.
       </p>
     </Card>
   );

@@ -5,11 +5,20 @@
     <description><![CDATA[David Bushell’s Web Design & Front-end Development Blog]]></description>
     <link>https://dbushell.com</link>
     <generator>dbushell.com</generator>
-    <lastBuildDate>Mon, 03 Aug 2020 14:10:50 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2020 08:37:12 +0100</lastBuildDate>
     <atom:link href="https://dbushell.com/rss.xml" rel="self" type="application/rss+xml"/>
     <author><![CDATA[David Bushell]]></author>
     <language><![CDATA[en]]></language>
     <webMaster><![CDATA[hi@dbushell.com (David Bushell)]]></webMaster>
+<item>
+<title><![CDATA[I’ve Only Gone and Redesigned my Website Again]]></title>
+<description><![CDATA[<p>This is the tenth iteration of my website in about as many years. It’s hard to keep track. I have the old versions on ice somewhere (and a project in mind).
+My last major redesign back in 2016 – that seems so long ago! – was quite the rebrand. Overall I’m happy with the job I […]</p>]]></description>
+<link>https://dbushell.com/2020/08/05/a-new-dbushell-com/</link>
+<guid isPermaLink="true">https://dbushell.com/2020/08/05/a-new-dbushell-com/</guid>
+<dc:creator><![CDATA[David Bushell]]></dc:creator>
+<pubDate>Wed, 05 Aug 2020 11:00:00 +0100</pubDate>
+</item>
 <item>
 <title><![CDATA[Turn the Pi-hole Admin Dashboard into a Progressive Web App]]></title>
 <description><![CDATA[<p>Pi-hole describes itself as “A black hole for Internet advertisements”. I think the GitHub description is more apt:
@@ -213,14 +222,5 @@ I graduated in 2008. I hopped on a train to London and spent five years with two
 <guid isPermaLink="true">https://dbushell.com/2018/01/11/hello-2018/</guid>
 <dc:creator><![CDATA[David Bushell]]></dc:creator>
 <pubDate>Thu, 11 Jan 2018 10:00:00 +0000</pubDate>
-</item>
-<item>
-<title><![CDATA[Raspberry Pi + e-Paper module + Node.js]]></title>
-<description><![CDATA[<p>A few weeks ago I was digging through storage and I found an original Raspberry Pi. When I’d bought it years ago interest was lost rather quickly. I wasn’t as comfortable with a Unix command line as I am today.
-The Raspberry Pi / Arduino / single-board computer ecosystem has exploded since then. Maybe I can […]</p>]]></description>
-<link>https://dbushell.com/2017/09/20/raspberry-pi-epaper/</link>
-<guid isPermaLink="true">https://dbushell.com/2017/09/20/raspberry-pi-epaper/</guid>
-<dc:creator><![CDATA[David Bushell]]></dc:creator>
-<pubDate>Wed, 20 Sep 2017 11:00:00 +0100</pubDate>
 </item></channel>
 </rss>

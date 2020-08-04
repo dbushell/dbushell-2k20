@@ -1,4 +1,6 @@
 .Image {
+  max-width: none;
+
   img {
     display: block;
     background-color: rgbvar(--db-black, 0.2);

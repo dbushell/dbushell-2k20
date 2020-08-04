@@ -7,14 +7,6 @@
 }
 
 @font-face {
-  font-family: 'Satisfy';
-  src: url('/assets/fonts/satisfy-regular.woff2') format('woff2');
-  font-display: block;
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
   font-family: 'Komika';
   src: url('/assets/fonts/komika-title.woff2') format('woff2');
   font-display: swap;
@@ -22,64 +14,40 @@
   font-style: normal;
 }
 
-@import "src/scss/includes/utopia.scss";
+@import 'src/scss/includes/utopia.scss';
 
 :root {
   // Light
-  --db-light-r: 255;
-  --db-light-g: 250;
-  --db-light-b: 240;
-  --db-light-rgb: var(--db-light-r), var(--db-light-g), var(--db-light-b);
-  --db-light: rgb(var(--db-light-r), var(--db-light-g), var(--db-light-b));
+  --db-light-rgb: 255, 250, 240;
+  --db-light: rgb(var(--db-light-rgb));
 
   // Dark
-  --db-dark-r: 80;
-  --db-dark-g: 70;
-  --db-dark-b: 70;
-  --db-dark-rgb: var(--db-dark-r), var(--db-dark-g), var(--db-dark-b);
-  --db-dark: rgb(var(--db-dark-r), var(--db-dark-g), var(--db-dark-b));
+  --db-dark-rgb: 80, 70, 70;
+  --db-dark: rgb(var(--db-dark-rgb));
 
   // Pink
-  --db-pink-r: 255;
-  --db-pink-g: 100;
-  --db-pink-b: 125;
-  --db-pink-rgb: var(--db-pink-r), var(--db-pink-g), var(--db-pink-b);
-  --db-pink: rgb(var(--db-pink-r), var(--db-pink-g), var(--db-pink-b));
+  --db-pink-rgb: 255, 100, 125;
+  --db-pink: rgb(var(--db-pink-rgb));
 
   // Red
-  --db-red-r: 210;
-  --db-red-g: 55;
-  --db-red-b: 80;
-  --db-red-rgb: var(--db-red-r), var(--db-red-g), var(--db-red-b);
-  --db-red: rgb(var(--db-red-r), var(--db-red-g), var(--db-red-b));
+  --db-red-rgb: 210, 55, 80;
+  --db-red: rgb(var(--db-red-rgb));
 
   // Green
-  --db-green-r: 150;
-  --db-green-g: 230;
-  --db-green-b: 200;
-  --db-green-rgb: var(--db-green-r), var(--db-green-g), var(--db-green-b);
-  --db-green: rgb(var(--db-green-r), var(--db-green-g), var(--db-green-b));
+  --db-green-rgb: 150, 230, 200;
+  --db-green: rgb(var(--db-green-rgb));
 
   // Blue
-  --db-blue-r: 20;
-  --db-blue-g: 150;
-  --db-blue-b: 190;
-  --db-blue-rgb: var(--db-blue-r), var(--db-blue-g), var(--db-blue-b);
-  --db-blue: rgb(var(--db-blue-r), var(--db-blue-g), var(--db-blue-b));
+  --db-blue-rgb: 20, 150, 190;
+  --db-blue: rgb(var(--db-blue-rgb));
 
   // Blue (darker)
-  --db-blue2-r: 15;
-  --db-blue2-g: 110;
-  --db-blue2-b: 155;
-  --db-blue2-rgb: var(--db-blue2-r), var(--db-blue2-g), var(--db-blue2-b);
-  --db-blue2: rgb(var(--db-blue2-r), var(--db-blue2-g), var(--db-blue2-b));
+  --db-blue2-rgb: 15, 110, 155;
+  --db-blue2: rgb(var(--db-blue2-rgb));
 
   // Yellow
-  --db-yellow-r: 255;
-  --db-yellow-g: 250;
-  --db-yellow-b: 190;
-  --db-yellow-rgb: var(--db-yellow-r), var(--db-yellow-g), var(--db-yellow-b);
-  --db-yellow: rgb(var(--db-yellow-r), var(--db-yellow-g), var(--db-yellow-b));
+  --db-yellow-rgb: 255, 250, 190;
+  --db-yellow: rgb(var(--db-yellow-rgb));
 
   // White
   --db-white-rgb: 255, 255, 255;
@@ -92,9 +60,7 @@
 
 :root {
   --wrapper-margin: #{rem(27)};
-  --wrapper-max: calc(
-    #{rem(1920)} - var(--wrapper-margin) * 2
-  ); // #{rem(1440)};
+  --wrapper-max: calc(#{rem(1920)} - var(--wrapper-margin) * 2);
   --wrapper-min: calc(#{rem(320)} - var(--wrapper-margin) * 2);
 }
 
@@ -162,9 +128,9 @@ a {
     text-decoration-skip-ink: none;
   }
 
-  p:not([class]) > &,
   cite > &,
-  small > & {
+  small > &,
+  p:not([class]) > & {
     &:not(:focus):not(:hover) {
       color: var(--color-primary2, var(--color-primary));
     }
@@ -202,6 +168,7 @@ li {
 p {
   font-size: var(--step-0);
   margin: 0 0 rem(18) 0;
+  max-width: 70ch;
 
   &:last-child {
     margin-bottom: 0;
@@ -297,11 +264,18 @@ h3 {
   }
 }
 
+.Time,
 .Cursive {
   color: var(--color-secondary2, var(--color-secondary));
-  font-family: 'Satisfy', 'Raleway', sans-serif;
+  font-family: 'Comic Neue', 'Raleway', sans-serif;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 700;
+  letter-spacing: rem(-0.5);
+}
+
+.Time {
+  display: inline-block;
+  font-size: var(--step-0);
 }
 
 .Error {
@@ -311,32 +285,34 @@ h3 {
 pre,
 code {
   font-family: 'Fira Code', monospace;
+  font-size: var(--step-s);
   font-weight: 300;
 }
 
 p > code {
-  // background: white;
   display: inline-block;
-  font-size: var(--step-s);
   padding: 0 rem(5);
 }
 
 pre {
-  background: var(--db-dark); // #282a36;
   color: var(--db-light);
-  font-size: var(--step-s);
-  margin: rem(36) 0 rem(36) rem(-18);
-  padding: rem(18);
-
-  overflow: auto;
+  background: var(--db-dark);
   direction: ltr;
+  height: auto;
+  -webkit-hyphens: none;
+  hyphens: none;
+  line-height: 1.5;
+  margin: rem(36) 0 rem(36) rem(-18);
+  overflow: auto;
+  padding: rem(18);
+  -moz-tab-size: 2;
+  tab-size: 2;
   text-align: left;
+  text-shadow: none;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  tab-size: 2;
-  hyphens: none;
 }
 
 @import 'src/scss/components/**/*.scss';

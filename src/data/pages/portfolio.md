@@ -2,6 +2,8 @@
 slug: showcase
 title: 'Portfolio'
 ---
+This portfolio spans my entire career and formal education. Much of my work in recent years is not as easily displayed in a neat package. [That's why I blog](/blog/) on specific topics. [Get in touch](/contact/) to discuss your web project and I can demonstrate more recent work.
+
 Selected web design and front-end development projects.
 
 <ul class="List List--folio">

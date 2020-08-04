@@ -1,11 +1,10 @@
 {
   "name": "dbushell-2k20",
-  "version": "11.0.6",
+  "version": "11.0.7",
   "private": true,
   "description": "dbushell.com",
   "main": "",
   "scripts": {
-    "serve": "http-server -a dbushell.localhost ./public/",
     "webpack:prod": "NODE_ENV=production npx webpack",
     "webpack:dev": "NODE_ENV=development npx webpack",
     "build:dev": "NODE_ENV=development npx babel-node src/build.js && npm run webpack:dev",

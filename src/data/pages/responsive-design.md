@@ -32,12 +32,10 @@ It's a fluid, adaptive process.
 
 ### Featured case studies
 
-I'm proud of my work and love to share it with permission. Here's a select few projects I've been privileged to work on:
+I'm proud of my work and love to share it with permission. Here's just a couple of projects I've been privileged to work on:
 
 * [Responsive Design for Uwe Wittwer](/2014/05/07/responsive-design-for-uwe-wittwer/)
 * [Responsive Design for Houden](/2015/03/18/responsive-design-for-houden/)
-* [Responsive Design for King's Transfer](/2016/07/14/building-a-wordpress-theme/)
-
 
 [Check out my portfolio](/showcase/) for a showcase of work spanning my entire career.
 

@@ -229,7 +229,7 @@ function propsFromMatter(matter) {
  * Write template to public directory
  */
 function outputFile(file, props) {
-  let title = `David Bushell – Web Design (UK)`;
+  let title = `David Bushell – Freelance Web Design (UK)`;
   let description = title;
   if (props.title) {
     title = `${props.title}  – ${title}`;

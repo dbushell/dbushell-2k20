@@ -1,7 +1,7 @@
 .List,
 .Prose ul:not([class]),
 .Prose ol:not([class]) {
-  margin: rem(36) 0;
+  margin: rem(27) 0;
 
   &:first-child {
     margin-top: 0;
@@ -14,6 +14,7 @@
   li {
     font-size: var(--step-0);
     margin-bottom: rem(9);
+    max-width: 70ch;
 
     &:last-child {
       margin-bottom: 0;
@@ -22,26 +23,12 @@
 
   a {
     font-weight: 500;
+
+    &:not(:focus):not(:hover) {
+      color: var(--color-primary2, var(--color-primary));
+    }
   }
 }
-
-// .Star,
-// .List li,
-// .Prose ul:not([class*='List']) li {
-//   position: relative;
-
-//   &:before {
-//     content: '•';
-//     color: transparent;
-//     background-image: var(--star);
-//     background-position: center center;
-//     background-repeat: no-repeat;
-//     background-size: rem(16) auto;
-//     margin-left: rem(-36);
-//     position: absolute;
-//     width: rem(36);
-//   }
-// }
 
 .List--ordered,
 .Prose ol:not([class]) {
@@ -55,11 +42,12 @@
       counter-increment: ol-counter;
       color: var(--color-secondary);
       display: inline-block;
-      font-family: 'Fira Code', monospace;
-      font-weight: 500;
-      font-size: var(--step-s);
+      font-family: 'Comic Neue', 'Raleway', sans-serif;
+      font-style: italic;
+      font-size: var(--step-0);
+      font-weight: 700;
       margin: 0 0 0 rem(-36);
-      padding-right: calc(1ch / 2);
+      padding-right: rem(9);
       text-align: right;
       width: rem(36);
     }
@@ -73,11 +61,23 @@
 @media screen and (max-width: rem(959)) {
   .List--ordered,
   .Prose ol:not([class]) {
-    &:before {
-      font-size: 70%;
-      margin-left: rem(-27);
-      width: rem(27);
+    & > li {
+      &:before {
+        font-size: var(--step-s);
+        margin-left: rem(-27);
+        padding-right: rem(5);
+        width: rem(27);
+      }
     }
+  }
+}
+
+.List--large {
+  margin: rem(36) 0;
+
+  a {
+    --color-primary2: var(--color-primary);
+    font-weight: 600;
   }
 }
 
@@ -85,6 +85,13 @@
   li {
     font-size: var(--step-s);
   }
+}
+
+.List--columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: rem(36);
+  margin: rem(36) 0;
 }
 
 .List--folio {
@@ -139,25 +146,12 @@
   }
 }
 
-.List--columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: rem(36);
-}
-
 @media screen and (min-width: rem(600)) {
   .List--large {
-    margin: rem(36) 0;
-
     li {
       font-size: var(--step-1);
       margin-bottom: rem(18);
     }
-  }
-
-  .List--folio {
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: none;
   }
 
   .List--columns {
@@ -166,6 +160,8 @@
 
   .List--folio {
     grid-row-gap: rem(36);
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: none;
   }
 }
 

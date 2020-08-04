@@ -11,7 +11,7 @@ import Heading from '../components/heading';
 
 const Container = (props) => {
   const h1 = `<span class='Hidden'>David Bushell</span>
-    <span>Web Design &amp; Development</span>`;
+    <span>Web Design &amp; Front-end Development</span>`;
   return (
     <Wrapper>
       <Masthead />
@@ -21,11 +21,11 @@ const Container = (props) => {
         <h3 className='Cursive'>I make websites</h3>
         <div className='Prose'>
           <p className='Large'>
-            HTML, CSS, &amp; JavaScript. There’s web standards and then there’s
-            browsers, and I know both. I design websites that work across all
-            devices. They’re fluid and adaptive, just like my process. Be it
-            React, PWAs, WordPress, or simply advice, I have a depth of
-            experience to help you.
+            I design and build websites with a focus on standards, performance,
+            and accessibility. With a decade of professional experience —
+            in-house and remote — I've delivered for all types of organisations.
+            Whether it's WordPress, React, or PWAs, I have the know-how to help
+            you.
           </p>
           <div className='Crane'>
             <img
@@ -51,7 +51,7 @@ const Container = (props) => {
               <Button href='/contact/'>Hire Me!</Button>
             </div>
           </div>
-          <h3 className="Cursive">What my clients say</h3>
+          <h3 className='Cursive'>What my clients say</h3>
           <blockquote>
             <p>
               Highly skilled, personable, helpful and dedicated: David exceeded

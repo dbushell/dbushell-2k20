@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://dbushell.com/</loc>
-  <lastmod>2020-08-03T13:10:51.198Z</lastmod>
+  <lastmod>2020-08-04T07:37:13.129Z</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
 </url>
 <url>
   <loc>https://dbushell.com/contact/</loc>
-  <lastmod>2020-08-03T13:10:51.197Z</lastmod>
+  <lastmod>2020-08-04T07:37:13.128Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
@@ -128,7 +128,7 @@
 </url>
 <url>
   <loc>https://dbushell.com/responsive-design/</loc>
-  <lastmod>2020-08-02T11:16:44.961Z</lastmod>
+  <lastmod>2020-08-04T07:01:15.901Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
@@ -146,7 +146,7 @@
 </url>
 <url>
   <loc>https://dbushell.com/showcase/</loc>
-  <lastmod>2020-07-31T12:53:31.896Z</lastmod>
+  <lastmod>2020-08-04T07:11:49.952Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
 </url>
@@ -167,6 +167,12 @@
   <lastmod>2020-08-02T17:09:46.393Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://dbushell.com/2020/08/05/a-new-dbushell-com/</loc>
+  <lastmod>2020-08-04T07:37:09.462Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://dbushell.com/2020/07/03/turn-the-pi-hole-admin-ui-into-a-pwa/</loc>
