@@ -7,11 +7,14 @@ const $doc = document.querySelector('.Document');
 
 const $mode = document.querySelector('.Lightbulb');
 $mode.addEventListener('click', () => {
-  if ($doc.classList.contains('Lightmode')) {
-    $doc.className = $doc.className.replace(/[\w]+mode/, 'Darkmode');
+  const list = $doc.classList;
+  if (list.contains('Lightmode')) {
+    list.remove('Lightmode');
+    list.add('Darkmode');
     localStorage.setItem('darkmode', 'on');
   } else {
-    $doc.className = $doc.className.replace(/[\w]+mode/, 'Lightmode');
+    list.remove('Darkmode');
+    list.add('Lightmode');
     localStorage.setItem('darkmode', 'off');
   }
 });
