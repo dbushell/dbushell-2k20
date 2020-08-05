@@ -10,3 +10,9 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Content-Security-Policy = "frame-ancestors 'none'"
+
+[[redirects]]
+  from = "/demos/*"
+  to = "/?demo=:splat"
+  status = 302
+  force = false
