@@ -16,3 +16,15 @@
   to = "/?demo=:splat"
   status = 302
   force = false
+
+[[redirects]]
+  from = "/Nestable*"
+  to = "http://dbushell.github.io/Nestable/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/Pikaday*"
+  to = "https://pikaday.com/:splat"
+  status = 301
+  force = false
