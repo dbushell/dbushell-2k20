@@ -3,6 +3,7 @@ import React from 'react';
 const Nav = () => {
   return (
     <nav className='Nav'>
+      <h2 className='Hidden'>Menu</h2>
       <ul>
         <li>
           <a href='/'>

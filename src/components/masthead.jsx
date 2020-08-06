@@ -8,6 +8,7 @@ const Masthead = () => {
         <Logo />
       </div>
       <a className='Sign' href='/contact/'>
+        <span className='Hidden'>Contact</span>
         <img
           alt='Get in Touch I’m Available for Hire'
           width='540'

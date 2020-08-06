@@ -1,4 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
+import ReactDOM from 'react-dom';
+
+const Label = () => <span className='Hidden'>Homepage</span>;
 
 const Logo = () => {
   const ref = useRef();
@@ -9,7 +12,10 @@ const Logo = () => {
     xhr.send();
     xhr.addEventListener('loadend', (response) => {
       if (ref.current && response.target.status === 200) {
-        ref.current.parentNode.innerHTML = response.target.responseText;
+        const el = document.createElement('div');
+        ReactDOM.render(<Label />, el);
+        ref.current.parentNode.innerHTML =
+          el.innerHTML + response.target.responseText;
       }
     });
   }, []);
@@ -20,6 +26,7 @@ const Logo = () => {
 
   return (
     <a href='/' className='Logo'>
+      <Label />
       <img ref={ref} src='/assets/img/dbushell-logo.svg' alt='David Bushell' />
     </a>
   );
