@@ -54,3 +54,9 @@
     }
   }
 }
+
+@media screen and (max-width: rem(399)) {
+  .Lightbulb {
+    margin-left: rem(-12);
+  }
+}

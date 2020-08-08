@@ -7,13 +7,37 @@
 
   li {
     flex: 0 0 auto;
-    margin: 0 rem(4.5);
+    margin: 0;
+
+    &:nth-child(1) {
+      path {
+        &:nth-of-type(1) {
+          fill: currentColor;
+        }
+
+        &:nth-of-type(2) {
+          fill: none;
+          stroke: currentColor;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 1.5;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      fill: currentColor;
+
+      svg {
+        transform: translateY(rem(4));
+      }
+    }
   }
 
   a {
     align-items: center;
     display: flex;
-    padding: rem(4.5);
+    padding: rem(4.5) rem(9);
     font-size: var(--step-s);
     letter-spacing: rem(0.5);
     font-weight: 700;
@@ -21,23 +45,25 @@
   }
 }
 
-.Contact {
-  fill: currentColor;
-  transform: translateY(rem(4));
-}
+@media screen and (max-width: rem(399)) {
+  .Nav {
+    position: relative;
 
-.Home {
-  path {
-    &:nth-of-type(1) {
-      fill: currentColor;
+    ul {
+      margin-right: rem(-18);
     }
 
-    &:nth-of-type(2) {
-      fill: none;
-      stroke: currentColor;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-width: 1.5;
+    li {
+      &:nth-child(1) {
+        display: none;
+      }
+
+      &:nth-child(2) {
+        bottom: calc(100% + #{rem(9)});
+        left: rem(-9);
+        position: absolute;
+        transform: none;
+      }
     }
   }
 }

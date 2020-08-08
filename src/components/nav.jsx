@@ -9,7 +9,6 @@ const Nav = () => {
           <a href='/'>
             <span className='Hidden'>Home</span>
             <svg
-              className='Home'
               width='19.34'
               height='18.75'
               viewBox='0 0 19.34 18.75'
@@ -24,7 +23,6 @@ const Nav = () => {
           <a href='/contact/'>
             <span className='Hidden'>Contact</span>
             <svg
-              className='Contact'
               width='21.01'
               height='18'
               viewBox='0 0 21.01 18'
