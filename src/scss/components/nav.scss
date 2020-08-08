@@ -26,9 +26,8 @@
     }
 
     &:nth-child(2) {
-      fill: currentColor;
-
       svg {
+        fill: currentColor;
         transform: translateY(rem(4));
       }
     }
