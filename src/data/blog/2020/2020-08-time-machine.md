@@ -9,7 +9,7 @@ Allow me introduce a fun project that I’ve had on the back burner for a while.
 
 After much toil, I've built a [**Time Machine!**](https://legacy.dbushell.com/)
 
-In my time machine you can visit my website and see how it has evolved. I've only archived home pages. Sub-pages used a basic version of the same template. Pretty much all of the content remains accessible at the same URLs. Eventually I'll install placards or build a virtual tour-guide. Before then I've documented a few notes on each iteration below.
+In my time machine you can visit my website and see how it has evolved. I've only archived home pages. Sub-pages used a basic version of the same template. Pretty much all of the content remains accessible at the same URLs. Eventually I'll install placards or build a virtual tour-guide. Until then I've documented a few notes on each iteration below.
 
 ## [2007](https://legacy.dbushell.com/2007/)–[2008](https://legacy.dbushell.com/2008/)
 
@@ -37,7 +37,7 @@ Until I graduated in 2008 my website was a very simple portfolio. As a teenager 
     height="650">
 </p>
 
-In the summer of 2008 my graduate class visited London for a design exhibition. At the last minute I managed to line up a job interview with [Base Creative](https://www.basecreative.co.uk/) and started  working there the following month. At the time I didn’t appreciate how big of an opportunity I had been given. It accelerate my web career and by 2009 I had started blogging.
+In the summer of 2008 my graduate class visited London for a design exhibition. At the last minute I managed to line up a job interview with [Base Creative](https://www.basecreative.co.uk/) and started  working there the following month. At the time I didn’t appreciate how big of an opportunity I had been given. It accelerated my web career and by 2009 I had started blogging.
 
 ## [2010](https://legacy.dbushell.com/2010/)
 
@@ -79,7 +79,7 @@ By 2011 I was all-in on responsive design and updated my website to reflect the 
     height="650">
 </p>
 
-2012 is one on my favourites. I spent a great deal of time working on the typographic layout. It's cleaner and more considered than the year before. At this time I was blogging heavily on progressive enhancement. I built this one to work everywhere from IE6 to a toaster.
+2012 is one on my favourites. I spent a great deal of time working on the typographic layout. It's cleaner and more considered than the year before. At this time I was blogging heavily on the topic of progressive enhancement. I built this one to work everywhere from IE6 to a toaster.
 
 ## [2013](https://legacy.dbushell.com/2013/)
 
@@ -93,7 +93,7 @@ By 2011 I was all-in on responsive design and updated my website to reflect the 
     height="650">
 </p>
 
-2013 is the year I moved out of London and started freelancing. This design reflects a change in content focused on my new business. Honestly though it's a step backwards — it's rather boring! In hindsight I probably didn't need a change.
+2013 is the year I moved out of London and started freelancing. This design reflects a change in content focused on my new business. Honestly though it's a step backwards — it's rather boring! In hindsight I probably didn't need to change anything.
 
 ## [2014](https://legacy.dbushell.com/2014/)
 
@@ -107,7 +107,7 @@ By 2011 I was all-in on responsive design and updated my website to reflect the 
     height="650">
 </p>
 
-By 2014 I had grown to dislike the previous version. In reaction I came up with a more interesting layout that worked especially well across different breakpoints. Whilst this one is visually appealing it does lack content. I also ditched the use of a logo entirely.
+By 2014 I had grown to dislike the previous version. In response I came up with a more interesting layout that worked especially well across different breakpoints. Whilst this one is visually appealing it does lack content. I also ditched the use of a logo entirely.
 
 ## [2016](https://legacy.dbushell.com/2016/)
 
