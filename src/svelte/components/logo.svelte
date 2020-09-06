@@ -3,7 +3,7 @@
 
   const label = `Homepage`;
   let img;
-  let svg = false;
+  let svg;
 
   onMount(() => {
     const xhr = new XMLHttpRequest();

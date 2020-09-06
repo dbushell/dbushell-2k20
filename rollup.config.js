@@ -5,7 +5,7 @@ import {terser} from 'rollup-plugin-terser';
 const {NODE_ENV} = process.env;
 
 const isDev = NODE_ENV === 'development';
-const isProd = NODE_ENV === 'production';
+const isProd = !isDev;
 
 export default {
   input: 'src/svelte/app.js',

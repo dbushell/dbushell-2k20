@@ -1,5 +1,5 @@
-import Logo from './logo.svelte';
-import Contact from './contact.svelte';
+import Logo from './components/logo.svelte';
+import Contact from './components/contact.svelte';
 
 const $doc = document.querySelector('.Document');
 

@@ -1,8 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
 import crypto from 'crypto';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import frontMatter from 'front-matter';
 import striptags from 'striptags';
 import moment from 'moment';
@@ -13,12 +11,20 @@ import loadLanguages from 'prismjs/components/index';
 import sass from 'node-sass';
 import magicImporter from 'node-sass-magic-importer';
 import csso from 'csso';
-import Page from './containers/page';
-import Article from './containers/article';
-import Archive from './containers/archive';
-import Home from './containers/home';
-import Contact from './containers/contact';
+
 import pkg from '../package.json';
+import * as renderReact from './build-react.js';
+import * as renderSvelte from './build-svelte.js';
+
+let render;
+if (process.env.FRAMEWORK === 'react') {
+  render = renderReact;
+  console.log(`Build framework: React`);
+}
+if (process.env.FRAMEWORK === 'svelte') {
+  render = renderSvelte;
+  console.log(`Build framework: Svelte`);
+}
 
 const publicPath = path.resolve(__dirname, `../public`);
 
@@ -252,6 +258,7 @@ function outputFile(file, props) {
  * Build website
  */
 async function build() {
+  const startTime = Date.now();
   let articles = await getAllMatter(path.resolve(__dirname, './data/blog'));
   articles = articles.map(propsFromMatter);
   articles.sort((a, b) => (a.unix < b.unix ? 1 : -1));
@@ -282,9 +289,7 @@ async function build() {
 
   // Build blog articles
   articles.forEach((props) => {
-    props.render = ReactDOMServer.renderToStaticMarkup(
-      React.createElement(Article, {...props, latest}, null)
-    );
+    props.render = render.renderArticle({...props, latest});
     const file = path.join(publicPath, `${props.href}index.html`);
     outputFile(file, props);
     sitemap.push({
@@ -310,9 +315,7 @@ async function build() {
     if (index > 1) {
       props.prev = index === 2 ? '/blog/' : `/blog/page/${index - 1}/`;
     }
-    props.render = ReactDOMServer.renderToStaticMarkup(
-      React.createElement(Archive, {...props, latest}, null)
-    );
+    props.render = render.renderArchive({...props, latest});
     const file = path.join(publicPath, `${props.href}index.html`);
     outputFile(file, props);
   }
@@ -326,9 +329,7 @@ async function build() {
   pages = pages.concat(portfolio);
   pages = pages.map(propsFromMatter);
   pages.forEach((props) => {
-    props.render = ReactDOMServer.renderToStaticMarkup(
-      React.createElement(Page, {...props, latest}, null)
-    );
+    props.render = render.renderPage({...props, latest});
     const file = path.join(publicPath, `${props.href}index.html`);
     outputFile(file, props);
     if (props.href === '/404/') {
@@ -347,9 +348,7 @@ async function build() {
   const contact = path.join(publicPath, `contact/index.html`);
   outputFile(contact, {
     href: `/contact/`,
-    render: ReactDOMServer.renderToStaticMarkup(
-      React.createElement(Contact, {latest}, null)
-    )
+    render: render.renderContact({latest})
   });
   console.log(`Published contact page`);
 
@@ -364,9 +363,7 @@ async function build() {
   const home = path.join(publicPath, `index.html`);
   outputFile(home, {
     href: `/`,
-    render: ReactDOMServer.renderToStaticMarkup(
-      React.createElement(Home, {latest}, null)
-    )
+    render: render.renderHome({latest})
   });
   console.log(`Published homepage`);
 
@@ -408,6 +405,8 @@ async function build() {
     {overwrite: true}
   );
   fs.removeSync(path.resolve(publicPath, '404'));
+
+  console.log(`Build time: ${Date.now() - startTime}`);
 }
 
 build();
