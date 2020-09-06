@@ -83,7 +83,7 @@ Kinda rough but at 16×16 it works far better than I was expecting. One day I'll
 
 ### React
 
-I'm still using React to server-side render static page. I've disabled the [front-end hydration](/2018/05/21/pwa-progressive-web-apps/) of the entire page for now. That configuration did allow pages to load via smaller JSON requests but the service worker didn't cached the canonical HTML page. Because the site wasn't a SPA — "single page app" – a refresh of those URLs hit a cold cache. Anyway, I could have fix that but suffice it to say I'm avoiding any technical debt for now.
+I'm still using React to server-side render static pages. I've disabled the [front-end hydration](/2018/05/21/pwa-progressive-web-apps/) of the entire page for now. That configuration did allow pages to load via smaller JSON requests but the service worker didn't cache the canonical HTML page. Because the site wasn't a SPA — "single page app" – a refresh of those URLs hit a cold cache. Anyway, I could have fix that but suffice it to say I'm avoiding any technical debt for now.
 
 ### Netlify Hosted
 
