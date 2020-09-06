@@ -2,21 +2,25 @@
   align-items: flex-start;
   display: flex;
 
-  & > figure {
+  figure,
+  img {
+    height: rem(80);
+    width: rem(80);
+  }
+
+  figure {
     flex: 0 0 rem(80);
+    margin: 0 0 rem(9) rem(18);
     order: 2;
   }
 
-  & div {
+  div {
     flex: 1 1 auto;
-    margin-right: rem(18);
   }
 
   img {
     border: rem(2) solid var(--color-secondary);
     border-radius: 100%;
-    height: rem(80);
-    width: rem(80);
   }
 }
 
@@ -27,7 +31,6 @@
     & > figure {
       float: right;
       shape-outside: circle(50%);
-      margin: 0 0 rem(9) rem(18);
     }
   }
 }

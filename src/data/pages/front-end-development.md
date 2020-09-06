@@ -36,6 +36,7 @@ Web standards are ever-evolving. I see each project as an opportunity to refres
   <li>JavaScript</li>
   <li>React</li>
   <li>Vue.js</li>
+  <li>Svelte</li>
   <li>Node</li>
   <li>Git</li>
   <li>Gulp</li>

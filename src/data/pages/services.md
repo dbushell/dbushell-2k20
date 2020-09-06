@@ -16,6 +16,7 @@ Static design mock-ups may look pretty, but you can’t experience true performa
   <li>JavaScript</li>
   <li>React</li>
   <li>Vue.js</li>
+  <li>Svelte</li>
   <li>Node</li>
   <li>Git</li>
   <li>Gulp</li>

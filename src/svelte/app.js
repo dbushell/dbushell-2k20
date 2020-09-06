@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Logo from './components/logo.jsx';
-import ContactForm from './components/contact-form.jsx';
+import Logo from './logo.svelte';
+import Contact from './contact.svelte';
 
 const $doc = document.querySelector('.Document');
 
@@ -21,12 +19,20 @@ $mode.addEventListener('click', () => {
 
 const $logo = document.querySelector('#logo');
 if ($logo) {
-  ReactDOM.hydrate(<Logo />, $logo);
+  $logo.innerHTML = '';
+  const logo = new Logo({
+    target: $logo
+    // hydrate: true
+  });
 }
 
 const $form = document.querySelector('#contact-form');
 if ($form) {
-  ReactDOM.hydrate(<ContactForm />, $form);
+  $form.innerHTML = '';
+  const form = new Contact({
+    target: $form
+    // hydrate: true
+  });
 }
 
 const $prism = document.createElement('link');

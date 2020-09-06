@@ -116,7 +116,7 @@ renderer.link = (href, title, text) => {
   if (title) {
     out += ` title="${title}"`;
   }
-  if (!/^\//.test(href)) {
+  if (!/^\//.test(href) && !/dbushell\.com/.test(href)) {
     out += ` rel="noopener noreferrer" target="_blank"`;
   }
   out += `>${text}</a>`;
