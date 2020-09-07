@@ -1,7 +1,7 @@
 <script>
   import Bio from './bio.svelte';
   import Card from './card.svelte';
-  import Rule from './logo.svelte';
+  import Rule from './rule.svelte';
   import Social from './social.svelte';
 
   export let articles;
