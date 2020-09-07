@@ -38,3 +38,12 @@
     z-index: 3;
   }
 }
+
+@media screen and (max-width: rem(399)) {
+  .Masthead {
+    &:after {
+      height: 150%;
+      width: 125%;
+    }
+  }
+}
