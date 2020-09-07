@@ -33,7 +33,7 @@ ReactDOM.hydrate(
 );
 ```
 
-React is a lot of JavaScript to execute and has a noticeable impact on performance metrics. I switched to [Preact](https://preactjs.com/) to save bytes. However, it still felt expensive for such basic interactivity. I'd usually just write some vanilla JavaScript in this scenario. I do for most client websites. For my personal site I figured it was an opportunity to try something new.
+React is a lot of JavaScript to execute and has a noticeable impact on performance. I switched to [Preact](https://preactjs.com/) to save bytes. However, it still felt expensive for such basic interactivity. I'd usually just write some vanilla JavaScript in this scenario. I do for most client websites. For my personal site I figured it was an opportunity to try something new.
 
 ## Why Svelte?
 
@@ -56,7 +56,7 @@ In truth, my contact form interactivity is so simple using any framework is a bi
 
 ## Svelte SSR
 
-I was tempted to get Svelte SSR working for my entire website. It only look a couple of hours to rewrite my React components. Initial tests show  a **10% faster build**. Granted, both React and Svelte take under one second to build around 300 pages.
+I was tempted to get Svelte SSR working for my entire website. It only took a couple of hours to rewrite my React components. Initial tests show  a **10% faster build**. Granted, both React and Svelte take under one second to build around 300 pages.
 
 If Svelte proves to be as maintainable as React I might just drop the latter. Of course, it's rather impractical and silly to maintain both React and Svelte components. Despite my love for JSX I have to admit that Svelte components may have the edge in readability.
 

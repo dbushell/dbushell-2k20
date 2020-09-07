@@ -4,15 +4,23 @@ title: 'About David Bushell'
 ---
 Based in the UK, somewhere near Manchester, I design, build, and consult upon all things web for small businesses, start-ups, individuals, and fellow web agencies — all over the world. It's quite a fun job if I'm honest.
 
-<p class="Image">
-  <img
-    src="/images/blog/2012/david-bushell1.jpg"
-    title="David Bushell"
-    alt="David Bushell"
-    loading="lazy"
-    width="640"
-    height="360">
-</p>
+<picture class="Image">
+	<source
+    srcset="/images/pages/david-bushell@1x.avif, /images/pages/david-bushell@2x.avif 2x"
+    media="(min-width: 1280px)"
+    type="image/avif">
+	<source
+    srcset="/images/pages/david-bushell@1x.avif"
+    type="image/avif">
+	<source
+    srcset="/images/pages/david-bushell@1x.jpg, /images/pages/david-bushell@2x.jpg 2x"
+    media="(min-width: 1280px)"
+    type="image/jpeg">
+	<source
+    srcset="/images/pages/david-bushell@1x.jpg"
+    type="image/jpeg">
+	<img loading="lazy" src="/images/pages/david-bushell@1x.jpg" alt="David Bushell" title="David Bushell" width="860" height="484">
+</picture>
 
 While I specialise in front-end development, my experience and knowledge covers the whole process. So if anyone asks, tell them [I make websites](/services/).
 

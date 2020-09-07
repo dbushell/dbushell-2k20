@@ -29,3 +29,9 @@
     --wrapper-margin: 5vw;
   }
 }
+
+@media screen and (min-width: rem(1920)) {
+  :root {
+    --wrapper-margin: #{rem(100)};
+  }
+}
