@@ -2,7 +2,7 @@
 date: 2020-10-05 10:00:00+00:00
 slug: wordpress-gutenberg-and-tips-for-acf-blocks
 title: 'WordPress, Gutenberg, and Tips for ACF Blocks'
-description: 'The one where I share a quick for WordPress developers (after going off on a rant).'
+description: 'The one where I share quick tips for WordPress/ACF developers (after going off on a rant).'
 ---
 
 In December 2018 [WordPress 5.0 launched](https://wordpress.org/news/2018/12/bebo/) with the addition of the already divisive **Gutenberg editor**. Gutenberg is a radical departure from the classic [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor but its purpose remains the same; to provide a UI that ultimately saves a big chunk of HTML representing the page content.
