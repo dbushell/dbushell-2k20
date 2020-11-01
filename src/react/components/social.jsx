@@ -47,8 +47,8 @@ const Social = () => {
           <g
             fill='none'
             stroke='var(--color-background)'
-            stroke-width='33'
-            stroke-linejoin='round'
+            strokeWidth='33'
+            strokeLinejoin='round'
           >
             <path d='M81 198v116l175 117 175-117V198L256 81z' />
             <path d='M81 198l175 116 175-116M256 81v117' />
@@ -68,7 +68,7 @@ const Social = () => {
           <path
             fill='none'
             stroke='var(--color-background)'
-            stroke-width='60'
+            strokeWidth='60'
             d='M109 241c89 0 162 73 162 162m114 0c0-152-124-276-276-276'
           />
         </svg>
