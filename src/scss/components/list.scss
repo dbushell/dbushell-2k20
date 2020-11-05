@@ -24,7 +24,7 @@
   a {
     font-weight: 500;
 
-    &:not(:focus):not(:hover) {
+    &:not(:hover) {
       color: var(--color-primary2, var(--color-primary));
     }
   }

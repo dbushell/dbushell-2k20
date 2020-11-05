@@ -65,6 +65,7 @@
         <input
           required
           type="text"
+          class="Field"
           id="contact-name"
           name="name"
           maxlength="100"
@@ -75,6 +76,7 @@
         <input
           required
           type="email"
+          class="Field"
           id="contact-email"
           name="replyTo"
           placeholder="me@example.com…"
@@ -85,6 +87,7 @@
         <label class="Cursive" for="contact-enquiry">Enquiry</label>
         <textarea
           required
+          class="Field"
           id="contact-enquiry"
           name="enquiry"
           rows="5"
@@ -120,12 +123,12 @@
             for more information.
           </small>
         </p>
-        <label class="Checkbox" for="contact-privacy">
+        <label for="contact-privacy">
           <input
             bind:this={consentRef}
             required
-            class="Hidden"
             type="checkbox"
+            class="Hidden | Checkbox"
             id="contact-privacy"
             name="privacy"
             autocomplete="off"

@@ -87,6 +87,7 @@ const ContactForm = () => {
           <input
             required
             type='text'
+            className='Field'
             id='contact-name'
             name='name'
             maxLength='100'
@@ -100,6 +101,7 @@ const ContactForm = () => {
           <input
             required
             type='email'
+            className='Field'
             id='contact-email'
             name='replyTo'
             placeholder='me@example.com…'
@@ -113,6 +115,7 @@ const ContactForm = () => {
           </label>
           <textarea
             required
+            className='Field'
             id='contact-enquiry'
             name='enquiry'
             rows='5'
@@ -145,12 +148,12 @@ const ContactForm = () => {
               See my <Policy /> for more information.
             </small>
           </p>
-          <label className='Checkbox' htmlFor='contact-privacy'>
+          <label htmlFor='contact-privacy'>
             <input
               ref={consentRef}
               required
-              className='Hidden'
               type='checkbox'
+              className='Hidden | Checkbox'
               id='contact-privacy'
               name='privacy'
               autoComplete='off'

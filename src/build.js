@@ -16,12 +16,14 @@ import pkg from '../package.json';
 import * as renderReact from './build-react.js';
 import * as renderSvelte from './build-svelte.js';
 
+const {FRAMEWORK, NODE_ENV} = process.env;
+
 let render;
-if (process.env.FRAMEWORK === 'react') {
+if (FRAMEWORK === 'react') {
   render = renderReact;
   console.log(`Build framework: React`);
 }
-if (process.env.FRAMEWORK === 'svelte') {
+if (FRAMEWORK === 'svelte') {
   render = renderSvelte;
   console.log(`Build framework: Svelte`);
 }
@@ -38,7 +40,9 @@ css = sass.renderSync({
   data: css.toString(),
   importer: magicImporter()
 }).css;
-css = csso.minify(css.toString()).css;
+if (NODE_ENV !== 'development') {
+  css = csso.minify(css.toString()).css;
+}
 const cssHash = crypto.createHash('sha256').update(css).digest('base64');
 
 const rssDate = `ddd, DD MMM YYYY HH:mm:ss ZZ`;

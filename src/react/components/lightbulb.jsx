@@ -2,9 +2,10 @@ import React from 'react';
 
 const Lightbulb = () => {
   return (
-    <button className='Lightbulb' type='button'>
+    <button className='Lightbulb' type='button' tabindex='0'>
       <span className='Hidden'>Toggle Dark Mode</span>
       <svg
+        role='presentation'
         width='250'
         height='275'
         viewBox='0 0 250 275'

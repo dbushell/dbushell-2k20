@@ -28,7 +28,7 @@
     &:nth-child(2) {
       svg {
         fill: currentColor;
-        transform: translateY(rem(4));
+        transform: translateY(rem(2));
       }
     }
   }
@@ -36,10 +36,12 @@
   a {
     align-items: center;
     display: flex;
-    padding: rem(4.5) rem(9);
     font-size: var(--step-s);
-    letter-spacing: rem(0.5);
     font-weight: 700;
+    letter-spacing: rem(0.5);
+    margin: 0 rem(4.5);
+    min-height: 100%;
+    padding: 0 rem(4.5);
     text-transform: uppercase;
   }
 }

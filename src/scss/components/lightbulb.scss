@@ -25,12 +25,15 @@
     width: rem(1);
   }
 
-  &:focus,
   &:hover {
     transform: translateY(0);
     --lightbulb-stroke: var(--db-blue);
     --lightbulb-fill: #{rgbvar(--db-blue, 0.5)};
     --lightbulb-rays: 0;
+  }
+
+  &:focus {
+    outline: var(--outline);
   }
 
   path {

@@ -56,6 +56,8 @@
   // Black
   --db-black-rgb: 55, 50, 50;
   --db-black: rgb(var(--db-black-rgb));
+
+  --outline: #{rem(2)} dashed var(--color-secondary);
 }
 
 *,
@@ -83,7 +85,6 @@ button {
   border: none;
   outline: none;
 
-  &:focus,
   &:hover {
     cursor: pointer;
   }
@@ -99,27 +100,28 @@ a {
   transition: color 200ms, background 200ms, text-underline-offset 200ms,
     text-decoration 200ms;
 
-  &:focus,
   &:hover {
     color: var(--color-tertiary);
     text-decoration-thickness: 15%;
+    text-decoration-skip-ink: none;
     text-decoration-color: rgbvar(--color-primary, 0.1);
     text-underline-offset: 10%;
   }
 
   &:focus {
-    text-decoration-color: rgbvar(--color-tertiary, 1);
-    outline: none;
+    text-decoration-color: rgbvar(--color-primary, 0.1);
+    outline: var(--outline);
+    outline-offset: rem(2);
   }
 
-  &:hover:not(:focus) {
-    text-decoration-skip-ink: none;
+  &:active {
+    outline: none;
   }
 
   cite > &,
   small > &,
   p:not([class]) > & {
-    &:not(:focus):not(:hover) {
+    &:not(:hover) {
       color: var(--color-primary2, var(--color-primary));
     }
   }
@@ -223,7 +225,8 @@ h1 {
     margin: rem(36) 0;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     margin-top: rem(36);
   }
 }

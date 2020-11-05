@@ -19,11 +19,15 @@
   text-transform: uppercase;
   transition: color 200ms, border 200ms;
 
-  &:focus,
   &:hover {
     border-color: rgbvar(--color-primary, 1);
     color: var(--color-tertiary);
     cursor: pointer;
+  }
+
+  &:focus {
+    outline: var(--outline);
+    outline-offset: rem(4);
   }
 
   &[disabled] {

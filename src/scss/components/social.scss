@@ -28,6 +28,7 @@
 
     &:focus,
     &:hover {
+      outline-offset: 0;
       --transform: scale(1.1);
     }
   }
