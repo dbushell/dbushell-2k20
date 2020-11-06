@@ -20,18 +20,16 @@ $mode.addEventListener('click', () => {
 const $logo = document.querySelector('#logo');
 if ($logo) {
   $logo.innerHTML = '';
-  const logo = new Logo({
+  new Logo({
     target: $logo
-    // hydrate: true
   });
 }
 
 const $form = document.querySelector('#contact-form');
 if ($form) {
   $form.innerHTML = '';
-  const form = new Contact({
+  new Contact({
     target: $form
-    // hydrate: true
   });
 }
 

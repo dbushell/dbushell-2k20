@@ -3,7 +3,11 @@
 }
 
 @function rgbvar($color, $alpha: 1) {
-  @return unquote('rgba(var(#{$color}-rgb), #{$alpha})');
+  @if $alpha == 1 {
+    @return unquote('rgb(var(#{$color}))');
+  } @else {
+    @return unquote('rgba(var(#{$color}), #{$alpha})');
+  }
 }
 
 @font-face {
@@ -17,47 +21,16 @@
 @import 'src/scss/includes/utopia.scss';
 
 :root {
-  // Light
-  --db-light-rgb: 255, 250, 240;
-  --db-light: rgb(var(--db-light-rgb));
-
-  // Dark
-  --db-dark-rgb: 80, 70, 70;
-  --db-dark: rgb(var(--db-dark-rgb));
-
-  // Pink
-  --db-pink-rgb: 255, 100, 125;
-  --db-pink: rgb(var(--db-pink-rgb));
-
-  // Red
-  --db-red-rgb: 210, 55, 80;
-  --db-red: rgb(var(--db-red-rgb));
-
-  // Green
-  --db-green-rgb: 150, 230, 200;
-  --db-green: rgb(var(--db-green-rgb));
-
-  // Blue
-  --db-blue-rgb: 20, 150, 190;
-  --db-blue: rgb(var(--db-blue-rgb));
-
-  // Blue (darker)
-  --db-blue2-rgb: 15, 110, 155;
-  --db-blue2: rgb(var(--db-blue2-rgb));
-
-  // Yellow
-  --db-yellow-rgb: 255, 250, 190;
-  --db-yellow: rgb(var(--db-yellow-rgb));
-
-  // White
-  --db-white-rgb: 255, 255, 255;
-  --db-white: rgb(var(--db-white-rgb));
-
-  // Black
-  --db-black-rgb: 55, 50, 50;
-  --db-black: rgb(var(--db-black-rgb));
-
-  --outline: #{rem(2)} dashed var(--color-secondary);
+  --db-light: 255, 250, 240;
+  --db-dark: 80, 70, 70;
+  --db-pink: 255, 100, 125;
+  --db-red: 210, 55, 80;
+  --db-green: 150, 230, 200;
+  --db-blue: 20, 150, 190;
+  --db-blue2: 15, 110, 155;
+  --db-yellow: 255, 250, 190;
+  --db-white: 255, 255, 255;
+  --db-black: 55, 50, 50;
 }
 
 *,
@@ -91,7 +64,7 @@ button {
 }
 
 a {
-  color: var(--color-primary);
+  color: rgbvar(--color-primary);
   text-decoration-line: underline;
   text-decoration-thickness: 5%;
   text-decoration-skip-ink: all;
@@ -101,7 +74,7 @@ a {
     text-decoration 200ms;
 
   &:hover {
-    color: var(--color-tertiary);
+    color: rgbvar(--color-tertiary);
     text-decoration-thickness: 15%;
     text-decoration-skip-ink: none;
     text-decoration-color: rgbvar(--color-primary, 0.1);
@@ -122,7 +95,7 @@ a {
   small > &,
   p:not([class]) > & {
     &:not(:hover) {
-      color: var(--color-primary2, var(--color-primary));
+      color: rgbvar(--color-primary2);
     }
   }
 }
@@ -172,7 +145,7 @@ p {
 blockquote {
   margin: rem(36) 0 rem(36) rem(18);
   padding-left: rem(18);
-  border-left: rem(1) solid var(--color-tertiary);
+  border-left: rem(1) solid rgbvar(--color-tertiary);
 
   p {
     font-style: italic;
@@ -198,7 +171,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-primary);
+  color: rgbvar(--color-primary);
   font-size: var(--step-1);
   font-weight: 600;
   line-height: 1.5;
@@ -261,7 +234,7 @@ h3 {
 
 .Time,
 .Cursive {
-  color: var(--color-secondary2, var(--color-secondary));
+  color: rgbvar(--color-secondary2);
   font-family: 'Comic Neue', 'Raleway', sans-serif;
   font-style: italic;
   font-weight: 700;
@@ -274,7 +247,7 @@ h3 {
 }
 
 .Error {
-  color: var(--db-red);
+  color: rgbvar(--db-red);
 }
 
 pre,
@@ -290,8 +263,8 @@ p > code {
 }
 
 pre {
-  color: var(--db-light);
-  background: var(--db-dark);
+  color: rgbvar(--db-light);
+  background: rgbvar(--db-dark);
   direction: ltr;
   height: auto;
   -webkit-hyphens: none;

@@ -1,6 +1,7 @@
 .Document {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  --outline: #{rem(2)} dashed #{rgbvar(--color-secondary)};
+  background: rgbvar(--color-background);
+  color: rgbvar(--color-foreground);
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   line-height: 1.6;
@@ -18,20 +19,11 @@
     --color-foreground: var(--db-dark);
 
     --color-primary: var(--db-blue);
-    --color-primary-rgb: var(--db-blue-rgb);
     --color-primary2: var(--db-blue2);
-    --color-primary2-rgb: var(--db-blue2-rgb);
-
     --color-secondary: var(--db-pink);
-    --color-secondary-rgb: var(--db-pink-rgb);
     --color-secondary2: var(--db-red);
-    --color-secondary2-rgb: var(--db-red-rgb);
-
     --color-tertiary: var(--db-pink);
-    --color-tertiary-rgb: var(--db-pink-rgb);
-
     --color-quaternary: var(--db-green);
-    --color-quaternary-rgb: var(--db-green-rgb);
 
     --masthead-primary: var(--db-green);
     --masthead-secondary: var(--db-blue);
@@ -46,16 +38,11 @@
     --color-foreground: var(--db-light);
 
     --color-primary: var(--db-yellow);
-    --color-primary-rgb: var(--db-yellow-rgb);
-
+    --color-primary2: var(--db-yellow);
     --color-secondary: var(--db-green);
-    --color-secondary-rgb: var(--db-green-rgb);
-
+    --color-secondary2: var(--db-green);
     --color-tertiary: var(--db-pink);
-    --color-tertiary-rgb: var(--db-pink-rgb);
-
     --color-quaternary: var(--db-blue);
-    --color-quaternary-rgb: var(--db-blue-rgb);
 
     --masthead-primary: var(--db-blue);
     --masthead-secondary: var(--db-green);

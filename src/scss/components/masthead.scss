@@ -9,7 +9,7 @@
   }
 
   &:after {
-    background: var(--masthead-primary);
+    background: rgbvar(--masthead-primary);
     border-radius: 100%;
     content: '';
     display: block;

@@ -1,6 +1,6 @@
 .Lightbulb {
-  --lightbulb-stroke: var(--db-blue);
-  --lightbulb-fill: var(--db-yellow);
+  --lightbulb-stroke: #{rgbvar(--db-blue)};
+  --lightbulb-fill: #{rgbvar(--db-yellow)};
   --lightbulb-rays: 1;
   height: auto;
   left: var(--wrapper-margin);
@@ -27,7 +27,7 @@
 
   &:hover {
     transform: translateY(0);
-    --lightbulb-stroke: var(--db-blue);
+    --lightbulb-stroke: #{rgbvar(--db-blue)};
     --lightbulb-fill: #{rgbvar(--db-blue, 0.5)};
     --lightbulb-rays: 0;
   }
@@ -45,13 +45,13 @@
   }
 
   .Darkmode & {
-    --lightbulb-stroke: var(--db-green);
+    --lightbulb-stroke: #{rgbvar(--db-green)};
     --lightbulb-fill: transparent;
     --lightbulb-rays: 0;
 
     &:focus,
     &:hover {
-      --lightbulb-stroke: var(--db-yellow);
+      --lightbulb-stroke: #{rgbvar(--db-yellow)};
       --lightbulb-fill: #{rgbvar(--db-yellow, 0.5)};
       --lightbulb-rays: 1;
     }

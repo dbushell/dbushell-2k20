@@ -32,8 +32,8 @@
 
     &:after,
     &:before {
-      background: var(--color-background2);
-      border: rem(2) solid var(--color-quaternary);
+      background: rgbvar(--color-background2);
+      border: rem(2) solid rgbvar(--color-quaternary);
       border-top: 0;
       border-left: 0;
       border-radius: rem(5);
@@ -75,14 +75,14 @@
 .Field {
   -moz-appearance: none;
   appearance: none;
-  background: var(--color-background2);
-  border: rem(2) solid var(--color-quaternary);
+  background: rgbvar(--color-background2);
+  border: rem(2) solid rgbvar(--color-quaternary);
   border-top: 0;
   border-left: 0;
   border-radius: rem(5);
   box-shadow: rem(-1) rem(-1) 0 rem(1) rgbvar(--color-primary, 0.5),
     rem(2) rem(2) 0 0 rgbvar(--db-black, 0.1);
-  color: var(--color-foreground);
+  color: rgbvar(--color-foreground);
   display: block;
   font-size: var(--step-s);
   font-family: 'Raleway', sans-serif;
@@ -93,8 +93,8 @@
   width: 100%;
 
   &:focus {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: rgbvar(--color-primary);
+    color: rgbvar(--color-primary);
     outline: var(--outline);
     outline-offset: rem(4);
   }

@@ -1,4 +1,5 @@
 .Social {
+  --social-color: #{rgbvar(--color-background)};
   align-items: center;
   display: flex;
   margin: rem(18) rem(-4.5) 0 0;
@@ -26,10 +27,12 @@
     text-decoration: none;
     --transform: rotateY(5deg) rotateX(10deg) rotateZ(5deg);
 
-    &:focus,
     &:hover {
-      outline-offset: 0;
       --transform: scale(1.1);
+    }
+
+    &:focus {
+      outline-offset: 0;
     }
   }
 }

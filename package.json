@@ -1,11 +1,11 @@
 {
   "name": "dbushell-2k20",
-  "version": "11.2.4",
+  "version": "11.2.5",
   "private": true,
   "description": "dbushell.com",
   "main": "",
   "scripts": {
-    "rollup": "npx rollup -c",
+    "rollup": "npx rollup -c src/svelte/rollup.config.js",
     "build-react:dev": "NODE_ENV=development FRAMEWORK=react npx babel-node src/build.js && NODE_ENV=development npm run rollup",
     "build-react:prod": "NODE_ENV=production FRAMEWORK=react npx babel-node src/build.js && NODE_ENV=production npm run rollup",
     "build-svelte:dev": "NODE_ENV=development FRAMEWORK=svelte npx babel-node src/build.js && NODE_ENV=development npm run rollup",

@@ -1,11 +1,11 @@
-const ver = `{{version}}`;
-const cacheName = `dbushell-${ver}`;
+const version = `{{version}}`;
+const cacheName = `dbushell-${version}`;
 
 const precache = [
   `/`,
-  `/assets/img/dbushell-logo.svg`,
   `/assets/fonts/komika-title.woff2`,
-  `/assets/js/app.min.js?v=${ver}`,
+  `/assets/img/dbushell-logotype.svg`,
+  `/assets/js/app.min.js?v=${version}`,
   '/about/',
   '/blog/',
   '/contact/',
