@@ -8,6 +8,7 @@ import marked from 'marked';
 import * as helpers from 'marked/src/helpers';
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index';
+import 'prism-svelte';
 import sass from 'node-sass';
 import magicImporter from 'node-sass-magic-importer';
 import csso from 'csso';
@@ -126,7 +127,7 @@ renderer.link = (href, title, text) => {
   if (title) {
     out += ` title="${title}"`;
   }
-  if (!/^\//.test(href) && !/dbushell\.com/.test(href)) {
+  if (!/^[\/|#]/.test(href) && !/dbushell\.com/.test(href)) {
     out += ` rel="noopener noreferrer" target="_blank"`;
   }
   out += `>${text}</a>`;
