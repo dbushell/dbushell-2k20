@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useRef} from 'react';
 import ReactDOM from 'react-dom';
 
-const Label = () => <span className='Hidden'>Homepage</span>;
+const Label = () => <span className="Hidden">Homepage</span>;
 
 const Logo = () => {
   const ref = useRef();
@@ -25,12 +25,12 @@ const Logo = () => {
   }, [onLoad]);
 
   return (
-    <a href='/' className='Logo'>
+    <a href="/" className="Logo">
       <Label />
       <img
         ref={ref}
-        src='/assets/img/dbushell-logotype.svg'
-        alt='David Bushell'
+        src="/assets/img/dbushell-logotype.svg"
+        alt="David Bushell"
       />
     </a>
   );

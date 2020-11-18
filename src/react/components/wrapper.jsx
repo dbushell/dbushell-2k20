@@ -4,8 +4,8 @@ import Footer from './footer';
 
 const Wrapper = (props) => {
   return (
-    <div className='Wrapper'>
-      <div className='Layout'>{props.children}</div>
+    <div className="Wrapper">
+      <div className="Layout">{props.children}</div>
       <Lightbulb />
       <Footer />
     </div>

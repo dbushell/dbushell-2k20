@@ -4,11 +4,11 @@ const Card = (props) => {
   const Title = () =>
     props.href ? <a href={props.href}>{props.title}</a> : props.title;
   const Subtitle = () =>
-    props.subtitle ? <span className='Cursive'>{props.subtitle}</span> : null;
+    props.subtitle ? <span className="Cursive">{props.subtitle}</span> : null;
   return (
-    <article className='Card'>
+    <article className="Card">
       <h3>
-        <span className='Star'>
+        <span className="Star">
           <Title />
         </span>
         <Subtitle />

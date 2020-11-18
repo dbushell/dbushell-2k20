@@ -6,7 +6,7 @@ import Social from './social';
 
 const BioCard = () => {
   return (
-    <Card title='David Bushell' href='/'>
+    <Card title="David Bushell" href="/">
       <Bio />
       <Social />
     </Card>
@@ -16,9 +16,9 @@ const BioCard = () => {
 const AgencyCard = () => {
   return (
     <Card
-      title='Web Agencies'
-      subtitle='Need a hand?'
-      href='/working-with-agencies/'
+      title="Web Agencies"
+      subtitle="Need a hand?"
+      href="/working-with-agencies/"
     >
       <p>
         I’m reliable, flexible, and pride myself in communication and initiative
@@ -31,9 +31,9 @@ const AgencyCard = () => {
 const BusinessCard = () => {
   return (
     <Card
-      title='Businesses'
-      subtitle='Have an idea?'
-      href='/working-with-clients/'
+      title="Businesses"
+      subtitle="Have an idea?"
+      href="/working-with-clients/"
     >
       <p>
         Let’s discuss your requirements, share ideas, and figure out what’s best
@@ -45,9 +45,9 @@ const BusinessCard = () => {
 
 const BlogCard = (props) => {
   return (
-    <Card title='The Blog' href='/blog/'>
+    <Card title="The Blog" href="/blog/">
       <p>I write about website design and development.</p>
-      <ul className='List'>
+      <ul className="List">
         {props.articles.map((item) => {
           return (
             <li key={item.unix}>
@@ -65,7 +65,7 @@ const BlogCard = (props) => {
 
 const Aside = (props) => {
   return (
-    <aside className='Featured'>
+    <aside className="Featured">
       <BioCard />
       <AgencyCard />
       <BusinessCard />

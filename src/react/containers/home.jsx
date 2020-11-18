@@ -18,40 +18,40 @@ const Container = (props) => {
       <Main>
         <Nav />
         <Heading title={h1} />
-        <h3 className='Cursive'>I make websites</h3>
-        <div className='Prose'>
-          <p className='Large'>
+        <h3 className="Cursive">I make websites</h3>
+        <div className="Prose">
+          <p className="Large">
             I design and build websites with a focus on standards, performance,
             and accessibility. With a decade of professional experience —
             in-house and remote — I've delivered for all types of organisations.
             Whether it's WordPress, React, or PWAs, I have the know-how to help
             you.
           </p>
-          <div className='Crane'>
+          <div className="Crane">
             <img
-              alt='Origami Crane - Copyright © David Bushell'
-              src='/assets/img/origami-crane.png'
-              width='500'
-              height='520'
-              loading='lazy'
-              role='presentation'
+              alt="Origami Crane - Copyright © David Bushell"
+              src="/assets/img/origami-crane.png"
+              width="500"
+              height="520"
+              loading="lazy"
+              role="presentation"
             />
             <div>
-              <ul className='List List--large'>
+              <ul className="List List--large">
                 <li>
-                  <a href='/front-end-development/'>Front-end Development</a>
+                  <a href="/front-end-development/">Front-end Development</a>
                 </li>
                 <li>
-                  <a href='/responsive-design/'>Responsive Design</a>
+                  <a href="/responsive-design/">Responsive Design</a>
                 </li>
                 <li>
-                  <a href='/services/'>And a whole lot more&hellip;</a>
+                  <a href="/services/">And a whole lot more&hellip;</a>
                 </li>
               </ul>
-              <Button href='/contact/'>Hire Me!</Button>
+              <Button href="/contact/">Hire Me!</Button>
             </div>
           </div>
-          <h3 className='Cursive'>What my clients say</h3>
+          <h3 className="Cursive">What my clients say</h3>
           <blockquote>
             <p>
               Highly skilled, personable, helpful and dedicated: David exceeded
@@ -62,7 +62,7 @@ const Container = (props) => {
             </p>
           </blockquote>
           <Rule />
-          <h3 className='Cursive'>Featured article</h3>
+          <h3 className="Cursive">Featured article</h3>
         </div>
         <Article {...props.latest[0]} />
       </Main>

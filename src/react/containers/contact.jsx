@@ -14,14 +14,14 @@ const Container = (props) => {
       <Main>
         <Nav />
         <Heading title={`Contact`} />
-        <h3 className='Cursive'>Here to help</h3>
-        <p className='Large'>Need help with your website?</p>
-        <p className='Large'>
-          <a href='mailto:hi@dbushell.com'>
+        <h3 className="Cursive">Here to help</h3>
+        <p className="Large">Need help with your website?</p>
+        <p className="Large">
+          <a href="mailto:hi@dbushell.com">
             <b>hi@dbushell.com</b>
           </a>
         </p>
-        <div id='contact-form'>
+        <div id="contact-form">
           <ContactForm />
         </div>
       </Main>

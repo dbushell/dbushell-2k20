@@ -13,7 +13,7 @@ const Pagination = (props) => {
     return null;
   }
   return (
-    <div className='Pagination'>
+    <div className="Pagination">
       {props.prev && <Button href={props.prev}>Previous</Button>}
       {props.next && <Button href={props.next}>Next</Button>}
     </div>
