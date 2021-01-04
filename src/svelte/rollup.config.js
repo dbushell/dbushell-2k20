@@ -15,7 +15,9 @@ export default {
   },
   plugins: [
     svelte({
-      dev: isDev
+      compilerOptions: {
+        dev: isDev
+      }
     }),
     resolve({
       browser: true,
