@@ -1,7 +1,8 @@
 .Image {
   max-width: none;
 
-  img {
+  img,
+  video {
     display: block;
     background-color: rgbvar(--db-black, 0.2);
     border-radius: rem(3);
