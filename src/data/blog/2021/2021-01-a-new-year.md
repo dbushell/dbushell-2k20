@@ -6,10 +6,11 @@ description: 'The one where I try to stay positive for 2021 💪😷'
 ---
 
 <p class="Image">
-  <video autoplay loop muted playsinline preload="auto" width="556" height="316">
+  <video autoplay loop muted playsinline preload="auto" width="556" height="316" poster="/images/blog/2021/zooming.jpg">
     <source src="/images/blog/2021/zooming.mp4" type="video/mp4">
   </video>
 </p>
+
 
 2020 started on a positive note for me. [I blogged again](/2020/01/10/blogging-in-2020/) after a yearlong hiatus. I guess I'd lost my web mojo in 2019. Too much Twitter can have that effect.
 
