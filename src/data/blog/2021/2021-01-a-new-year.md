@@ -1,5 +1,5 @@
 ---
-date: 2021-10-05 10:00:00+00:00
+date: 2021-01-05 10:00:00+00:00
 slug: 2020-in-review
 title: '2020 in Review'
 description: 'The one where I try to stay positive for 2021 💪😷'

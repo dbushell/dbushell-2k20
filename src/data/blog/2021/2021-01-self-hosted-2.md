@@ -1,5 +1,5 @@
 ---
-date: 2021-10-11 10:00:00+00:00
+date: 2021-01-11 10:00:00+00:00
 slug: self-hosted-raspberry-pi-docker
 title: 'Self Hosted (part 2)'
 description: 'The one where I expand my Raspberry Pi collection 🍓'
