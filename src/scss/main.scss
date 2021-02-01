@@ -43,6 +43,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.translated-rtl {
+  direction: rtl;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
