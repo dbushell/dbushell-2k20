@@ -31,14 +31,17 @@
 
     & > figure {
       float: right;
-      float: inline-end;
       shape-outside: circle(50%);
+
+      [dir='rtl'] & {
+        float: left;
+      }
     }
   }
+}
 
-  @supports not (float: inline-end) {
-    [dir='rtl'] .Bio > figure {
-      float: left;
-    }
+@supports (shape-outside: circle(50%)) and (float: inline-end) {
+  .Bio > figure {
+    float: inline-end !important;
   }
 }
