@@ -61,7 +61,6 @@
 
       &:nth-child(2) {
         bottom: calc(100% + #{rem(9)});
-        left: rem(-9);
         position: absolute;
         transform: none;
       }

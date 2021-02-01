@@ -154,9 +154,10 @@ p {
 }
 
 blockquote {
-  margin: rem(36) 0 rem(36) rem(18);
-  padding-left: rem(18);
-  border-left: rem(1) solid rgbvar(--color-tertiary);
+  margin: rem(36) 0;
+  margin-inline-start: rem(18);
+  padding-inline-start: rem(18);
+  border-inline-start: rem(1) solid rgbvar(--color-tertiary);
 
   p {
     font-style: italic;

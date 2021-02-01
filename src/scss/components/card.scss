@@ -16,12 +16,8 @@
     & > * {
       margin: 0;
 
-      &:first-child {
-        margin: 0 rem(18) 0 0;
-      }
-
-      &:only-child {
-        margin-right: 0;
+      &:first-child:not(:only-child) {
+        margin-inline-end: rem(18);
       }
     }
   }

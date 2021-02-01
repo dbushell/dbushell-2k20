@@ -2,7 +2,8 @@
   --social-color: #{rgbvar(--color-background)};
   align-items: center;
   display: flex;
-  margin: rem(18) rem(-4.5) 0 0;
+  margin-top: rem(18);
+  margin-inline-end: rem(-4.5);
 
   svg {
     border-radius: rem(5);
@@ -15,7 +16,7 @@
   }
 
   .Button {
-    margin-right: auto;
+    margin-inline-end: auto;
     white-space: nowrap;
   }
 

@@ -10,7 +10,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: rem(16) auto;
-    margin-left: rem(-36);
+    margin-inline-start: rem(-36);
     position: absolute;
     width: rem(36);
   }
@@ -23,7 +23,7 @@
     &:before {
       background-size: rem(12) auto;
       background-position: center center;
-      margin-left: rem(-27);
+      margin-inline-start: rem(-27);
       width: rem(27);
     }
   }

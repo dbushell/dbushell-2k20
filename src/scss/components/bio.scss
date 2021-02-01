@@ -10,7 +10,8 @@
 
   figure {
     flex: 0 0 rem(80);
-    margin: 0 0 rem(9) rem(18);
+    margin: 0 0 rem(9) 0;
+    margin-inline-start: rem(18);
     order: 2;
   }
 
@@ -30,7 +31,14 @@
 
     & > figure {
       float: right;
+      float: inline-end;
       shape-outside: circle(50%);
+    }
+  }
+
+  @supports not (float: inline-end) {
+    [dir='rtl'] .Bio > figure {
+      float: left;
     }
   }
 }
