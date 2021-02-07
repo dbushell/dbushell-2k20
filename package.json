@@ -11,7 +11,8 @@
     "build-svelte:dev": "NODE_ENV=development FRAMEWORK=svelte npx babel-node src/build.js && NODE_ENV=development npm run rollup",
     "build-svelte:prod": "NODE_ENV=production FRAMEWORK=svelte npx babel-node src/build.js && NODE_ENV=production npm run rollup",
     "build:dev": "npm run build-svelte:dev",
-    "build:prod": "npm run build-svelte:prod"
+    "build:prod": "npm run build-svelte:prod",
+    "serve": "http-server ./public/ -a dbushell.localhost"
   },
   "author": "David Bushell <david@dbushell.com>",
   "license": "UNLICENSED",
