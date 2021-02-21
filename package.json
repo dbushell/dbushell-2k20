@@ -13,7 +13,7 @@
   },
   "author": "David Bushell <david@dbushell.com>",
   "license": "UNLICENSED",
-  "devDependencies": {
+  "dependencies": {
     "@rollup/plugin-node-resolve": "^11.2.0",
     "csso": "^4.2.0",
     "front-matter": "^4.0.2",
