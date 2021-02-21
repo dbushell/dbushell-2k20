@@ -1,10 +1,13 @@
-import svelte from 'svelte/register';
+import {createRequire} from 'module';
+const require = createRequire(import.meta.url);
 
-import Archive from './svelte/containers/archive.svelte';
-import Article from './svelte/containers/article.svelte';
-import Contact from './svelte/containers/contact.svelte';
-import Home from './svelte/containers/home.svelte';
-import Page from './svelte/containers/page.svelte';
+require('svelte/register');
+
+const Archive = require('./svelte/containers/archive.svelte');
+const Article = require('./svelte/containers/article.svelte');
+const Contact = require('./svelte/containers/contact.svelte');
+const Home = require('./svelte/containers/home.svelte');
+const Page = require('./svelte/containers/page.svelte');
 
 export const renderArchive = (props) => {
   return Archive.default.render(props).html;

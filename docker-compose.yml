@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  data:
+
+networks:
+  traefik:
+    external: true
+
+services:
+  dbushell:
+    image: ghcr.io/dbushell/ubuntu
+    command: >-
+      zsh -c "npm install --no-save
+      && npm run build:dev
+      && npm start"
+    networks:
+      - traefik
+    volumes:
+      - data:/home/user
+      - ./src:/home/user/src:ro
+      - ./public:/home/user/public
+      - ./package.json:/home/user/package.json
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dbushell.rule=Host(`dbushell.localhost`)"
+      - "traefik.http.services.dbushell.loadbalancer.server.port=8080"

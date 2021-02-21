@@ -5,25 +5,29 @@ import frontMatter from 'front-matter';
 import striptags from 'striptags';
 import moment from 'moment';
 import marked from 'marked';
-import * as helpers from 'marked/src/helpers';
+import * as helpers from 'marked/src/helpers.js';
 import Prism from 'prismjs';
-import loadLanguages from 'prismjs/components/index';
+import loadLanguages from 'prismjs/components/index.js';
 import 'prism-svelte';
 import sass from 'node-sass';
 import magicImporter from 'node-sass-magic-importer';
 import csso from 'csso';
+import readPkg from 'read-pkg';
 
-import pkg from '../package.json';
-import * as renderReact from './build-react.js';
+const {FRAMEWORK = 'svelte', NODE_ENV = 'development'} = process.env;
+
+const moduleURL = new URL(import.meta.url);
+const __dirname = path.dirname(moduleURL.pathname);
+
+const pkg = await readPkg('../package.json');
+
+// import * as renderReact from './build-react.js';
 import * as renderSvelte from './build-svelte.js';
-
-const {FRAMEWORK, NODE_ENV} = process.env;
-
 let render;
-if (FRAMEWORK === 'react') {
-  render = renderReact;
-  console.log(`Build framework: React`);
-}
+// if (FRAMEWORK === 'react') {
+//   render = renderReact;
+//   console.log(`Build framework: React`);
+// }
 if (FRAMEWORK === 'svelte') {
   render = renderSvelte;
   console.log(`Build framework: Svelte`);

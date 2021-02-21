@@ -2,7 +2,7 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
 
-const {NODE_ENV} = process.env;
+const {NODE_ENV = 'development'} = process.env;
 
 const isDev = NODE_ENV === 'development';
 const isProd = !isDev;
