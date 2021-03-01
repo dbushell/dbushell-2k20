@@ -18,6 +18,30 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway-variable.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 1 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway-italic-variable.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 1 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/fonts/comicneue-bolditalic.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
+  font-style: italic;
+}
+
 @import 'src/scss/includes/utopia.scss';
 
 :root {
@@ -240,7 +264,7 @@ h3 {
 .Comic {
   font-family: 'Komika', 'Raleway', sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
 
   .Hyphen {
     display: inline-block;
@@ -253,7 +277,7 @@ h3 {
   color: rgbvar(--color-secondary2);
   font-family: 'Comic Neue', 'Raleway', sans-serif;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: rem(-0.5);
 }
 
