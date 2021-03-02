@@ -5,7 +5,7 @@ const Time = (props) => {
   return (
     <p>
       <time className="Time" dateTime={props.ISO} title={props.ISO}>
-        {props.dddd} {props.D} <Month /> {props.Y}
+        {props.dddd} {props.D} <Month /> {props.YYYY}
       </time>
     </p>
   );

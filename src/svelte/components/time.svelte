@@ -4,7 +4,7 @@
   export let ISO;
   export let MMMM;
   export let MMM;
-  export let Y;
+  export let YYYY;
 </script>
 
 <p>
@@ -12,6 +12,6 @@
     {dddd}
     {D}
     <abbr title={MMMM}>{MMM}</abbr>
-    {Y}
+    {YYYY}
   </time>
 </p>

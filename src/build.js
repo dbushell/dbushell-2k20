@@ -3,7 +3,6 @@ import fs from 'fs-extra';
 import crypto from 'crypto';
 import frontMatter from 'front-matter';
 import striptags from 'striptags';
-import moment from 'moment';
 import marked from 'marked';
 import * as helpers from 'marked/src/helpers.js';
 import Prism from 'prismjs';
@@ -13,7 +12,7 @@ import sass from 'node-sass';
 import magicImporter from 'node-sass-magic-importer';
 import csso from 'csso';
 import readPkg from 'read-pkg';
-
+import {formatDate} from './library/i18n.js';
 const {FRAMEWORK = 'svelte', NODE_ENV = 'development'} = process.env;
 
 const moduleURL = new URL(import.meta.url);
@@ -49,8 +48,6 @@ if (NODE_ENV !== 'development') {
   css = csso.minify(css.toString()).css;
 }
 const cssHash = crypto.createHash('sha256').update(css).digest('base64');
-
-const rssDate = `ddd, DD MMM YYYY HH:mm:ss ZZ`;
 
 const rssTemplate = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
@@ -214,22 +211,14 @@ function propsFromMatter(matter) {
   props.href = `/${matter.attributes.slug}/`;
 
   if ('date' in matter.attributes) {
-    const date = moment(matter.attributes.date);
+    const date = new Date(matter.attributes.date);
     props.unix = date.valueOf();
-    props.date = {
-      D: date.format('D'),
-      dddd: date.format('dddd'),
-      MMM: date.format('MMM'),
-      MMMM: date.format('MMMM'),
-      Y: date.format('Y'),
-      ISO: date.toISOString(),
-      RSS: date.format(rssDate)
-    };
+    props.date = formatDate(date);
     props.href = path.join(
       '/',
-      date.format('Y'),
-      date.format('MM'),
-      date.format('DD'),
+      props.date.YYYY.toString(),
+      props.date.MM.toString(),
+      props.date.DD.toString(),
       matter.attributes.slug,
       '/'
     );
@@ -274,7 +263,7 @@ async function build() {
   const latest = articles.slice(0, 7);
 
   const rssXML = rssTemplate
-    .replace(`{{lastBuildDate}}`, moment().format(rssDate))
+    .replace(`{{lastBuildDate}}`, formatDate().RSS)
     .replace(
       `{{entries}}`,
       articles
