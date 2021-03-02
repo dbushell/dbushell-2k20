@@ -3,13 +3,13 @@ const require = createRequire(import.meta.url);
 
 require('svelte/register');
 
-const Archive = require('./svelte/containers/archive.svelte');
-const Article = require('./svelte/containers/article.svelte');
-const Contact = require('./svelte/containers/contact.svelte');
-const Home = require('./svelte/containers/home.svelte');
-const Page = require('./svelte/containers/page.svelte');
-const RSS = require('./svelte/containers/rss.svelte');
-const Sitemap = require('./svelte/containers/sitemap.svelte');
+const Archive = require('../svelte/containers/archive.svelte');
+const Article = require('../svelte/containers/article.svelte');
+const Contact = require('../svelte/containers/contact.svelte');
+const Home = require('../svelte/containers/home.svelte');
+const Page = require('../svelte/containers/page.svelte');
+const RSS = require('../svelte/containers/rss.svelte');
+const Sitemap = require('../svelte/containers/sitemap.svelte');
 
 export const renderArchive = (props) => {
   return Archive.default.render(props).html;

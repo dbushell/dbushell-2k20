@@ -18,7 +18,6 @@ const getMatter = (file) => {
         return resolve();
       }
       const matter = frontMatter(data);
-      matter.__path = file;
       resolve(matter);
     });
   });
@@ -85,8 +84,6 @@ const propsFromMatter = (matter) => {
       '/'
     );
   }
-
-  props.__path = matter.__path;
 
   return props;
 };
