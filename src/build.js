@@ -49,31 +49,6 @@ if (NODE_ENV !== 'development') {
 }
 const cssHash = crypto.createHash('sha256').update(css).digest('base64');
 
-const rssTemplate = `<?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-  <channel>
-    <title><![CDATA[dbushell.com]]></title>
-    <description><![CDATA[David Bushell’s Web Design & Front-end Development Blog]]></description>
-    <link>https://dbushell.com</link>
-    <generator>dbushell.com</generator>
-    <lastBuildDate>{{lastBuildDate}}</lastBuildDate>
-    <atom:link href="https://dbushell.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <author><![CDATA[David Bushell]]></author>
-    <language><![CDATA[en]]></language>
-    <webMaster><![CDATA[hi@dbushell.com (David Bushell)]]></webMaster>
-{{entries}}</channel>
-</rss>
-`;
-
-const rssEntry = `<item>
-<title><![CDATA[{{title}}]]></title>
-<description><![CDATA[<p>{{description}}</p>]]></description>
-<link>https://dbushell.com{{link}}</link>
-<guid isPermaLink="true">https://dbushell.com{{link}}</guid>
-<dc:creator><![CDATA[David Bushell]]></dc:creator>
-<pubDate>{{pubDate}}</pubDate>
-</item>`;
-
 const sitemapTemplate = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {{entries}}
@@ -262,24 +237,15 @@ async function build() {
   articles.sort((a, b) => (a.unix < b.unix ? 1 : -1));
   const latest = articles.slice(0, 7);
 
-  const rssXML = rssTemplate
-    .replace(`{{lastBuildDate}}`, formatDate().RSS)
-    .replace(
-      `{{entries}}`,
-      articles
-        .slice(0, 20)
-        .map((entry) => {
-          let entryXML = rssEntry;
-          entryXML = entryXML.replace(`{{title}}`, entry.title);
-          entryXML = entryXML.replace(`{{description}}`, entry.excerpt);
-          entryXML = entryXML.replace(/{{link}}/g, entry.href);
-          entryXML = entryXML.replace(`{{pubDate}}`, entry.date.RSS);
-
-          return entryXML;
-        })
-        .join(`\n`)
-    );
-
+  const rssXML = renderSvelte.renderRSS({
+    lastBuildDate: formatDate().RSS,
+    entries: articles.slice(0, 20).map((entry) => ({
+      title: entry.title,
+      description: entry.excerpt,
+      link: entry.href,
+      pubDate: entry.date.RSS
+    }))
+  });
   fs.outputFileSync(path.resolve(publicPath, 'rss.xml'), rssXML);
   console.log(`Published RSS feed`);
 
