@@ -9,7 +9,9 @@ networks:
 
 services:
   dbushell:
+    container_name: dbushell
     image: ghcr.io/dbushell/ubuntu
+    restart: unless-stopped
     command: >-
       zsh -c "npm install --no-save
       && npm run build:dev
