@@ -9,6 +9,7 @@ const Contact = require('./svelte/containers/contact.svelte');
 const Home = require('./svelte/containers/home.svelte');
 const Page = require('./svelte/containers/page.svelte');
 const RSS = require('./svelte/containers/rss.svelte');
+const Sitemap = require('./svelte/containers/sitemap.svelte');
 
 export const renderArchive = (props) => {
   return Archive.default.render(props).html;
@@ -32,4 +33,8 @@ export const renderPage = (props) => {
 
 export const renderRSS = (props) => {
   return RSS.default.render(props).html;
+};
+
+export const renderSitemap = (props) => {
+  return Sitemap.default.render(props).html;
 };

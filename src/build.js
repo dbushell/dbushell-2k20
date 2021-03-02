@@ -13,24 +13,15 @@ import magicImporter from 'node-sass-magic-importer';
 import csso from 'csso';
 import readPkg from 'read-pkg';
 import {formatDate} from './library/i18n.js';
-const {FRAMEWORK = 'svelte', NODE_ENV = 'development'} = process.env;
+
+const {NODE_ENV = 'development'} = process.env;
 
 const moduleURL = new URL(import.meta.url);
 const __dirname = path.dirname(moduleURL.pathname);
 
 const pkg = await readPkg('../package.json');
 
-// import * as renderReact from './build-react.js';
-import * as renderSvelte from './build-svelte.js';
-let render;
-// if (FRAMEWORK === 'react') {
-//   render = renderReact;
-//   console.log(`Build framework: React`);
-// }
-if (FRAMEWORK === 'svelte') {
-  render = renderSvelte;
-  console.log(`Build framework: Svelte`);
-}
+import * as render from './build-svelte.js';
 
 const publicPath = path.resolve(__dirname, `../public`);
 
@@ -48,19 +39,6 @@ if (NODE_ENV !== 'development') {
   css = csso.minify(css.toString()).css;
 }
 const cssHash = crypto.createHash('sha256').update(css).digest('base64');
-
-const sitemapTemplate = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{{entries}}
-</urlset>
-`;
-
-const sitemapEntry = `<url>
-  <loc>https://dbushell.com{{loc}}</loc>
-  <lastmod>{{lastmod}}</lastmod>
-  <changefreq>{{changefreq}}</changefreq>
-  <priority>{{priority}}</priority>
-</url>`;
 
 marked.setOptions({
   smartypants: true,
@@ -237,7 +215,7 @@ async function build() {
   articles.sort((a, b) => (a.unix < b.unix ? 1 : -1));
   const latest = articles.slice(0, 7);
 
-  const rssXML = renderSvelte.renderRSS({
+  const rssXML = render.renderRSS({
     lastBuildDate: formatDate().RSS,
     entries: articles.slice(0, 20).map((entry) => ({
       title: entry.title,
@@ -338,19 +316,7 @@ async function build() {
     lastmod: new Date().toISOString()
   });
 
-  const sitemapXML = sitemapTemplate.replace(
-    `{{entries}}`,
-    sitemap
-      .map((entry) => {
-        let entryXML = sitemapEntry;
-        // Object.keys(entry)
-        for (let [key, value] of Object.entries(entry)) {
-          entryXML = entryXML.replace(`{{${key}}}`, value);
-        }
-        return entryXML;
-      })
-      .join(`\n`)
-  );
+  const sitemapXML = render.renderSitemap({entries: sitemap});
 
   fs.outputFileSync(path.resolve(publicPath, 'sitemap.xml'), sitemapXML);
   console.log(`Published sitemap`);
