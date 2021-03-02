@@ -2,8 +2,6 @@
 slug: process-and-strategy
 title: 'Process & Strategy'
 ---
-
----
 <p class="Image Image--basic">
   <img
     src="/images/pages/process-and-strategy.png"
