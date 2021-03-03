@@ -70,7 +70,7 @@ const formatDate = (now = new Date()) => {
   // ddd, DD MMM YYYY HH:mm:ss ZZ
   // Mon, 01 Mar 2021 10:00:00 +0000
   date.RSS = `${date.ddd}, ${date.DD} ${date.MMM} ${date.YYYY}`;
-  date.RSS += ' 10:00:00 +0000';
+  date.RSS += ' 10:00:00 GMT';
   return date;
 };
 

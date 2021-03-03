@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import renderRSS from './library/rss.js';
+import renderSitemap from './library/sitemap.js';
 import {css, cssHash} from './library/css.js';
-import {formatDate} from './library/i18n.js';
 import {getAllMatter, propsFromMatter} from './library/matter.js';
 import * as render from './library/svelte.js';
 
@@ -56,17 +57,7 @@ articles.sort((a, b) => (a.unix < b.unix ? 1 : -1));
 const latest = articles.slice(0, 7);
 const sitemap = [];
 
-// Build RSS feed
-const rssXML = render.renderRSS({
-  lastBuildDate: formatDate().RSS,
-  entries: articles.slice(0, 20).map((entry) => ({
-    title: entry.title,
-    description: entry.excerpt,
-    link: entry.href,
-    pubDate: entry.date.RSS
-  }))
-});
-await writeFile(path.resolve(__public, 'rss.xml'), rssXML);
+await writeFile(path.resolve(__public, 'rss.xml'), renderRSS(articles));
 console.log(`⚡ RSS Feed`);
 
 // Build blog articles
@@ -154,7 +145,7 @@ sitemap.unshift({
   lastmod: new Date().toISOString()
 });
 
-const sitemapXML = render.renderSitemap({entries: sitemap});
+const sitemapXML = renderSitemap(sitemap);
 await writeFile(path.resolve(__public, 'sitemap.xml'), sitemapXML);
 console.log(`⚓ Sitemap`);
 

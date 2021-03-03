@@ -1,23 +1,45 @@
 import fs from 'fs';
 import path from 'path';
-import frontMatter from 'front-matter';
 import striptags from 'striptags';
 import markdown from './markdown.js';
-import {formatDate} from './i18n.js';
+import {formatDate} from './datetime.js';
 
 /**
  * Return JSON data from YML front-matter for file.
  */
 const getMatter = (file) => {
   return new Promise((resolve, reject) => {
-    fs.readFile(file, 'utf8', (err, data) => {
+    fs.readFile(file, (err, body) => {
       if (err) {
         return reject(err.toString());
       }
-      if (!frontMatter.test(data)) {
-        return resolve();
+      const matter = {
+        body: body.toString().trim(),
+        attributes: {},
+        front: []
+      };
+      const match = matter.body.match(
+        /([\s\n]*-{3,}[\s\n]+)(?<front>.+?)([\s\n]+-{3,}[\s\n]+)(?<body>.*)/s
+      );
+      if (match) {
+        matter.front = match.groups.front.trim().split('\n');
+        matter.body = match.groups.body.trim();
       }
-      const matter = frontMatter(data);
+      if (!matter.front.length) {
+        console.log(`⚠️ Missing front: ${file}`);
+      }
+      matter.front.forEach((attr) => {
+        const i = attr.indexOf(':');
+        const key = attr.slice(0, i).trim();
+        const value = attr.slice(i + 1).trim();
+        matter.attributes[key] = value.replace(/^['"]+|['"]+$/g, '');
+      });
+      if (!('slug' in matter.attributes)) {
+        console.log(`⚠️ Missing slug: ${file}`);
+      }
+      if (!('title' in matter.attributes)) {
+        console.log(`⚠️ Missing title: ${file}`);
+      }
       resolve(matter);
     });
   });
@@ -68,6 +90,7 @@ const propsFromMatter = (matter) => {
   if (words.length >= 55) {
     props.excerpt = `${words.slice(0, 55).join(' ')} […]`;
   }
+  props.excerpt = props.excerpt.trim();
 
   props.href = `/${matter.attributes.slug}/`;
 
