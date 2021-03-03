@@ -162,18 +162,7 @@ That's all there is too it. A relatively tidy set of styles that can be tweaked 
 
 I've set up a [CodePen demo](https://codepen.io/dbushell/pen/5bb1dddad83514f8a9a8ed8e39f8a8a7) for this code.
 
-<div class="Embed Embed--codepen">
-<p class="codepen" data-height="454" data-theme-id="39330" data-default-tab="css,result" data-user="dbushell" data-slug-hash="5bb1dddad83514f8a9a8ed8e39f8a8a7" style="height: 454px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="WP Gutenberg Columns">
-  <span>See the Pen <a href="https://codepen.io/dbushell/pen/5bb1dddad83514f8a9a8ed8e39f8a8a7">
-  WP Gutenberg Columns</a> by David Bushell (<a href="https://codepen.io/dbushell">@dbushell</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-</div>
-
-Works ok, right?
-
-I'd be interested in feedback and other ideas [@dbushell](https://twitter.com/dbushell).
+Works ok, right? I'd be interested in feedback and other ideas [@dbushell](https://twitter.com/dbushell).
 
 ## Considerations
 

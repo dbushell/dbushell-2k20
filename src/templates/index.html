@@ -23,18 +23,7 @@
 <meta name="twitter:image" content="https://dbushell.com/assets/icons/512x512.png">
 <link rel="alternate" type="application/rss+xml" title="dbushell.com RSS Feed" href="https://dbushell.com/rss.xml">
 <style type="text/css" data-hash="{{cssHash}}">{{css}}</style>
-<script>
-const $doc = document.documentElement;
-$doc.classList.remove('Noscript');
-const darkmode = localStorage.getItem('darkmode');
-if (
-  darkmode === 'on'/* || (darkmode !== 'off' &&
-  matchMedia('screen and (prefers-color-scheme: dark)').matches)*/
-) {
-  $doc.classList.remove('Lightmode');
-  $doc.classList.add('Darkmode');
-}
-</script>
+<script data-hash="{{headHash}}">{{head}}</script>
 </head>
 <body class="Body">
 <div class="App">{{render}}</div>

@@ -11,9 +11,6 @@ Four years ago I shared [an idea](/2012/01/05/responsive-tables-2/) to make tabu
 
 [See the full demo on CodePen](http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/)
 
-<span data-height="268" data-theme-id="0" data-slug-hash="8e6a1ee85418f3c5abe839647dbcdec5" data-default-tab="result" data-user="dbushell" class="codepen"></span>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
 Here's what basic overflow looks like:
 
 ![Basic overflow responsive table](/images/blog/2016/responsive-table.png)

@@ -28,11 +28,3 @@ The worst thing about either framework are its users. By that I mean such tools 
 So when it comes to asking "React or Vue?" — that's more of a people question; less of a technology one.
 
 Given my years with React vs days with Vue, I'll not be jumping ship. However, should a project demand Vue I'd be happy use it.
-
-<style>
-.b-post [src$="vuejs-logo.png"] {
-  background: #fff;
-  padding: 0 1.5rem;
-  width: 300px;
-}
-</style>

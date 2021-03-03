@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import renderRSS from './library/rss.js';
 import renderSitemap from './library/sitemap.js';
 import {css, cssHash} from './library/css.js';
@@ -11,6 +12,9 @@ const __public = path.resolve(__dirname, '../public');
 
 let pkg = fs.readFileSync(path.resolve(__dirname, '../package.json'));
 pkg = JSON.parse(pkg);
+
+let head = fs.readFileSync(path.resolve(__dirname, `./svelte/head.js`));
+const headHash = crypto.createHash('sha256').update(head).digest('base64');
 
 const HTML = fs
   .readFileSync(path.resolve(__dirname, `./templates/index.html`))
@@ -39,6 +43,8 @@ const writePage = async (file, props) => {
   let html = HTML;
   html = html.replace(/{{cssHash}}/, cssHash);
   html = html.replace(/{{css}}/, css);
+  html = html.replace(/{{headHash}}/, headHash);
+  html = html.replace(/{{head}}/, head);
   html = html.replace(/{{title}}/g, title);
   html = html.replace(/{{description}}/g, description);
   html = html.replace(/{{version}}/g, pkg.version);
@@ -59,6 +65,20 @@ const sitemap = [];
 
 await writeFile(path.resolve(__public, 'rss.xml'), renderRSS(articles));
 console.log(`⚡ RSS Feed`);
+
+// Update Netlify CSP headers
+const tomlPath = path.resolve(__dirname, `../netlify.toml`);
+let toml = fs.readFileSync(tomlPath).toString();
+toml = toml.replace(
+  /style-src 'self' 'sha256-[^']+?'/g,
+  `style-src 'self' 'sha256-${cssHash}'`
+);
+toml = toml.replace(
+  /script-src 'self' 'sha256-[^']+?'/g,
+  `script-src 'self' 'sha256-${headHash}'`
+);
+await writeFile(tomlPath, toml);
+console.log(`🔑 Netlify CSP`);
 
 // Build blog articles
 articles.forEach((props) => {

@@ -17,7 +17,8 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "frame-ancestors 'none'"
+    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://*.eu-west-1.amazonaws.com; img-src 'self' data:; script-src 'self' 'sha256-CTGifSILACIBZiHQWNvPwazIcE0JmTtquHurH2ee+m4='; style-src 'self' 'sha256-4z/XaM83SL6EZqti6ph/ISXxV84POgJnlsWmQJesfbg=' 'sha256-XrKcNZy1uCtwrhydUGyFDLAyZlDk6UdePGVIuffI6T0=';"
+    Referrer-Policy = "same-origin"
 
 [[redirects]]
   from = "/demos/*"
@@ -36,13 +37,3 @@
   to = "https://pikaday.com/:splat"
   status = 301
   force = false
-
-[[redirects]]
-  from = "/2021/10/05/2020-in-review/"
-  to = "/2021/01/05/2020-in-review/"
-  status = 301
-
-[[redirects]]
-  from = "/2021/10/11/self-hosted-raspberry-pi-docker/"
-  to = "/2021/01/11/self-hosted-raspberry-pi-docker/"
-  status = 301
