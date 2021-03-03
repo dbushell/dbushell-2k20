@@ -134,10 +134,10 @@ a {
       color: rgbvar(--color-primary2);
     }
   }
+}
 
-  .List &,
-  .Prose &,
-  .Star & {
+:is(.List, .Prose, .Star) a {
+  &:not([class]) {
     background-image: linear-gradient(
       to right,
       rgba(var(--color-primary), 0.2),
