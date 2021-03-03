@@ -3,7 +3,7 @@
 .Prose ul:not([class*='List']) li {
   position: relative;
 
-  &:before {
+  &::before {
     content: '•';
     color: transparent;
     background-image: var(--star);
@@ -20,7 +20,7 @@
   .Star,
   .List li,
   .Prose ul:not([class*='List']) li {
-    &:before {
+    &::before {
       background-size: rem(12) auto;
       background-position: center center;
       margin-inline-start: rem(-27);

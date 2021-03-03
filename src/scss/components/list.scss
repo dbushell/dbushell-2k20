@@ -36,7 +36,7 @@
   list-style: none outside;
 
   & > li {
-    &:before {
+    &::before {
       background: none;
       content: counter(ol-counter) '.';
       counter-increment: ol-counter;
@@ -52,7 +52,7 @@
       width: rem(36);
     }
 
-    &:nth-child(1n + 10):before {
+    &:nth-child(1n + 10)::before {
       font-size: 70%;
     }
   }
@@ -62,7 +62,7 @@
   .List--ordered,
   .Prose ol:not([class]) {
     & > li {
-      &:before {
+      &::before {
         font-size: var(--step-s);
         margin-left: rem(-27);
         padding-right: rem(5);
@@ -107,7 +107,7 @@
     margin: 0;
     max-width: max-content;
 
-    &:before {
+    &::before {
       display: none;
     }
 

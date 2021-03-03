@@ -1,15 +1,17 @@
 .Masthead {
   position: relative;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     width: 100%;
     padding-bottom: 50%;
   }
 
-  &:after {
+  &::after {
     background: rgbvar(--masthead-primary);
+    background-image: url('/assets/img/masthead-pattern.svg');
+    background-size: rem(300) auto;
     border-radius: 100%;
     content: '';
     display: block;
@@ -41,7 +43,7 @@
 
 @media screen and (max-width: rem(399)) {
   .Masthead {
-    &:after {
+    &::after {
       height: 150%;
       width: 125%;
     }

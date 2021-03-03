@@ -6,7 +6,7 @@
   li {
     margin-bottom: rem(36);
 
-    &:before {
+    &::before {
       display: none;
     }
   }
@@ -30,8 +30,8 @@
     padding-left: rem(36);
     position: relative;
 
-    &:after,
-    &:before {
+    &::after,
+    &::before {
       background: rgbvar(--color-background2);
       border: rem(2) solid rgbvar(--color-quaternary);
       border-top: 0;
@@ -51,7 +51,7 @@
       width: rem(20);
     }
 
-    &:after {
+    &::after {
       background: var(--check) center center no-repeat;
       background-size: 60% auto;
       box-shadow: none;
@@ -60,13 +60,13 @@
     }
   }
 
-  &:focus + span:before {
+  &:focus + span::before {
     outline: var(--outline);
     outline-offset: rem(4);
   }
 
   &:checked + span {
-    &:after {
+    &::after {
       opacity: 1;
     }
   }
