@@ -109,21 +109,18 @@ a {
   text-decoration-skip-ink: all;
   text-decoration-color: rgbvar(--color-primary, 0.5);
   text-underline-offset: 15%;
-  transition: color 200ms, background 200ms, text-underline-offset 200ms,
+  transition: color 200ms, background 200ms, text-decoration-color 200ms,
     text-decoration 200ms;
 
   &:hover {
     color: rgbvar(--color-tertiary);
-    text-decoration-thickness: 15%;
-    text-decoration-skip-ink: none;
-    text-decoration-color: rgbvar(--color-primary, 0.1);
-    text-underline-offset: 10%;
+    text-decoration-color: rgbvar(--color-primary, 0);
   }
 
   &:focus {
-    text-decoration-color: rgbvar(--color-primary, 0.1);
     outline: var(--outline);
     outline-offset: rem(2);
+    text-decoration-color: rgbvar(--color-primary, 0);
   }
 
   &:active {
@@ -135,6 +132,24 @@ a {
   p:not([class]) > & {
     &:not(:hover) {
       color: rgbvar(--color-primary2);
+    }
+  }
+
+  .List &,
+  .Prose &,
+  .Star & {
+    background-image: linear-gradient(
+      to right,
+      rgba(var(--color-primary), 0.2),
+      rgba(var(--color-primary), 0.2)
+    );
+    background-position: bottom 5% center;
+    background-repeat: no-repeat;
+    background-size: 100% 0;
+
+    &:hover {
+      background-position: bottom center;
+      background-size: 100% 20%;
     }
   }
 }

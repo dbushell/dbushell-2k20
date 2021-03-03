@@ -15,13 +15,15 @@
   <Main>
     <Nav />
     <Heading title={`Contact`} />
-    <h3 class="Cursive">Here to help</h3>
-    <p class="Large">Need help with your website?</p>
-    <p class="Large">
-      <a href="mailto:hi@dbushell.com"><b>hi@dbushell.com</b></a>
-    </p>
-    <div id="contact-form">
-      <Contact />
+    <div class="Prose">
+      <h3 class="Cursive">Here to help</h3>
+      <p class="Large">Need help with your website?</p>
+      <p class="Large">
+        <a href="mailto:hi@dbushell.com"><b>hi@dbushell.com</b></a>
+      </p>
+      <div id="contact-form">
+        <Contact />
+      </div>
     </div>
   </Main>
   <Aside articles={latest} />
