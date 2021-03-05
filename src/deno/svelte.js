@@ -9,9 +9,6 @@ const pwd = path.dirname(new URL(import.meta.url).pathname);
 
 const cacheDir = `${pwd}/.svelte`;
 
-const dynamic = async (modPath) =>
-  await import(modPath).then((mod) => mod.default);
-
 const compileSvelte = async (path) => {
   let src = await Deno.readFile(path);
   src = decoder.decode(src);
