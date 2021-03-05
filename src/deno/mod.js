@@ -4,15 +4,12 @@ import Svelte from './svelte.js';
 
 const start = new Date();
 
-const decoder = new TextDecoder('utf-8');
-// const encoder = new TextEncoder('utf-8');
-
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 
 const [css, cssHash] = await CSS(`${pwd}/../scss/main.scss`);
 
-let HTML = await Deno.readFile(`${pwd}/../templates/index.html`);
-HTML = decoder.decode(HTML);
+let HTML = await Deno.readTextFile(`${pwd}/../templates/index.html`);
+
 
 /**
  * Write template to public directory
@@ -38,7 +35,7 @@ const writePage = async (file, props) => {
   html = html.replace(/{{href}}/g, props.href);
   html = html.replace(/{{render}}/g, props.render);
   // await ensureFile(file);
-  // await Deno.writeFile(file, encoder.encode(html));
+  // await Deno.writeTextFile(file, html);
   console.log(html);
 };
 

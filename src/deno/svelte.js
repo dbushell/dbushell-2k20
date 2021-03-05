@@ -2,16 +2,12 @@ import * as path from 'https://deno.land/std/path/mod.ts';
 import {ensureFile} from 'https://deno.land/std/fs/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
 
-const decoder = new TextDecoder('utf-8');
-const encoder = new TextEncoder('utf-8');
-
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 
 const cacheDir = `${pwd}/.svelte`;
 
 const compileSvelte = async (path) => {
-  let src = await Deno.readFile(path);
-  src = decoder.decode(src);
+  let src = await Deno.readTextFile(path);
   src = svelte.compile(src, {generate: 'ssr'}).js.code;
   src = src.replace(
     'from "svelte/internal";',
@@ -36,8 +32,7 @@ const compileDir = async (dirPath, outDirPath = cacheDir) => {
           let srcOut = `${outDirPath}/${dirName}/${entry.name}.js`;
           const src = await compileSvelte(srcIn);
           await ensureFile(srcOut);
-          await Deno.writeFile(srcOut, encoder.encode(src));
-          // console.log(`✨ ${dirName}/${entry.name}`);
+          await Deno.writeTextFile(srcOut, src);
           resolve();
         })
       );
