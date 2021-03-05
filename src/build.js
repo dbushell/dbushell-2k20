@@ -20,7 +20,7 @@ const generator = `${process.platform}/${process.arch} | node ${
   new Date().toString().split(' GMT')[0]
 }`;
 
-console.log(`🖨️  ${generator}`);
+console.log(`🖨️ ${generator}`);
 
 let head = fs.readFileSync(path.resolve(__dirname, `./svelte/head.js`));
 const headHash = crypto.createHash('sha256').update(head).digest('base64');
@@ -74,7 +74,7 @@ const latest = articles.slice(0, 7);
 const sitemap = [];
 
 await writeFile(path.resolve(__public, 'rss.xml'), renderRSS(articles));
-console.log(`⚡ RSS Feed`);
+console.log(`🔱 RSS Feed`);
 
 // Update Netlify CSP headers
 const tomlPath = path.resolve(__dirname, `../netlify.toml`);

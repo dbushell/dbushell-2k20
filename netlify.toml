@@ -17,6 +17,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+    Strict-Transport-Security = "max-age=31557600"
     Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://*.eu-west-1.amazonaws.com; img-src 'self' data:; script-src 'self' 'sha256-CTGifSILACIBZiHQWNvPwazIcE0JmTtquHurH2ee+m4='; style-src 'self' 'sha256-Eq6udzQeVZJL/VfB7HS/sq/h8eWbBTVYTzbj8pTObq8=' 'sha256-XrKcNZy1uCtwrhydUGyFDLAyZlDk6UdePGVIuffI6T0=';"
     Referrer-Policy = "same-origin"
 
