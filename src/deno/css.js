@@ -4,7 +4,7 @@ import {createHash} from 'https://deno.land/std/hash/mod.ts';
 const decoder = new TextDecoder('utf-8');
 const encoder = new TextEncoder('utf-8');
 
-const processCSS = async (scssPath) => {
+const compile = async (scssPath) => {
   const scssDir = path.dirname(scssPath);
   let css = await Deno.readFile(scssPath);
   css = decoder.decode(css);
@@ -50,4 +50,4 @@ const processCSS = async (scssPath) => {
   return [css, cssHash];
 };
 
-export {processCSS};
+export default compile;
