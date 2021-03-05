@@ -5,6 +5,7 @@ import renderRSS from './library/rss.js';
 import renderSitemap from './library/sitemap.js';
 import {css, cssHash} from './library/css.js';
 import {getAllMatter, propsFromMatter} from './library/matter.js';
+import {modifiedDate} from './library/datetime.js';
 import * as render from './library/svelte.js';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -98,7 +99,7 @@ articles.forEach((props) => {
     loc: props.href,
     changefreq: 'monthly',
     priority: '0.5',
-    lastmod: fs.statSync(file).mtime.toISOString()
+    lastmod: modifiedDate(file)
   });
 });
 console.log(`Published ${articles.length} articles`);
@@ -139,7 +140,7 @@ pages.forEach((props) => {
     loc: props.href,
     changefreq: `monthly`,
     priority: /\/showcase\//.test(props.href) ? `0.7` : `0.8`,
-    lastmod: fs.statSync(file).mtime.toISOString()
+    lastmod: modifiedDate(file)
   });
 });
 console.log(`Published ${pages.length} pages`);
@@ -156,7 +157,7 @@ sitemap.unshift({
   loc: '/contact/',
   changefreq: `monthly`,
   priority: `0.8`,
-  lastmod: new Date().toISOString()
+  lastmod: modifiedDate()
 });
 
 // Build homepage
@@ -171,7 +172,7 @@ sitemap.unshift({
   loc: '/',
   changefreq: `weekly`,
   priority: `1.0`,
-  lastmod: new Date().toISOString()
+  lastmod: modifiedDate()
 });
 
 const sitemapXML = renderSitemap(sitemap);

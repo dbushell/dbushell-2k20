@@ -74,4 +74,17 @@ const formatDate = (now = new Date()) => {
   return date;
 };
 
-export {formatDate};
+const modifiedDate = (file) => {
+  let date;
+  try {
+    if (!file) {
+      throw new Error('No file');
+    }
+    date = fs.statSync(file).mtime.toISOString();
+  } catch {
+    date = new Date().toISOString();
+  }
+  return date;
+};
+
+export {formatDate, modifiedDate};
