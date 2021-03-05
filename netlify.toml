@@ -3,7 +3,7 @@
   command = "npm run build:prod"
 
 [context.production]
-  environment = { NODE_ENV = "production", NODE_VERSION = "15.9" }
+  environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
 
 [[headers]]
   for = "*.avif"

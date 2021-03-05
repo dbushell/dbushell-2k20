@@ -13,6 +13,14 @@ const __public = path.resolve(__dirname, '../public');
 let pkg = fs.readFileSync(path.resolve(__dirname, '../package.json'));
 pkg = JSON.parse(pkg);
 
+const generator = `${process.platform}/${process.arch} | node ${
+  process.version
+} | svelte ${pkg.dependencies.svelte} | ${
+  new Date().toString().split(' GMT')[0]
+}`;
+
+console.log(`🖨️  ${generator}`);
+
 let head = fs.readFileSync(path.resolve(__dirname, `./svelte/head.js`));
 const headHash = crypto.createHash('sha256').update(head).digest('base64');
 
@@ -41,6 +49,7 @@ const writePage = async (file, props) => {
     description = props.description;
   }
   let html = HTML;
+  html = html.replace(/{{generator}}/, generator);
   html = html.replace(/{{cssHash}}/, cssHash);
   html = html.replace(/{{css}}/, css);
   html = html.replace(/{{headHash}}/, headHash);
