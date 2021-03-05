@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import csso from 'csso';
-import sass from 'node-sass';
+import sass from 'sass';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -17,10 +16,11 @@ components.forEach((file) => {
 });
 
 css = sass.renderSync({
-  data: css.toString()
+  data: css.toString(),
+  outputStyle: 'compressed'
 }).css;
 
-css = csso.minify(css.toString()).css;
+css = css.toString().trim();
 
 const cssHash = crypto.createHash('sha256').update(css).digest('base64');
 
