@@ -20,7 +20,7 @@ services:
       - traefik
     volumes:
       - data:/home/user
-      - ./src:/home/user/src:ro
+      - ./src:/home/user/src
       - ./public:/home/user/public
       - ./package.json:/home/user/package.json
       - ./netlify.toml:/home/user/netlify.toml

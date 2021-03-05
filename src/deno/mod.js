@@ -1,15 +1,18 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
 import {ensureFile} from 'https://deno.land/std/fs/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
+import {processCSS} from './css.js';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 const cachePath = `${pwd}/.svelte`;
 
-const dynamic = async (modPath) =>
-  await import(modPath).then((mod) => mod.default);
-
 const decoder = new TextDecoder('utf-8');
 const encoder = new TextEncoder('utf-8');
+
+processCSS(`${pwd}/../scss/main.scss`);
+
+const dynamic = async (modPath) =>
+  await import(modPath).then((mod) => mod.default);
 
 const compileSvelte = async (path) => {
   let src = await Deno.readFile(path);
