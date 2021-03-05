@@ -3,7 +3,7 @@ import {ensureFile} from 'https://deno.land/std/fs/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
-const cachePath = `${pwd}/.cache`;
+const cachePath = `${pwd}/.svelte`;
 
 const dynamic = async (modPath) =>
   await import(modPath).then((mod) => mod.default);
@@ -52,10 +52,14 @@ const compileDir = async (dirPath, outDirPath = cachePath) => {
 
 const start = new Date();
 
+console.log(pwd);
+
 await Promise.all([
-  compileDir(`${pwd}/svelte/containers`),
-  compileDir(`${pwd}/svelte/components`)
+  compileDir(`${pwd}/../svelte/containers`),
+  compileDir(`${pwd}/../svelte/components`)
 ]);
+
+await Deno.remove(cachePath, {recursive: true});
 
 console.log(`Compiled in ${new Date() - start}ms`);
 
