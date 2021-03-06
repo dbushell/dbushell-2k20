@@ -34,7 +34,7 @@ Now that I have a fresh install of macOS Big Sur I'm not feeling inclined to imm
 
 For my bread & butter web development projects I've thrown together a [Docker image](https://github.com/dbushell/docker-ubuntu) with the likes of NPM & Node pre-installed. For each project I'll spin up a container using this image or similar. I'll optimise more as I experiment. In my Docker [compose files](https://github.com/dbushell/dbushell-2k20/blob/main/docker-compose.yml) I can replace the default command with:
 
-```yml
+```yaml
 image: ghcr.io/dbushell/ubuntu
 command: >-
   sh -c "npm install

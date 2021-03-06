@@ -3,7 +3,12 @@ import * as format from './format.js';
 
 await import('https://cdn.skypack.dev/prismjs');
 await import(`https://cdn.skypack.dev/prismjs/components/prism-jsx.js`);
+await import(`https://cdn.skypack.dev/prismjs/components/prism-markup-templating.js`);
+await import(`https://cdn.skypack.dev/prismjs/components/prism-php.js`);
 await import(`https://cdn.skypack.dev/prismjs/components/prism-bash.js`);
+await import(`https://cdn.skypack.dev/prismjs/components/prism-json.js`);
+await import(`https://cdn.skypack.dev/prismjs/components/prism-toml.js`);
+await import(`https://cdn.skypack.dev/prismjs/components/prism-yaml.js`);
 await import(`https://cdn.skypack.dev/prism-svelte`);
 
 const languages = Object.keys(Prism.languages);
@@ -14,6 +19,8 @@ marked.setOptions({
   highlight: (code, lang) => {
     if (languages.includes(lang)) {
       code = Prism.highlight(code, Prism.languages[lang]);
+    } else if (lang) {
+      console.log(`⚠ Unknown prism "${lang}"`);
     }
     return code;
   }

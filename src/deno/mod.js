@@ -1,4 +1,5 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts';
+import * as hash from 'https://deno.land/std/hash/mod.ts';
 import * as path from 'https://deno.land/std/path/mod.ts';
 
 import * as css from './css.js';
@@ -28,6 +29,12 @@ const [
   data.readPages()
 ]);
 
+// Retrieve <head> inline JavaScript
+const headData = await Deno.readTextFile(
+  path.resolve(`${pwd}/../svelte/head.js`)
+);
+const headHash = hash.createHash('sha256').update(headData).toString('base64');
+
 // Write static page to public directory
 const save = async (path, props) => {
   let title = meta.title;
@@ -42,15 +49,16 @@ const save = async (path, props) => {
   html = html.replace(/{{generator}}/, meta.generator);
   html = html.replace(/{{cssHash}}/, cssHash);
   html = html.replace(/{{css}}/, cssData);
-  // html = html.replace(/{{headHash}}/, headHash);
-  // html = html.replace(/{{head}}/, head);
+  html = html.replace(/{{headHash}}/, headHash);
+  html = html.replace(/{{head}}/, headData);
   html = html.replace(/{{title}}/g, title);
   html = html.replace(/{{description}}/g, description);
   html = html.replace(/{{version}}/g, meta.version);
   html = html.replace(/{{href}}/g, props.href);
   html = html.replace(/{{render}}/g, props.render);
-  // await fs.ensureFile(path);
-  // await Deno.writeTextFile(path, html);
+
+  await fs.ensureFile(path);
+  await Deno.writeTextFile(path, html);
 };
 
 // Generate static blog articles

@@ -16,20 +16,20 @@ Problem is, Bitbucket doesn't allow you to use the same SSH key with more than o
 
 As [GitHub explains](https://help.github.com/articles/generating-ssh-keys) you can generate an SSH key like so:
 
-````
+````shell
 cd ~/.ssh
 ssh-keygen -t rsa -C "your_email@youremail.com"
 ````
 
 You are then prompted for an optional password. After the key is generate you copy & paste it into your GitHub or Bitbucket account settings. On Mac OS X (10.8), which I'm using, copying to the clipboard is simple:
 
-````
+````shell
 pbcopy < ~/.ssh/id_rsa.pub
 ````
 
 With multiple Bitbucket accounts (and I assume GitHub too) you need multiple SSH keys. To generate a second key with a different name:
 
-````
+````shell
 ssh-keygen -t rsa -f ~/.ssh/accountB -C "your_email@youremail.com"
 ````
 
@@ -52,13 +52,13 @@ Host bitbucket-accountB
 
 With this set up I can clone with my default key as Bitbucket suggests:
 
-````
+````shell
 git clone git@bitbucket.org:username/project.git
 ````
 
 If I want to clone a repository from my second account I can alter the command to use the second SSH key I generated:
 
-````
+````shell
 git clone git@bitbucket-accountB:username/project.git
 ````
 
