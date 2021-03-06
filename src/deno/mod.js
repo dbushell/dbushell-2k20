@@ -6,6 +6,7 @@ import * as css from './css.js';
 import * as data from './data.js';
 import * as meta from './meta.js';
 import * as svelte from './svelte.js';
+import * as rss from './rss.js';
 
 const start = new Date();
 
@@ -132,6 +133,10 @@ toml = toml.replace(
 );
 await Deno.writeTextFile(tomlPath, toml);
 console.log(`★ Updated Netlify headers`);
+
+// Generate RSS feed
+await Deno.writeTextFile(path.resolve(`${dest}/rss.xml`), rss.render(articles));
+console.log(`★ Published feed`);
 
 // Tidy up ...
 await Deno.remove(cache, {recursive: true});

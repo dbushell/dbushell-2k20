@@ -42,7 +42,7 @@ const abbrMonths = [
   'Dec'
 ];
 
-const dateProps = (date) => ({
+const dateProps = (date = new Date()) => ({
   // YYYY-MM-DDTHH:mm:ss.sssZ
   ISO: date.toISOString(),
   // ddd, DD MMM YYYY HH:mm:ss ZZ
