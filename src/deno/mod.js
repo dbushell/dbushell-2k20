@@ -119,6 +119,20 @@ save(path.resolve(`${dest}/index.html`), {
 });
 console.log(`★ Published home`);
 
+// Update content security policy headers
+const tomlPath = path.resolve(`${pwd}/../../netlify.toml`);
+let toml = await Deno.readTextFile(tomlPath);
+toml = toml.replace(
+  /script-src 'self' 'sha256-[^']+?'/g,
+  `script-src 'self' 'sha256-${headHash}'`
+);
+toml = toml.replace(
+  /style-src 'self' 'sha256-[^']+?'/g,
+  `style-src 'self' 'sha256-${cssHash}'`
+);
+await Deno.writeTextFile(tomlPath, toml);
+console.log(`★ Updated Netlify headers`);
+
 // Tidy up ...
 await Deno.remove(cache, {recursive: true});
 

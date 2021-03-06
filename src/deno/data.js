@@ -19,7 +19,7 @@ const readProps = async (file) => {
     front = yaml.parse(match.groups.front);
     body = match.groups.body.trim();
   } else {
-    console.log(`⚠️ Missing front: ${file}`);
+    console.log(`⚠ Missing front: ${file}`);
     return null;
   }
 
