@@ -1,6 +1,6 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts';
 import * as path from 'https://deno.land/std/path/mod.ts';
-import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
+import * as svelte from 'svelte/compiler';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 

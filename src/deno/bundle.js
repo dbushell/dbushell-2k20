@@ -1,6 +1,6 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
-import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
-import * as terser from 'https://cdn.skypack.dev/terser';
+import * as svelte from 'svelte/compiler';
+import * as terser from 'terser';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 

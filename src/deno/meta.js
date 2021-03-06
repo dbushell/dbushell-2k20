@@ -1,8 +1,8 @@
-import {version as svelteVersion} from './svelte.js';
+import * as svelte from './svelte.js';
 
 export const generator = `${Deno.build.os}/${Deno.build.arch} | deno ${
   Deno.version.deno
-} | svelte ${svelteVersion} | ${new Date().toString().split(' GMT')[0]}`;
+} | svelte ${svelte.version} | ${new Date().toString().split(' GMT')[0]}`;
 
 export const title = 'David Bushell – Freelance Web Design (UK)';
 

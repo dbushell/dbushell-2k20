@@ -1,6 +1,9 @@
 {
   "imports": {
+    "striptags": "https://cdn.skypack.dev/striptags",
     "svelte": "https://cdn.skypack.dev/svelte/",
-    "svelte/internal": "https://cdn.skypack.dev/svelte/internal.mjs"
+    "svelte/compiler": "https://cdn.skypack.dev/svelte/compiler.mjs",
+    "svelte/internal": "https://cdn.skypack.dev/svelte/internal.mjs",
+    "terser": "https://cdn.skypack.dev/terser"
   }
 }

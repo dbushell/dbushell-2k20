@@ -1,7 +1,7 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts';
 import * as path from 'https://deno.land/std/path/mod.ts';
 import * as yaml from 'https://deno.land/std/encoding/yaml.ts';
-import striptags from 'https://cdn.skypack.dev/striptags';
+import striptags from 'striptags';
 
 import markdown from './markdown.js';
 import * as format from './format.js';
