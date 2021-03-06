@@ -7,69 +7,68 @@ const pwd = path.dirname(new URL(import.meta.url).pathname);
 const create = async () => {
   let app = await Deno.readTextFile(`${pwd}/../svelte/app.js`);
 
-  const imports = /^import (.+?) from '(.*?)';$/gm;
-  const matches = [...app.matchAll(imports)];
-
+  // Extract component imports
+  const imports = /^import (.+?) from '(.*?\.svelte)';$/gm;
+  const components = [...app.matchAll(imports)];
   app = app.replace(imports, '');
 
-  matches.forEach((item) => {
-    const component = item[1];
+  // Store non-unique sub imports within component
+  const deps = {};
+
+  components.forEach((item) => {
+    // Read source
+    const name = item[1];
     let code = Deno.readTextFileSync(
       path.resolve(`${pwd}/../svelte/${item[2]}`)
     );
+
+    // Compile Svelte component
     code = svelte.compile(code, {
-      name: `${component}2`
+      name: `${name}Component`
     }).js.code;
+
+    // Replace generic export with named component
     code = code.replace(
-      `export default ${component}2;`,
-      `${component} = ${component}2;`
+      `export default ${name}Component;`,
+      `${name} = ${name}Component;`
     );
 
+    // Extract component sub imports
+    const imports = [
+      ...code.matchAll(/^import.+?{(.+?)}.+?from "([^"]+?)";$/gms)
+    ];
+    imports.forEach((dep) => {
+      const id = dep[2].trim();
+      deps[id] = (deps[id] || []).concat(
+        dep[1].split(',').map((d) => d.trim())
+      );
+    });
+    code = code.replace(/^import (.+?);$/gms, '');
 
-    app = `\nlet ${component}; (() => { ${code} })();\n${app}`;
+    // Wrap in scoped block and expose named class
+    app = `\nlet ${name}; (() => { ${code} })();\n${app}`;
   });
 
-  app = app.replace(/^import (.+?);$/gms, '');
-  // app = `import "svelte";\n${app}`;
-  // app = `import "svelte/internal";\n${app}`;
+  // Append unique imports to top of bundle
+  for (const [id, arr] of Object.entries(deps)) {
+    app = `import { ${[...new Set(arr)].join(', ')} } from "${id}";\n${app}`;
+  }
 
-  app = `
-import {
-HtmlTag,
-SvelteComponent,
-append,
-attr,
-binding_callbacks,
-detach,
-element,
-empty,
-init,
-insert,
-listen,
-noop,
-safe_not_equal,
-space,
-text
-} from "svelte/internal";
-
-import { onMount } from "svelte";
-${app}`;
-
-  const bundle = `${pwd}/../svelte/app.bundle.js`;
-
+  const bundle = path.resolve(`${pwd}/../svelte/app.bundle.js`);
   await Deno.writeTextFile(bundle, app);
 
   const {files} = await Deno.emit(bundle, {
+    check: false,
     bundle: 'esm',
     importMapPath: `${pwd}/imports.json`
   });
 
   await Deno.remove(bundle);
 
-  // return Object.values(files)[0];
   app = await terser.minify(Object.values(files)[0], {
     toplevel: true
   });
+
   return app.code;
 };
 
