@@ -1,5 +1,5 @@
-import * as path from 'https://deno.land/std/path/mod.ts';
 import * as fs from 'https://deno.land/std/fs/mod.ts';
+import * as path from 'https://deno.land/std/path/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
@@ -39,12 +39,12 @@ const compileDir = async (dirPath, outDirPath = cacheDir) => {
     }
   }
   return Promise.all(promises).then(() => {
-    console.log(`✦ Compiled ${dirName}`);
+    console.log(`✦ Compiled ${promises.length} ${dirName}`);
   });
 };
 
 const compile = async () => {
-  console.log('✧ Compiling components …');
+  console.log('✧ Compiling Svelte');
   await Promise.all([
     compileDir(`${pwd}/../svelte/containers`),
     compileDir(`${pwd}/../svelte/components`)

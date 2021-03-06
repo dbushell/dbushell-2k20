@@ -86,7 +86,7 @@ const readGlob = async (glob) => {
 };
 
 const readArticles = async () => {
-  console.log('✧ Reading articles …');
+  console.log('✧ Reading articles');
   const arr = await readGlob(`${pwd}/../data/blog/**/*.md`);
   arr.sort((a, b) => (a.unix < b.unix ? 1 : -1));
   console.log(`✦ Read ${arr.length} articles`);
@@ -94,7 +94,7 @@ const readArticles = async () => {
 };
 
 const readPages = async () => {
-  console.log('✧ Reading pages …');
+  console.log('✧ Reading pages');
   const [a, b] = await Promise.all([
     readGlob(`${pwd}/../data/pages/*.md`),
     readGlob(`${pwd}/../data/portfolio/*.md`)

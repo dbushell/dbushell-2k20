@@ -14,7 +14,13 @@ const dest = path.resolve(`${pwd}/../../public`);
 console.log(`🖨️ ${meta.generator}`);
 
 // Run everything at once ...
-const [cache, template, [cssData, cssHash], [articles, latest], pages] = await Promise.all([
+const [
+  cache,
+  template,
+  [cssData, cssHash],
+  [articles, latest],
+  pages
+] = await Promise.all([
   svelte.compile(),
   Deno.readTextFile(`${pwd}/../templates/index.html`),
   css.process(`${pwd}/../scss/main.scss`),
@@ -22,10 +28,8 @@ const [cache, template, [cssData, cssHash], [articles, latest], pages] = await P
   data.readPages()
 ]);
 
-console.log(cache, template.length, cssHash, articles.length, pages.length);
-
 // Write static page to public directory
-const writePage = async (file, props) => {
+const save = async (path, props) => {
   let title = meta.title;
   let description = title;
   if (props.title) {
@@ -45,10 +49,8 @@ const writePage = async (file, props) => {
   html = html.replace(/{{version}}/g, meta.version);
   html = html.replace(/{{href}}/g, props.href);
   html = html.replace(/{{render}}/g, props.render);
-  // await ensureFile(file);
-  // await Deno.writeTextFile(file, html);
-  // console.log(html);
-  // console.log(file);
+  // await fs.ensureFile(path);
+  // await Deno.writeTextFile(path, html);
 };
 
 // Generate static blog articles
@@ -56,56 +58,60 @@ const Article = await import(`${cache}/containers/article.svelte.js`);
 articles.forEach((props) => {
   props.render = Article.default.render({...props, latest}).html;
   const file = path.resolve(`${dest}/${props.href}index.html`);
-  writePage(file, props);
-  // sitemap.push({
-  //   loc: props.href,
-  //   changefreq: 'monthly',
-  //   priority: '0.5',
-  //   lastmod: modifiedDate(file)
-  // });
+  save(file, props);
 });
+console.log(`★ Published ${articles.length} articles`);
+
+// Generate static blog archives
+const Archive = await import(`${cache}/containers/archive.svelte.js`);
+const blog = [...articles];
+let index = 0;
+while (blog.length > 0) {
+  const props = {
+    href: ++index === 1 ? `/blog/` : `/blog/page/${index}/`,
+    title: `Blog` + (index > 1 ? ` (page ${index})` : ``)
+  };
+  props.articles = blog.splice(0, 7);
+  if (blog.length) {
+    props.next = `/blog/page/${index + 1}/`;
+  }
+  if (index > 1) {
+    props.prev = index === 2 ? '/blog/' : `/blog/page/${index - 1}/`;
+  }
+  props.render = Archive.default.render({...props, latest}).html;
+  save(path.resolve(`${dest}/${props.href}/index.html`), props);
+}
+console.log(`★ Published ${index} archives`);
 
 // Generate static pages
 const Page = await import(`${cache}/containers/page.svelte.js`);
 pages.forEach((props) => {
   props.render = Page.default.render({...props, latest}).html;
   const file = path.resolve(`${dest}/${props.href}index.html`);
-  writePage(file, props);
+  save(file, props);
   if (props.href === '/404/') {
     return;
   }
-  // sitemap.push({
-  //   loc: props.href,
-  //   changefreq: 'monthly',
-  //   priority: '0.5',
-  //   lastmod: modifiedDate(file)
-  // });
 });
+console.log(`★ Published ${pages.length} pages`);
 
-// console.log(`Published ${articles.length} articles`);
+// Generate contact page
+const Contact = await import(`${cache}/containers/contact.svelte.js`);
+save(path.resolve(`${dest}/contact/index.html`), {
+  render: Contact.default.render({latest}).html,
+  href: `/contact/`
+});
+console.log(`★ Published contact`);
 
-// // Test homepage render
-// let Home = await import(`${svelteCache}/containers/home.svelte.js`);
+// Generate home page
+const Home = await import(`${cache}/containers/home.svelte.js`);
+save(path.resolve(`${dest}/index.html`), {
+  render: Home.default.render({latest}).html,
+  href: `/`
+});
+console.log(`★ Published home`);
 
-// Home = Home.default.render({
-//   latest: [
-//     {
-//       excerpt: 'Component is missing props.',
-//       href: '/',
-//       title: 'Placeholder'
-//     }
-//   ]
-// }).html;
-
-// writePage(`index.html`, {
-//   href: `/`,
-//   render: Home
-// });
-
+// Tidy up ...
 await Deno.remove(cache, {recursive: true});
 
-// // const dynamic = async (modPath) =>
-// //   await import(modPath).then((mod) => mod.default);
-// // let Home = await dynamic(`${svelteCache}/containers/home.svelte.js`);
-
-console.log(`★ Built in ${new Date() - start}ms`);
+console.log(`✹ Built in ${new Date() - start}ms`);
