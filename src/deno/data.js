@@ -1,8 +1,12 @@
+import * as fs from 'https://deno.land/std/fs/mod.ts';
+import * as path from 'https://deno.land/std/path/mod.ts';
 import * as yaml from 'https://deno.land/std/encoding/yaml.ts';
 import striptags from 'https://cdn.skypack.dev/striptags';
 
 import markdown from './markdown.js';
-import {formatDate} from './format.js';
+import * as format from './format.js';
+
+const pwd = path.dirname(new URL(import.meta.url).pathname);
 
 const readProps = async (file) => {
   let front;
@@ -46,7 +50,7 @@ const readProps = async (file) => {
   if (front.date) {
     const date = new Date(front.date);
     props.unix = date.valueOf();
-    props.date = formatDate(date);
+    props.date = format.dateProps(date);
     props.href = [
       '/',
       props.date.YYYY.toString(),
@@ -60,4 +64,32 @@ const readProps = async (file) => {
   return props;
 };
 
-export {readProps};
+const readGlob = async (glob) => {
+  const arr = [];
+  const promises = [];
+  for await (const entry of fs.expandGlob(glob)) {
+    if (entry.isFile && /.md$/.test(entry.name)) {
+      promises.push(
+        new Promise(async (resolve) => {
+          const props = await readProps(entry.path);
+          if (props) {
+            arr.push(props);
+          }
+          resolve();
+        })
+      );
+    }
+  }
+  await Promise.all(promises);
+  return arr;
+};
+
+const readArticles = async () => {
+  console.log('✧ Reading articles…');
+  const arr = await readGlob(`${pwd}/../data/blog/**/*.md`);
+  arr.sort((a, b) => (a.unix < b.unix ? 1 : -1));
+  console.log(`✦ Read ${arr.length} articles`);
+  return [arr, arr.slice(0, 7)];
+};
+
+export {readArticles, readGlob, readProps};

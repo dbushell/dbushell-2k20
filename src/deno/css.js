@@ -1,5 +1,5 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
-import {createHash} from 'https://deno.land/std/hash/mod.ts';
+import * as hash from 'https://deno.land/std/hash/mod.ts';
 
 const compile = async (scssPath) => {
   const scssDir = path.dirname(scssPath);
@@ -36,11 +36,12 @@ const compile = async (scssPath) => {
   }
 
   css = await Deno.readTextFile(`${scssDir}/tmp.css`);
+  css = css.trim();
 
   await Deno.remove(`${scssDir}/tmp.scss`);
   await Deno.remove(`${scssDir}/tmp.css`);
 
-  const cssHash = createHash('sha256').update(css.trim()).toString('base64');
+  const cssHash = hash.createHash('sha256').update(css).toString('base64');
 
   return [css, cssHash];
 };

@@ -1,12 +1,12 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
-import {ensureFile} from 'https://deno.land/std/fs/mod.ts';
+import * as fs from 'https://deno.land/std/fs/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 
 const cacheDir = `${pwd}/.svelte`;
 
-const compileSvelte = async (path) => {
+const compileFile = async (path) => {
   let src = await Deno.readTextFile(path);
   src = svelte.compile(src, {generate: 'ssr'}).js.code;
   src = src.replace(
@@ -30,8 +30,8 @@ const compileDir = async (dirPath, outDirPath = cacheDir) => {
         new Promise(async (resolve) => {
           let srcIn = `${dirPath}/${entry.name}`;
           let srcOut = `${outDirPath}/${dirName}/${entry.name}.js`;
-          const src = await compileSvelte(srcIn);
-          await ensureFile(srcOut);
+          const src = await compileFile(srcIn);
+          await fs.ensureFile(srcOut);
           await Deno.writeTextFile(srcOut, src);
           resolve();
         })
@@ -39,16 +39,18 @@ const compileDir = async (dirPath, outDirPath = cacheDir) => {
     }
   }
   return Promise.all(promises).then(() => {
-    console.log(`✨ Compiled: ${dirName}`);
+    console.log(`✦ Compiled ${dirName}`);
   });
 };
 
-const compile = async () => {
+const compileApp = async () => {
+  console.log('✧ Compiling components…');
   await Promise.all([
     compileDir(`${pwd}/../svelte/containers`),
     compileDir(`${pwd}/../svelte/components`)
   ]);
   return cacheDir;
-}
+};
 
-export default compile;
+export {VERSION as version} from 'https://cdn.skypack.dev/svelte/compiler.mjs';
+export {compileApp};

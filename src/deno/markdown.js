@@ -1,5 +1,5 @@
 import marked from 'https://cdn.skypack.dev/marked';
-import {escapeHTML} from './format.js';
+import * as format from './format.js';
 
 await import('https://cdn.skypack.dev/prismjs');
 await import(`https://cdn.skypack.dev/prismjs/components/prism-jsx.js`);
@@ -37,7 +37,7 @@ renderer.image = (href, title, text) => {
 };
 
 renderer.link = (href, title, text) => {
-  let out = `<a href="${escapeHTML(href)}"`;
+  let out = `<a href="${format.escapeHTML(href)}"`;
   if (title) {
     out += ` title="${title}"`;
   }

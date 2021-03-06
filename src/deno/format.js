@@ -42,7 +42,7 @@ const abbrMonths = [
   'Dec'
 ];
 
-const formatDate = (date) => ({
+const dateProps = (date) => ({
   // YYYY-MM-DDTHH:mm:ss.sssZ
   ISO: date.toISOString(),
   // ddd, DD MMM YYYY HH:mm:ss ZZ
@@ -95,4 +95,4 @@ const escapeHTML = (html, encode) => {
   return html;
 };
 
-export {formatDate, escapeHTML};
+export {dateProps, escapeHTML};
