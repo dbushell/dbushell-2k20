@@ -51,14 +51,15 @@ const readProps = async (file) => {
     const date = new Date(front.date);
     props.unix = date.valueOf();
     props.date = format.dateProps(date);
-    props.href = [
-      '/',
-      props.date.YYYY.toString(),
-      props.date.MM.toString(),
-      props.date.DD.toString(),
-      front.slug,
-      '/'
-    ].join('/');
+    props.href =
+      '/' +
+      [
+        props.date.YYYY.toString(),
+        props.date.MM.toString(),
+        props.date.DD.toString(),
+        front.slug
+      ].join('/') +
+      '/';
   }
 
   return props;
@@ -85,11 +86,22 @@ const readGlob = async (glob) => {
 };
 
 const readArticles = async () => {
-  console.log('✧ Reading articles…');
+  console.log('✧ Reading articles …');
   const arr = await readGlob(`${pwd}/../data/blog/**/*.md`);
   arr.sort((a, b) => (a.unix < b.unix ? 1 : -1));
   console.log(`✦ Read ${arr.length} articles`);
   return [arr, arr.slice(0, 7)];
 };
 
-export {readArticles, readGlob, readProps};
+const readPages = async () => {
+  console.log('✧ Reading pages …');
+  const [a, b] = await Promise.all([
+    readGlob(`${pwd}/../data/pages/*.md`),
+    readGlob(`${pwd}/../data/portfolio/*.md`)
+  ]);
+  const arr = [...a, ...b];
+  console.log(`✦ Read ${arr.length} pages`);
+  return arr;
+};
+
+export {readArticles, readGlob, readPages, readProps};

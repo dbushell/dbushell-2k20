@@ -1,7 +1,9 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
 import * as hash from 'https://deno.land/std/hash/mod.ts';
 
-const compile = async (scssPath) => {
+const process = async (scssPath) => {
+  console.log('✧ Processing CSS …');
+
   const scssDir = path.dirname(scssPath);
   let css = await Deno.readTextFile(scssPath);
 
@@ -43,7 +45,9 @@ const compile = async (scssPath) => {
 
   const cssHash = hash.createHash('sha256').update(css).toString('base64');
 
+  console.log(`✦ CSS processed`);
+
   return [css, cssHash];
 };
 
-export default compile;
+export {process};

@@ -43,8 +43,8 @@ const compileDir = async (dirPath, outDirPath = cacheDir) => {
   });
 };
 
-const compileApp = async () => {
-  console.log('✧ Compiling components…');
+const compile = async () => {
+  console.log('✧ Compiling components …');
   await Promise.all([
     compileDir(`${pwd}/../svelte/containers`),
     compileDir(`${pwd}/../svelte/components`)
@@ -53,4 +53,4 @@ const compileApp = async () => {
 };
 
 export {VERSION as version} from 'https://cdn.skypack.dev/svelte/compiler.mjs';
-export {compileApp};
+export {compile};

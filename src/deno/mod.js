@@ -1,78 +1,86 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts';
 import * as path from 'https://deno.land/std/path/mod.ts';
 
-import CSS from './css.js';
-import * as svelte from './svelte.js';
+import * as css from './css.js';
 import * as data from './data.js';
+import * as meta from './meta.js';
+import * as svelte from './svelte.js';
 
 const start = new Date();
 
-const generator = `${Deno.build.os}/${Deno.build.arch} | deno ${
-  Deno.version.deno
-} | svelte ${svelte.version} | ${start.toString().split(' GMT')[0]}`;
-
-console.log(`🖨️ ${generator}`);
-
 const pwd = path.dirname(new URL(import.meta.url).pathname);
+const dest = path.resolve(`${pwd}/../../public`);
 
-const [css, cssHash] = await CSS(`${pwd}/../scss/main.scss`);
+console.log(`🖨️ ${meta.generator}`);
 
-let HTML = await Deno.readTextFile(`${pwd}/../templates/index.html`);
-
-const [[articles, latest], cache] = await Promise.all([
+// Run everything at once ...
+const [cache, template, [cssData, cssHash], [articles, latest], pages] = await Promise.all([
+  svelte.compile(),
+  Deno.readTextFile(`${pwd}/../templates/index.html`),
+  css.process(`${pwd}/../scss/main.scss`),
   data.readArticles(),
-  svelte.compileApp()
+  data.readPages()
 ]);
 
-// const articles = await data.readArticles();
-// const latest = articles.slice(0, 7);
+console.log(cache, template.length, cssHash, articles.length, pages.length);
 
-// const svelteCache = await svelte.compileApp();
+// Write static page to public directory
+const writePage = async (file, props) => {
+  let title = meta.title;
+  let description = title;
+  if (props.title) {
+    title = `${props.title} – ${title}`;
+  }
+  if (props.description) {
+    description = props.description;
+  }
+  let html = template;
+  html = html.replace(/{{generator}}/, meta.generator);
+  html = html.replace(/{{cssHash}}/, cssHash);
+  html = html.replace(/{{css}}/, cssData);
+  // html = html.replace(/{{headHash}}/, headHash);
+  // html = html.replace(/{{head}}/, head);
+  html = html.replace(/{{title}}/g, title);
+  html = html.replace(/{{description}}/g, description);
+  html = html.replace(/{{version}}/g, meta.version);
+  html = html.replace(/{{href}}/g, props.href);
+  html = html.replace(/{{render}}/g, props.render);
+  // await ensureFile(file);
+  // await Deno.writeTextFile(file, html);
+  // console.log(html);
+  // console.log(file);
+};
 
-// /**
-//  * Write template to public directory
-//  */
-// const writePage = async (file, props) => {
-//   let title = `David Bushell – Freelance Web Design (UK)`;
-//   let description = title;
-//   if (props.title) {
-//     title = `${props.title} – ${title}`;
-//   }
-//   if (props.description) {
-//     description = props.description;
-//   }
-//   let html = HTML;
-//   // html = html.replace(/{{generator}}/, generator);
-//   html = html.replace(/{{cssHash}}/, cssHash);
-//   html = html.replace(/{{css}}/, css);
-//   // html = html.replace(/{{headHash}}/, headHash);
-//   // html = html.replace(/{{head}}/, head);
-//   // html = html.replace(/{{title}}/g, title);
-//   // html = html.replace(/{{description}}/g, description);
-//   // html = html.replace(/{{version}}/g, pkg.version);
-//   html = html.replace(/{{href}}/g, props.href);
-//   html = html.replace(/{{render}}/g, props.render);
-//   // await ensureFile(file);
-//   // await Deno.writeTextFile(file, html);
-//   // console.log(html);
-// };
+// Generate static blog articles
+const Article = await import(`${cache}/containers/article.svelte.js`);
+articles.forEach((props) => {
+  props.render = Article.default.render({...props, latest}).html;
+  const file = path.resolve(`${dest}/${props.href}index.html`);
+  writePage(file, props);
+  // sitemap.push({
+  //   loc: props.href,
+  //   changefreq: 'monthly',
+  //   priority: '0.5',
+  //   lastmod: modifiedDate(file)
+  // });
+});
 
-// const Article = await import(`${svelteCache}/containers/article.svelte.js`);
-
-// // Write blog articles
-// articles.forEach((props) => {
-//   props.render = Article.default.render({...props, latest}).html;
-
-//   // console.log(props);
-//   // const file = path.join(__public, `${props.href}index.html`);
-//   // writePage(file, props);
-//   // sitemap.push({
-//   //   loc: props.href,
-//   //   changefreq: 'monthly',
-//   //   priority: '0.5',
-//   //   lastmod: modifiedDate(file)
-//   // });
-// });
+// Generate static pages
+const Page = await import(`${cache}/containers/page.svelte.js`);
+pages.forEach((props) => {
+  props.render = Page.default.render({...props, latest}).html;
+  const file = path.resolve(`${dest}/${props.href}index.html`);
+  writePage(file, props);
+  if (props.href === '/404/') {
+    return;
+  }
+  // sitemap.push({
+  //   loc: props.href,
+  //   changefreq: 'monthly',
+  //   priority: '0.5',
+  //   lastmod: modifiedDate(file)
+  // });
+});
 
 // console.log(`Published ${articles.length} articles`);
 
