@@ -1,5 +1,9 @@
 {
   "imports": {
+    "marked": "https://cdn.skypack.dev/marked",
+    "prismjs": "https://cdn.skypack.dev/prismjs",
+    "prismjs/": "https://cdn.skypack.dev/prismjs/",
+    "prismjs/components/prism-svelte.js": "https://cdn.skypack.dev/prism-svelte",
     "striptags": "https://cdn.skypack.dev/striptags",
     "svelte": "https://cdn.skypack.dev/svelte/",
     "svelte/compiler": "https://cdn.skypack.dev/svelte/compiler.mjs",

@@ -1,15 +1,15 @@
-import marked from 'https://cdn.skypack.dev/marked';
+import marked from 'marked';
 import * as format from './format.js';
 
-await import('https://cdn.skypack.dev/prismjs');
-await import(`https://cdn.skypack.dev/prismjs/components/prism-jsx.js`);
-await import(`https://cdn.skypack.dev/prismjs/components/prism-markup-templating.js`);
-await import(`https://cdn.skypack.dev/prismjs/components/prism-php.js`);
-await import(`https://cdn.skypack.dev/prismjs/components/prism-bash.js`);
-await import(`https://cdn.skypack.dev/prismjs/components/prism-json.js`);
-await import(`https://cdn.skypack.dev/prismjs/components/prism-toml.js`);
-await import(`https://cdn.skypack.dev/prismjs/components/prism-yaml.js`);
-await import(`https://cdn.skypack.dev/prism-svelte`);
+await import('prismjs');
+await import(`prismjs/components/prism-jsx.js`);
+await import(`prismjs/components/prism-markup-templating.js`);
+await import(`prismjs/components/prism-php.js`);
+await import(`prismjs/components/prism-bash.js`);
+await import(`prismjs/components/prism-json.js`);
+await import(`prismjs/components/prism-toml.js`);
+await import(`prismjs/components/prism-yaml.js`);
+await import(`prismjs/components/prism-svelte.js`);
 
 const languages = Object.keys(Prism.languages);
 
