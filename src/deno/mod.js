@@ -8,6 +8,7 @@ import * as meta from './meta.js';
 import * as rss from './rss.js';
 import * as sitemap from './sitemap.js';
 import * as svelte from './svelte.js';
+import * as bundle from './bundle.js';
 
 const start = new Date();
 
@@ -186,3 +187,9 @@ console.log(`★ Updated headers`);
 await Deno.remove(cache, {recursive: true});
 
 console.log(`✹ Built in ${new Date() - start}ms`);
+
+// Bundle JavaScript
+const start2 = new Date();
+const app = await bundle.create();
+await Deno.writeTextFile(`${dest}/assets/js/app.min.js`, app);
+console.log(`✹ Bundled JavaScript in ${new Date() - start2}ms`);

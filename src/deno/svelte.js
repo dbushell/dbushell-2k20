@@ -9,14 +9,6 @@ const cacheDir = `${pwd}/.svelte`;
 const compileFile = async (path) => {
   let src = await Deno.readTextFile(path);
   src = svelte.compile(src, {generate: 'ssr'}).js.code;
-  src = src.replace(
-    'from "svelte/internal";',
-    `from 'https://cdn.skypack.dev/svelte/internal.mjs';`
-  );
-  src = src.replace(
-    'from "svelte";',
-    `from 'https://cdn.skypack.dev/svelte/';`
-  );
   src = src.replace(/(import .+? from ".+?\.svelte)";$/gm, '$1.js";');
   return src;
 };
