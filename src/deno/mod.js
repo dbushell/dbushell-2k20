@@ -8,7 +8,7 @@ import * as meta from './meta.js';
 import * as rss from './rss.js';
 import * as sitemap from './sitemap.js';
 import * as svelte from './svelte.js';
-import * as bundle from './bundle.js';
+// import * as bundle from './bundle.js';
 
 const start = new Date();
 
@@ -16,6 +16,20 @@ const pwd = path.dirname(new URL(import.meta.url).pathname);
 const dest = path.resolve(`${pwd}/../../public`);
 
 console.log(`🖨️ ${meta.generator}`);
+
+const bundler = new Worker(new URL('./bundle.js', import.meta.url).href, {
+  type: 'module',
+  deno: {
+    namespace: true,
+    permissions: 'inherit'
+  }
+});
+
+const bundling = new Promise((resolve) => {
+  bundler.onmessage = (ev) => {
+    resolve(ev.data);
+  };
+});
 
 // Run everything at once ...
 const [
@@ -186,10 +200,14 @@ console.log(`★ Updated headers`);
 // Tidy up ...
 await Deno.remove(cache, {recursive: true});
 
+const msg = await bundling;
+console.log(msg);
+bundler.terminate();
+
 console.log(`✹ Built in ${new Date() - start}ms`);
 
 // Bundle JavaScript
-const start2 = new Date();
-const app = await bundle.create();
-await Deno.writeTextFile(`${dest}/assets/js/app.min.js`, app);
-console.log(`✹ Bundled JavaScript in ${new Date() - start2}ms`);
+// const start2 = new Date();
+// const app = await bundle.create();
+// await Deno.writeTextFile(`${dest}/assets/js/app.min.js`, app);
+// console.log(`✹ Bundled JavaScript in ${new Date() - start2}ms`);
