@@ -2,9 +2,9 @@ import * as path from 'https://deno.land/std/path/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
 import * as terser from 'https://cdn.skypack.dev/terser';
 
-const start = new Date();
-
 console.log('✧ Working JavaScript bundle');
+
+const now = performance.now();
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 const dest = path.resolve(`${pwd}/../../public`);
@@ -80,4 +80,4 @@ const create = async () => {
 const app = await create();
 await Deno.writeTextFile(`${dest}/assets/js/app.min.js`, app);
 
-self.postMessage(`✹ Bundled in ${new Date() - start}ms`);
+self.postMessage(`✹ Bundled in ${Math.round(performance.now() - now)}ms`);

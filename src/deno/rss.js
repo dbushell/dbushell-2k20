@@ -34,11 +34,11 @@ const render = (articles) => {
     xml = xml.replace(`{{title}}`, item.title);
     xml = xml.replace(`{{description}}`, item.excerpt);
     xml = xml.replace(/{{link}}/g, item.href);
-    xml = xml.replace(`{{pubDate}}`, item.date.RSS);
+    xml = xml.replace(`{{pubDate}}`, item.date.IMF);
     return xml;
   });
   let xml = template;
-  xml = xml.replace(`{{lastBuildDate}}`, format.dateProps().RSS);
+  xml = xml.replace(`{{lastBuildDate}}`, format.dateProps().IMF);
   xml = xml.replace(`{{entries}}`, entries.join(''));
   return xml;
 };

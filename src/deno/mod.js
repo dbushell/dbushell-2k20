@@ -9,8 +9,6 @@ import * as rss from './rss.js';
 import * as sitemap from './sitemap.js';
 import * as svelte from './svelte.js';
 
-const start = Date.now();
-
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 const dest = path.resolve(`${pwd}/../../public`);
 
@@ -202,4 +200,4 @@ await Deno.remove(cache, {recursive: true});
 console.log(await bundling);
 bundler.terminate();
 
-console.log(`✹ Built in ${Date.now() - start}ms`);
+console.log(`✹ Built in ${Math.round(performance.now())}ms`);

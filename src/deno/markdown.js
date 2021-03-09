@@ -1,5 +1,4 @@
 import marked from 'marked';
-import * as format from './format.js';
 
 await import('prismjs');
 await import(`prismjs/components/prism-jsx.js`);
@@ -44,7 +43,11 @@ renderer.image = (href, title, text) => {
 };
 
 renderer.link = (href, title, text) => {
-  let out = `<a href="${format.escapeHTML(href)}"`;
+  try {
+    const url = new URL(href);
+    href = url.href;
+  } catch {}
+  let out = `<a href="${href}"`;
   if (title) {
     out += ` title="${title}"`;
   }
