@@ -1,7 +1,10 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
 import * as hash from 'https://deno.land/std/hash/mod.ts';
 
-const process = async (scssPath) => {
+const pwd = path.dirname(new URL(import.meta.url).pathname);
+const scssPath = `${pwd}/../scss/main.scss`;
+
+const process = async () => {
   console.log('✧ Processing CSS');
 
   const scssDir = path.dirname(scssPath);

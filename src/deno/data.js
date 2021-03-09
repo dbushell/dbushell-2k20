@@ -70,15 +70,7 @@ const readGlob = async (glob) => {
   const promises = [];
   for await (const entry of fs.expandGlob(glob)) {
     if (entry.isFile && /.md$/.test(entry.name)) {
-      promises.push(
-        new Promise(async (resolve) => {
-          const props = await readProps(entry.path);
-          if (props) {
-            arr.push(props);
-          }
-          resolve();
-        })
-      );
+      promises.push(readProps(entry.path).then((props) => arr.push(props)));
     }
   }
   await Promise.all(promises);
