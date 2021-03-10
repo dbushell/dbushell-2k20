@@ -1,12 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import renderRSS from './library/rss.js';
-import renderSitemap from './library/sitemap.js';
-import {css, cssHash} from './library/css.js';
-import {getAllMatter, propsFromMatter} from './library/matter.js';
-import {modifiedDate} from './library/datetime.js';
-import * as render from './library/svelte.js';
+import renderRSS from './node/rss.js';
+import renderSitemap from './node/sitemap.js';
+import {css, cssHash} from './node/css.js';
+import {getAllMatter, propsFromMatter} from './node/matter.js';
+import * as render from './node/svelte.js';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const __public = path.resolve(__dirname, '../public');
@@ -98,8 +97,7 @@ articles.forEach((props) => {
   sitemap.push({
     loc: props.href,
     changefreq: 'monthly',
-    priority: '0.5',
-    lastmod: modifiedDate(file)
+    priority: '0.5'
   });
 });
 console.log(`Published ${articles.length} articles`);
@@ -139,8 +137,7 @@ pages.forEach((props) => {
   sitemap.unshift({
     loc: props.href,
     changefreq: `monthly`,
-    priority: /\/showcase\//.test(props.href) ? `0.7` : `0.8`,
-    lastmod: modifiedDate(file)
+    priority: /\/showcase\//.test(props.href) ? `0.7` : `0.8`
   });
 });
 console.log(`Published ${pages.length} pages`);
@@ -156,8 +153,7 @@ console.log(`Published contact page`);
 sitemap.unshift({
   loc: '/contact/',
   changefreq: `monthly`,
-  priority: `0.8`,
-  lastmod: modifiedDate()
+  priority: `0.8`
 });
 
 // Build homepage
@@ -171,8 +167,7 @@ console.log(`Published homepage`);
 sitemap.unshift({
   loc: '/',
   changefreq: `weekly`,
-  priority: `1.0`,
-  lastmod: modifiedDate()
+  priority: `1.0`
 });
 
 const sitemapXML = renderSitemap(sitemap);

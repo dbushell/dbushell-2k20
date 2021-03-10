@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import striptags from 'striptags';
 import markdown from './markdown.js';
-import {formatDate} from './datetime.js';
+import {dateProps} from './datetime.js';
 
 /**
  * Return JSON data from YML front-matter for file.
@@ -97,7 +97,7 @@ const propsFromMatter = (matter) => {
   if ('date' in matter.attributes) {
     const date = new Date(matter.attributes.date);
     props.unix = date.valueOf();
-    props.date = formatDate(date);
+    props.date = dateProps(date);
     props.href = path.join(
       '/',
       props.date.YYYY.toString(),

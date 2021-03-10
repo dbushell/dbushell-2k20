@@ -6,7 +6,7 @@ const sitemapTemplate = `<?xml version="1.0" encoding="UTF-8"?>
 
 const sitemapEntry = `<url>
   <loc>https://dbushell.com{{loc}}</loc>
-  <lastmod>{{lastmod}}</lastmod>
+  <lastmod>${new Date().toISOString()}</lastmod>
   <changefreq>{{changefreq}}</changefreq>
   <priority>{{priority}}</priority>
 </url>

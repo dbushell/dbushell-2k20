@@ -1,4 +1,4 @@
-import {formatDate} from './datetime.js';
+import {dateProps} from './datetime.js';
 
 const url = 'https://dbushell.com';
 
@@ -34,11 +34,11 @@ const render = (articles) => {
     xml = xml.replace(`{{title}}`, entry.title);
     xml = xml.replace(`{{description}}`, entry.excerpt);
     xml = xml.replace(/{{link}}/g, entry.href);
-    xml = xml.replace(`{{pubDate}}`, entry.date.RSS);
+    xml = xml.replace(`{{pubDate}}`, entry.date.IMF);
     return xml;
   });
   let xml = rssTemplate;
-  xml = xml.replace(`{{lastBuildDate}}`, formatDate().RSS);
+  xml = xml.replace(`{{lastBuildDate}}`, dateProps().IMF);
   xml = xml.replace(`{{entries}}`, entries.join(''));
   return xml;
 };
