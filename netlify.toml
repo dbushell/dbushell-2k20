@@ -7,7 +7,7 @@
 
 [context.deploy-preview]
   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
-  command = "curl -fsSL https://deno.land/x/install/install.sh | sh && deno info"
+  command = "./src/deno/netlify.sh"
 
 [context.branch-deploy]
   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
