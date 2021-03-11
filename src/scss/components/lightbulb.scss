@@ -1,6 +1,6 @@
 .Lightbulb {
-  --lightbulb-stroke: #{rgbvar(--db-blue)};
-  --lightbulb-fill: #{rgbvar(--db-yellow)};
+  --lightbulb-stroke: hsl(var(--db-blue));
+  --lightbulb-fill: hsl(var(--db-yellow));
   --lightbulb-rays: 1;
   height: auto;
   left: var(--wrapper-margin);
@@ -27,8 +27,8 @@
 
   &:hover {
     transform: translateY(0);
-    --lightbulb-stroke: #{rgbvar(--db-blue)};
-    --lightbulb-fill: #{rgbvar(--db-blue, 0.5)};
+    --lightbulb-stroke: hsl(var(--db-blue));
+    --lightbulb-fill: hsla(var(--db-blue), 0.5);
     --lightbulb-rays: 0;
   }
 
@@ -45,14 +45,14 @@
   }
 
   .Darkmode & {
-    --lightbulb-stroke: #{rgbvar(--db-green)};
+    --lightbulb-stroke: hsl(var(--db-green));
     --lightbulb-fill: transparent;
     --lightbulb-rays: 0;
 
     &:focus,
     &:hover {
-      --lightbulb-stroke: #{rgbvar(--db-yellow)};
-      --lightbulb-fill: #{rgbvar(--db-yellow, 0.5)};
+      --lightbulb-stroke: hsl(var(--db-yellow));
+      --lightbulb-fill: hsla(var(--db-yellow, 0.5));
       --lightbulb-rays: 1;
     }
   }
@@ -63,12 +63,3 @@
     margin-left: rem(-12);
   }
 }
-
-// @media screen and (min-width: rem(400)) {
-//   @supports (inset-inline-start: 0) {
-//     .Lightbulb {
-//       left: unset;
-//       inset-inline-start: var(--wrapper-margin);
-//     }
-//   }
-// }

@@ -1,14 +1,14 @@
 .Button {
   -moz-appearance: none;
   appearance: none;
-  background: rgbvar(--color-background2);
-  border: rem(2) solid rgbvar(--color-primary, 0.5);
+  background: hsl(var(--color-background2));
+  border: rem(2) solid hsla(var(--color-primary), 0.5);
   border-top: 0;
   border-left: 0;
   border-radius: rem(5);
-  box-shadow: rem(-1) rem(-1) 0 rgbvar(--color-quaternary),
-    rem(2) rem(2) 0 0 rgbvar(--db-black, 0.1);
-  color: rgbvar(--color-primary);
+  box-shadow: rem(-1) rem(-1) 0 hsl(var(--color-quaternary)),
+    rem(2) rem(2) 0 0 hsla(var(--db-black), 0.1);
+  color: hsl(var(--color-primary));
   display: inline-block;
   font-size: var(--step-s);
   font-weight: 600;
@@ -20,8 +20,8 @@
   transition: color 200ms, border 200ms;
 
   &:hover {
-    border-color: rgbvar(--color-primary, 1);
-    color: rgbvar(--color-tertiary);
+    border-color: hsl(var(--color-primary));
+    color: hsl(var(--color-tertiary));
     cursor: pointer;
   }
 

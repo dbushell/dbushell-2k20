@@ -9,7 +9,7 @@
   }
 
   &::after {
-    background: rgbvar(--masthead-primary);
+    background: hsl(var(--masthead-primary));
     background-image: url('/assets/img/masthead-pattern.svg');
     background-size: rem(300) auto;
     border-radius: 100%;

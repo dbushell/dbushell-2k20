@@ -1,6 +1,6 @@
 .Rule,
 .Prose > hr {
-  background: rgbvar(--color-quaternary, 1);
+  background: hsl(var(--color-quaternary));
   border: none;
   height: rem(1);
   margin: 0;

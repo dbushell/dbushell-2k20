@@ -24,7 +24,7 @@
   {:else}
     <img
       bind:this={img}
-      src="/assets/img/dbushell-logotype.svg"
+      src="/assets/img/dbushell-logotype.svg?v=2"
       alt="David Bushell" />
   {/if}
 </a>
