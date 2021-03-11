@@ -5,6 +5,12 @@
 [context.production]
   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
 
+[context.deploy-preview]
+  environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
+
 [[headers]]
   for = "*.avif"
   [headers.values]
