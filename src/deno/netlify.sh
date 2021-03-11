@@ -1,5 +1,5 @@
 #!/bin/bash
 
-curl -fsSL https://deno.land/x/install/install.sh
+curl -fsSL https://deno.land/x/install/install.sh | sh
 
 /opt/buildhome/.deno/bin/deno info
