@@ -27,7 +27,7 @@ const process = async () => {
   // Compile CSS
   const sass = Deno.run({
     cmd: [
-      `${scssDir}/../bin/${Deno.build.target}/sass`,
+      `${pwd}/../../bin/${Deno.build.target}/sass`,
       `--no-source-map`,
       `--style=compressed`,
       `${scssDir}/tmp.scss:${scssDir}/tmp.css`

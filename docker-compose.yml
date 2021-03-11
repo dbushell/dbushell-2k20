@@ -20,6 +20,7 @@ services:
       - traefik
     volumes:
       - data:/home/user
+      - ./bin:/home/user/bin
       - ./src:/home/user/src
       - ./public:/home/user/public
       - ./package.json:/home/user/package.json
