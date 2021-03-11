@@ -16,4 +16,10 @@ export PATH="$HOME_BIN:$PATH"
 ls -la $HOME_BIN
 
 deno --version
-sass --verison
+sass --version
+
+deno run --allow-all --no-check --unstable \
+  --import-map src/deno/imports.json \
+  src/deno/mod.js
+
+exit 0
