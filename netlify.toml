@@ -1,9 +1,16 @@
 [build]
   publish = "./public"
-  command = "npm run build:prod"
+  command = "./src/deno/netlify.sh"
+  # command = "npm run build"
 
-[context.production]
-  environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
+# [context.production]
+#   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
+
+# [context.deploy-preview]
+#   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
+
+# [context.branch-deploy]
+#   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
 
 [[headers]]
   for = "*.avif"
@@ -18,7 +25,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Strict-Transport-Security = "max-age=31557600"
-    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://*.eu-west-1.amazonaws.com; img-src 'self' data:; script-src 'self' 'sha256-CTGifSILACIBZiHQWNvPwazIcE0JmTtquHurH2ee+m4='; style-src 'self' 'sha256-BNB2mgM8cAyFO7pX50TG0luxWxT2JlijrD2zaIVK3xA=' 'sha256-XrKcNZy1uCtwrhydUGyFDLAyZlDk6UdePGVIuffI6T0=';"
+    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://*.eu-west-1.amazonaws.com; img-src 'self' data:; script-src 'self' 'sha256-PGbGP1uWEsRV/GEPFNgR3QPib7zeFBWgN7OqchwvxXY='; style-src 'self' 'sha256-q/VxJnWvEa0sZ5pKFgoi0eo0wGgy58G4hao9kbwURj4=' 'sha256-M7Z/R6azUsoNM77aBWHJTgS5MSuVEK3Z9MymhafpGcY=';"
     Referrer-Policy = "same-origin"
 
 [[redirects]]

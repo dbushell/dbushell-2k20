@@ -1,5 +1,5 @@
 .Social {
-  --social-color: #{rgbvar(--color-background)};
+  --social-color: hsl(var(--color-background));
   align-items: center;
   display: flex;
   margin-top: rem(18);
@@ -7,7 +7,7 @@
 
   svg {
     border-radius: rem(5);
-    box-shadow: rem(1.5) rem(1.5) 0 0 rgbvar(--db-black, 0.1);
+    box-shadow: rem(1.5) rem(1.5) 0 0 hsla(var(--db-black), 0.1);
     fill: currentColor;
     height: rem(24);
     transform: var(--transform);

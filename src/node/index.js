@@ -1,32 +1,38 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import renderRSS from './library/rss.js';
-import renderSitemap from './library/sitemap.js';
-import {css, cssHash} from './library/css.js';
-import {getAllMatter, propsFromMatter} from './library/matter.js';
-import {modifiedDate} from './library/datetime.js';
-import * as render from './library/svelte.js';
+import renderRSS from './rss.js';
+import renderSitemap from './sitemap.js';
+import {cssData, cssHash} from './css.js';
+import {getAllMatter, propsFromMatter} from './matter.js';
+import * as render from './svelte.js';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const __public = path.resolve(__dirname, '../public');
+const __src = path.resolve(
+  path.dirname(new URL(import.meta.url).pathname) + '/../'
+);
+const __public = path.resolve(__src, '../public');
 
-let pkg = fs.readFileSync(path.resolve(__dirname, '../package.json'));
+let pkg = fs.readFileSync(path.resolve(__src, '../package.json'));
 pkg = JSON.parse(pkg);
 
-const generator = `${process.platform}/${process.arch} | node ${
-  process.version
-} | svelte ${pkg.dependencies.svelte} | ${
-  new Date().toString().split(' GMT')[0]
+globalThis.dbushell = {version: pkg.version};
+
+const generator = `node ${process.version} | svelte ${
+  pkg.dependencies.svelte
+} | ${new Date().toString().split(' GMT')[0]} | ${process.platform}/${
+  process.arch
 }`;
 
 console.log(`🖨️ ${generator}`);
 
-let head = fs.readFileSync(path.resolve(__dirname, `./svelte/head.js`));
-const headHash = crypto.createHash('sha256').update(head).digest('base64');
+let headData = fs.readFileSync(path.resolve(__src, `./templates/head.min.js`));
+headData = `window.dbushell={version: '${
+  pkg.version
+}'};${headData.toString().trim()}`;
+const headHash = crypto.createHash('sha256').update(headData).digest('base64');
 
 const HTML = fs
-  .readFileSync(path.resolve(__dirname, `./templates/index.html`))
+  .readFileSync(path.resolve(__src, `./templates/index.html`))
   .toString();
 
 /**
@@ -52,9 +58,9 @@ const writePage = async (file, props) => {
   let html = HTML;
   html = html.replace(/{{generator}}/, generator);
   html = html.replace(/{{cssHash}}/, cssHash);
-  html = html.replace(/{{css}}/, css);
+  html = html.replace(/{{cssData}}/, cssData);
   html = html.replace(/{{headHash}}/, headHash);
-  html = html.replace(/{{head}}/, head);
+  html = html.replace(/{{headData}}/, headData);
   html = html.replace(/{{title}}/g, title);
   html = html.replace(/{{description}}/g, description);
   html = html.replace(/{{version}}/g, pkg.version);
@@ -67,7 +73,7 @@ const writePage = async (file, props) => {
  * Build website
  */
 const startTime = Date.now();
-let articles = await getAllMatter(path.resolve(__dirname, './data/blog'));
+let articles = await getAllMatter(path.resolve(__src, './data/blog'));
 articles = articles.map(propsFromMatter);
 articles.sort((a, b) => (a.unix < b.unix ? 1 : -1));
 const latest = articles.slice(0, 7);
@@ -77,7 +83,7 @@ await writeFile(path.resolve(__public, 'rss.xml'), renderRSS(articles));
 console.log(`🔱 RSS Feed`);
 
 // Update Netlify CSP headers
-const tomlPath = path.resolve(__dirname, `../netlify.toml`);
+const tomlPath = path.resolve(__src, `../netlify.toml`);
 let toml = fs.readFileSync(tomlPath).toString();
 toml = toml.replace(
   /style-src 'self' 'sha256-[^']+?'/g,
@@ -98,8 +104,7 @@ articles.forEach((props) => {
   sitemap.push({
     loc: props.href,
     changefreq: 'monthly',
-    priority: '0.5',
-    lastmod: modifiedDate(file)
+    priority: '0.5'
   });
 });
 console.log(`Published ${articles.length} articles`);
@@ -125,8 +130,8 @@ while (articles.length > 0) {
 console.log(`Published ${index} blog pages`);
 
 // Build pages
-let pages = await getAllMatter(path.resolve(__dirname, './data/pages'));
-let portfolio = await getAllMatter(path.resolve(__dirname, './data/portfolio'));
+let pages = await getAllMatter(path.resolve(__src, './data/pages'));
+let portfolio = await getAllMatter(path.resolve(__src, './data/portfolio'));
 pages = pages.concat(portfolio);
 pages = pages.map(propsFromMatter);
 pages.forEach((props) => {
@@ -139,8 +144,7 @@ pages.forEach((props) => {
   sitemap.unshift({
     loc: props.href,
     changefreq: `monthly`,
-    priority: /\/showcase\//.test(props.href) ? `0.7` : `0.8`,
-    lastmod: modifiedDate(file)
+    priority: /\/showcase\//.test(props.href) ? `0.7` : `0.8`
   });
 });
 console.log(`Published ${pages.length} pages`);
@@ -156,8 +160,7 @@ console.log(`Published contact page`);
 sitemap.unshift({
   loc: '/contact/',
   changefreq: `monthly`,
-  priority: `0.8`,
-  lastmod: modifiedDate()
+  priority: `0.8`
 });
 
 // Build homepage
@@ -171,8 +174,7 @@ console.log(`Published homepage`);
 sitemap.unshift({
   loc: '/',
   changefreq: `weekly`,
-  priority: `1.0`,
-  lastmod: modifiedDate()
+  priority: `1.0`
 });
 
 const sitemapXML = renderSitemap(sitemap);
@@ -180,7 +182,7 @@ await writeFile(path.resolve(__public, 'sitemap.xml'), sitemapXML);
 console.log(`⚓ Sitemap`);
 
 // Get Service Worker template
-let sw = fs.readFileSync(path.resolve(__dirname, `./templates/sw.js`));
+let sw = fs.readFileSync(path.resolve(__src, `./templates/sw.js`));
 sw = sw.toString().replace(/{{version}}/g, pkg.version);
 sw = `// This file is automatically generated - edit the template!\n${sw}`;
 await writeFile(path.join(__public, `sw.js`), sw);

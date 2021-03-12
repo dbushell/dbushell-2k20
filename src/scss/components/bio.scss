@@ -20,7 +20,7 @@
   }
 
   img {
-    border: rem(2) solid rgbvar(--color-secondary);
+    border: rem(2) solid hsl(var(--color-secondary));
     border-radius: 100%;
   }
 }

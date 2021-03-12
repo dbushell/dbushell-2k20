@@ -1,6 +1,7 @@
 <script>
   import {onMount} from 'svelte';
 
+  const {version} = globalThis.dbushell;
   const label = `Homepage`;
   let img;
   let svg;
@@ -24,7 +25,8 @@
   {:else}
     <img
       bind:this={img}
-      src="/assets/img/dbushell-logotype.svg"
-      alt="David Bushell" />
+      src="/assets/img/dbushell-logotype.svg?v={version}"
+      alt="David Bushell"
+    />
   {/if}
 </a>

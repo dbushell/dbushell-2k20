@@ -1,8 +1,8 @@
-import {formatDate} from './datetime.js';
+import * as datetime from './datetime.js';
 
 const url = 'https://dbushell.com';
 
-const rssTemplate = `<?xml version="1.0" encoding="UTF-8"?>
+const template = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title><![CDATA[dbushell.com]]></title>
@@ -18,7 +18,7 @@ const rssTemplate = `<?xml version="1.0" encoding="UTF-8"?>
 </rss>
 `;
 
-const rssEntry = `<item>
+const entry = `<item>
 <title><![CDATA[{{title}}]]></title>
 <description><![CDATA[<p>{{description}}</p>]]></description>
 <link>${url}{{link}}</link>
@@ -29,18 +29,18 @@ const rssEntry = `<item>
 `;
 
 const render = (articles) => {
-  const entries = articles.slice(0, 20).map((entry) => {
-    let xml = rssEntry;
-    xml = xml.replace(`{{title}}`, entry.title);
-    xml = xml.replace(`{{description}}`, entry.excerpt);
-    xml = xml.replace(/{{link}}/g, entry.href);
-    xml = xml.replace(`{{pubDate}}`, entry.date.RSS);
+  const entries = articles.slice(0, 20).map((item) => {
+    let xml = entry;
+    xml = xml.replace(`{{title}}`, item.title);
+    xml = xml.replace(`{{description}}`, item.excerpt);
+    xml = xml.replace(/{{link}}/g, item.href);
+    xml = xml.replace(`{{pubDate}}`, item.date.IMF);
     return xml;
   });
-  let xml = rssTemplate;
-  xml = xml.replace(`{{lastBuildDate}}`, formatDate().RSS);
+  let xml = template;
+  xml = xml.replace(`{{lastBuildDate}}`, datetime.dateProps().IMF);
   xml = xml.replace(`{{entries}}`, entries.join(''));
   return xml;
 };
 
-export default render;
+export {render};

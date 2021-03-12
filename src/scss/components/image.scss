@@ -4,11 +4,11 @@
   img,
   video {
     display: block;
-    background-color: rgbvar(--db-black, 0.2);
+    background-color: hsla(var(--db-black), 0.2);
     border-radius: rem(3);
-    border: rem(2) solid rgbvar(--color-background);
-    box-shadow: rem(-4) 0 0 rem(-2) rgbvar(--color-secondary),
-      rem(4) rem(4) 0 0 rgbvar(--db-black, 0.2);
+    border: rem(2) solid hsl(var(--color-background));
+    box-shadow: rem(-4) 0 0 rem(-2) hsl(var(--color-secondary)),
+      rem(4) rem(4) 0 0 hsla(var(--db-black), 0.2);
     margin: rem(36) 0;
     position: relative;
   }

@@ -2,14 +2,6 @@
   @return ($px / $base) + rem;
 }
 
-@function rgbvar($color, $alpha: 1) {
-  @if $alpha == 1 {
-    @return unquote('rgb(var(#{$color}))');
-  } @else {
-    @return unquote('rgba(var(#{$color}), #{$alpha})');
-  }
-}
-
 @font-face {
   font-family: 'Komika';
   src: url('/assets/fonts/komika-title.woff2') format('woff2');
@@ -45,16 +37,16 @@
 @import 'src/scss/includes/utopia.scss';
 
 :root {
-  --db-light: 255, 250, 240;
-  --db-dark: 80, 70, 70;
-  --db-pink: 255, 100, 125;
-  --db-red: 210, 55, 80;
-  --db-green: 150, 230, 200;
-  --db-blue: 20, 150, 190;
-  --db-blue2: 15, 110, 155;
-  --db-yellow: 255, 250, 190;
-  --db-white: 255, 255, 255;
-  --db-black: 55, 50, 50;
+  --db-light: 40, 100%, 97%; // 255, 250, 240;
+  --db-dark: 0, 7%, 29%; // 80, 70, 70;
+  --db-pink: 350, 100%, 69%; // 255, 100, 125;
+  --db-red: 350, 63%, 52%; // 210, 55, 80;
+  --db-green: 157, 61%, 75%; // 150, 230, 200;
+  --db-blue: 194, 82%, 41%; // 20, 150, 190;
+  --db-blue2: 194, 82%, 31%; // 15, 110, 155;
+  --db-yellow: 55, 100%, 87%; // 255, 250, 190;
+  --db-white: 0, 0%, 100%; // 255, 255, 255;
+  --db-black: 0, 5%, 20%; // 55, 50, 50;
 }
 
 *,
@@ -103,24 +95,24 @@ button {
 }
 
 a {
-  color: rgbvar(--color-primary);
+  color: hsl(var(--color-primary));
   text-decoration-line: underline;
   text-decoration-thickness: 5%;
   text-decoration-skip-ink: all;
-  text-decoration-color: rgbvar(--color-primary, 0.5);
+  text-decoration-color: hsla(var(--color-primary), 0.5);
   text-underline-offset: 15%;
   transition: color 200ms, background 200ms, text-decoration-color 200ms,
     text-decoration 200ms;
 
   &:hover {
-    color: rgbvar(--color-tertiary);
-    text-decoration-color: rgbvar(--color-primary, 0);
+    color: hsl(var(--color-tertiary));
+    text-decoration-color: hsla(var(--color-primary), 0);
   }
 
   &:focus {
     outline: var(--outline);
     outline-offset: rem(2);
-    text-decoration-color: rgbvar(--color-primary, 0);
+    text-decoration-color: hsla(var(--color-primary), 0);
   }
 
   &:active {
@@ -131,7 +123,7 @@ a {
   small > &,
   p:not([class]) > & {
     &:not(:hover) {
-      color: rgbvar(--color-primary2);
+      color: hsl(var(--color-primary2));
     }
   }
 }
@@ -140,11 +132,11 @@ a {
   &:not([class]) {
     background-image: linear-gradient(
       to right,
-      rgba(var(--color-primary), 0.2),
-      rgba(var(--color-primary), 0.2)
+      hsla(var(--color-primary), 0.2),
+      hsla(var(--color-primary), 0.2)
     );
-    background-position: bottom 5% center;
-    background-repeat: no-repeat;
+    background-position: bottom 5% left;
+    background-repeat: repeat-x;
     background-size: 100% 0;
 
     &:hover {
@@ -200,7 +192,7 @@ blockquote {
   margin: rem(36) 0;
   margin-inline-start: rem(18);
   padding-inline-start: rem(18);
-  border-inline-start: rem(1) solid rgbvar(--color-tertiary);
+  border-inline-start: rem(1) solid hsl(var(--color-tertiary));
 
   p {
     font-style: italic;
@@ -226,7 +218,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: rgbvar(--color-primary);
+  color: hsl(var(--color-primary));
   font-size: var(--step-1);
   font-weight: 600;
   line-height: 1.5;
@@ -289,7 +281,7 @@ h3 {
 
 .Time,
 .Cursive {
-  color: rgbvar(--color-secondary2);
+  color: hsl(var(--color-secondary2));
   font-family: 'Comic Neue', 'Raleway', sans-serif;
   font-style: italic;
   font-weight: 600;
@@ -302,7 +294,7 @@ h3 {
 }
 
 .Error {
-  color: rgbvar(--db-red);
+  color: hsl(var(--db-red));
 }
 
 pre,
@@ -312,14 +304,24 @@ code {
   font-weight: 300;
 }
 
-p > code {
-  display: inline-block;
-  padding: 0 rem(5);
+:not(pre) > code {
+  background-image: linear-gradient(
+    to right,
+    hsla(var(--color-secondary), 0.2) 1ch,
+    transparent 1ch
+  );
+  background-position: bottom 5% left;
+  background-repeat: repeat-x;
+  background-size: 1.5ch 10%;
+  color: hsl(var(--color-secondary2));
+  display: inline;
+  font-size: 90%;
+  font-weight: 500;
 }
 
 pre {
-  color: rgbvar(--db-light);
-  background: rgbvar(--db-dark);
+  color: hsl(var(--db-light));
+  background: hsl(var(--db-dark));
   direction: ltr;
   height: auto;
   -webkit-hyphens: none;

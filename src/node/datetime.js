@@ -1,0 +1,32 @@
+// Date formatting
+
+const dateProps = (date = new Date()) => {
+  const props = {
+  // YYYY-MM-DDTHH:mm:ss.sssZ
+    ISO: date.toISOString(),
+    // Sunday ... Saturday
+    dddd: date.toLocaleString('en-GB', { weekday: 'long' }),
+    // Sun ... Sat
+    ddd: date.toLocaleString('en-GB', { weekday: 'short' }),
+    // 01 ... 31
+    DD: `${date.getDate()}`.padStart(2, '0'),
+    // 1 ... 31
+    D: date.getDate(),
+    // January ... December
+    MMMM: date.toLocaleString('en-GB', { month: 'long' }),
+    // Jan ... Dec
+    MMM: date.toLocaleString('en-GB', { month: 'short' }),
+    // 01 ... 12
+    MM: `${date.getMonth() + 1}`.padStart(2, '0'),
+    // 1 ... 12
+    M: date.getMonth() + 1,
+    // 2021
+    YYYY: date.getFullYear()
+  };
+  // ddd, DD MMM YYYY HH:mm:ss ZZ
+  props.IMF = `${props.ddd}, ${props.DD} ${props.MMM} ${props.YYYY}`;
+  props.IMF += ' 10:00:00 GMT';
+  return props;
+};
+
+export {dateProps};

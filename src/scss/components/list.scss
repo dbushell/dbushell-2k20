@@ -25,7 +25,7 @@
     font-weight: 500;
 
     &:not(:hover) {
-      color: rgbvar(--color-primary2);
+      color: hsl(var(--color-primary2));
     }
   }
 }
@@ -40,7 +40,7 @@
       background: none;
       content: counter(ol-counter) '.';
       counter-increment: ol-counter;
-      color: rgbvar(--color-secondary);
+      color: hsl(var(--color-secondary));
       display: inline-block;
       font-family: 'Comic Neue', 'Raleway', sans-serif;
       font-style: italic;
@@ -135,11 +135,11 @@
 
   img {
     backface-visibility: hidden;
-    background-color: rgbvar(--db-black, 0.2);
+    background-color: hsla(var(--db-black), 0.2);
     border-radius: rem(9);
-    border: rem(2) solid rgbvar(--color-background);
-    box-shadow: rem(-4) 0 0 rem(-2) rgbvar(--color-secondary),
-      rem(4) rem(4) 0 0 rgbvar(--db-black, 0.2);
+    border: rem(2) solid hsl(var(--color-background));
+    box-shadow: rem(-4) 0 0 rem(-2) hsl(var(--color-secondary)),
+      rem(4) rem(4) 0 0 hsla(var(--db-black), 0.2);
     display: block;
     transform-style: preserve-3d;
     transform-origin: 50% 50%;
