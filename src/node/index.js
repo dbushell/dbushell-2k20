@@ -3,7 +3,7 @@ import path from 'path';
 import crypto from 'crypto';
 import renderRSS from './rss.js';
 import renderSitemap from './sitemap.js';
-import {css, cssHash} from './css.js';
+import {cssData, cssHash} from './css.js';
 import {getAllMatter, propsFromMatter} from './matter.js';
 import * as render from './svelte.js';
 
@@ -15,16 +15,21 @@ const __public = path.resolve(__src, '../public');
 let pkg = fs.readFileSync(path.resolve(__src, '../package.json'));
 pkg = JSON.parse(pkg);
 
-const generator = `${process.platform}/${process.arch} | node ${
-  process.version
-} | svelte ${pkg.dependencies.svelte} | ${
-  new Date().toString().split(' GMT')[0]
+globalThis.dbushell = {version: pkg.version};
+
+const generator = `node ${process.version} | svelte ${
+  pkg.dependencies.svelte
+} | ${new Date().toString().split(' GMT')[0]} | ${process.platform}/${
+  process.arch
 }`;
 
 console.log(`🖨️ ${generator}`);
 
-let head = fs.readFileSync(path.resolve(__src, `./svelte/head.js`));
-const headHash = crypto.createHash('sha256').update(head).digest('base64');
+let headData = fs.readFileSync(path.resolve(__src, `./templates/head.min.js`));
+headData = `window.dbushell={version: '${
+  pkg.version
+}'};${headData.toString().trim()}`;
+const headHash = crypto.createHash('sha256').update(headData).digest('base64');
 
 const HTML = fs
   .readFileSync(path.resolve(__src, `./templates/index.html`))
@@ -53,9 +58,9 @@ const writePage = async (file, props) => {
   let html = HTML;
   html = html.replace(/{{generator}}/, generator);
   html = html.replace(/{{cssHash}}/, cssHash);
-  html = html.replace(/{{css}}/, css);
+  html = html.replace(/{{cssData}}/, cssData);
   html = html.replace(/{{headHash}}/, headHash);
-  html = html.replace(/{{head}}/, head);
+  html = html.replace(/{{headData}}/, headData);
   html = html.replace(/{{title}}/g, title);
   html = html.replace(/{{description}}/g, description);
   html = html.replace(/{{version}}/g, pkg.version);

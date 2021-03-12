@@ -1,14 +1,13 @@
 {
   "name": "dbushell-2k20",
-  "version": "11.4.1",
+  "version": "11.5.0",
   "private": true,
   "description": "dbushell.com",
   "type": "module",
   "scripts": {
-    "rollup": "npx rollup -c src/svelte/rollup.config.js",
-    "build:dev": "node src/node/index.js && npm run rollup",
-    "build:prod": "NODE_ENV=production node src/node/index.js && NODE_ENV=production npm run rollup",
-    "build:docker": "docker exec dbushell npm run build:dev",
+    "rollup": "npx rollup -c src/node/rollup.config.js",
+    "build": "NODE_ENV=production node src/node/index.js && NODE_ENV=production npm run rollup",
+    "build:docker": "docker exec dbushell npm run build",
     "start": "npx http-server ./public/"
   },
   "author": "David Bushell <david@dbushell.com>",

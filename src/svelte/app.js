@@ -1,6 +1,8 @@
 import Logo from './components/logo.svelte';
 import Contact from './components/contact.svelte';
 
+const {version} = window.dbushell;
+
 const $doc = document.querySelector('.Document');
 
 const $mode = document.querySelector('.Lightbulb');
@@ -36,7 +38,7 @@ if ($form) {
 if ('fonts' in document && document.querySelector('pre')) {
   const $prism = document.createElement('link');
   $prism.rel = 'stylesheet';
-  $prism.href = '/assets/css/prism.css';
+  $prism.href = `/assets/css/prism.css?v=${version}`;
   document.head.appendChild($prism);
   var fira = new FontFace(
     'Fira Code',

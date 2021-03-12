@@ -135,8 +135,8 @@ a {
       hsla(var(--color-primary), 0.2),
       hsla(var(--color-primary), 0.2)
     );
-    background-position: bottom 5% center;
-    background-repeat: no-repeat;
+    background-position: bottom 5% left;
+    background-repeat: repeat-x;
     background-size: 100% 0;
 
     &:hover {
@@ -304,9 +304,19 @@ code {
   font-weight: 300;
 }
 
-p > code {
-  display: inline-block;
-  padding: 0 rem(5);
+:not(pre) > code {
+  background-image: linear-gradient(
+    to right,
+    hsla(var(--color-secondary), 0.2) 1ch,
+    transparent 1ch
+  );
+  background-position: bottom 5% left;
+  background-repeat: repeat-x;
+  background-size: 1.5ch 10%;
+  color: hsl(var(--color-secondary2));
+  display: inline;
+  font-size: 90%;
+  font-weight: 500;
 }
 
 pre {

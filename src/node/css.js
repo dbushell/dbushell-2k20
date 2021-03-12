@@ -24,4 +24,4 @@ css = css.toString().trim();
 
 const cssHash = crypto.createHash('sha256').update(css).digest('base64');
 
-export {css, cssHash};
+export {css as cssData, cssHash};

@@ -4,7 +4,7 @@ import * as yaml from 'https://deno.land/std/encoding/yaml.ts';
 import striptags from 'striptags';
 
 import markdown from './markdown.js';
-import * as format from './format.js';
+import * as datetime from './datetime.js';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 
@@ -50,7 +50,7 @@ const readProps = async (file) => {
   if (front.date) {
     const date = new Date(front.date);
     props.unix = date.valueOf();
-    props.date = format.dateProps(date);
+    props.date = datetime.dateProps(date);
     props.href =
       '/' +
       [

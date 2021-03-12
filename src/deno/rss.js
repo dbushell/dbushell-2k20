@@ -1,4 +1,4 @@
-import * as format from './format.js';
+import * as datetime from './datetime.js';
 
 const url = 'https://dbushell.com';
 
@@ -38,7 +38,7 @@ const render = (articles) => {
     return xml;
   });
   let xml = template;
-  xml = xml.replace(`{{lastBuildDate}}`, format.dateProps().IMF);
+  xml = xml.replace(`{{lastBuildDate}}`, datetime.dateProps().IMF);
   xml = xml.replace(`{{entries}}`, entries.join(''));
   return xml;
 };

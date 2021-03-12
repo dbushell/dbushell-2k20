@@ -12,6 +12,8 @@ import * as svelte from './svelte.js';
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 const dest = path.resolve(`${pwd}/../../public`);
 
+globalThis.dbushell = {version: meta.version};
+
 console.log(`🖨️ ${meta.generator}`);
 
 const bundler = new Worker(new URL('./bundle.js', import.meta.url).href, {
@@ -34,7 +36,9 @@ const template = await Deno.readTextFile(`${pwd}/../templates/index.html`);
 
 // Retrieve <head> inline JavaScript
 const headData = await Deno.readTextFile(
-  path.resolve(`${pwd}/../svelte/head.js`)
+  path.resolve(`${pwd}/../templates/head.min.js`)
+).then(
+  (data) => `;window.dbushell={version: '${meta.version}'};${data.trim()}`
 );
 const headHash = hash.createHash('sha256').update(headData).toString('base64');
 
@@ -56,9 +60,9 @@ const save = (path, props) => {
     let html = template;
     html = html.replace(/{{generator}}/, meta.generator);
     html = html.replace(/{{cssHash}}/, cssHash);
-    html = html.replace(/{{css}}/, cssData);
+    html = html.replace(/{{cssData}}/, cssData);
     html = html.replace(/{{headHash}}/, headHash);
-    html = html.replace(/{{head}}/, headData);
+    html = html.replace(/{{headData}}/, headData);
     html = html.replace(/{{title}}/g, title);
     html = html.replace(/{{description}}/g, description);
     html = html.replace(/{{version}}/g, meta.version);

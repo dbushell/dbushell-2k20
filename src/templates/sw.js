@@ -4,7 +4,7 @@ const cacheName = `dbushell-${version}`;
 const precache = [
   `/`,
   `/assets/fonts/komika-title.woff2`,
-  `/assets/img/dbushell-logotype.svg?v=2`,
+  `/assets/img/dbushell-logotype.svg?v=${version}`,
   `/assets/js/app.min.js?v=${version}`,
   '/about/',
   '/blog/',

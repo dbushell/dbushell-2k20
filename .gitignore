@@ -8,7 +8,6 @@
 !package.json
 !README.md
 !src
-src/.cache
 !public
 public/*
 !public/assets

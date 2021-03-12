@@ -4,6 +4,7 @@ await import('prismjs');
 await import(`prismjs/components/prism-jsx.js`);
 await import(`prismjs/components/prism-markup-templating.js`);
 await import(`prismjs/components/prism-php.js`);
+await import(`prismjs/components/prism-diff.js`);
 await import(`prismjs/components/prism-bash.js`);
 await import(`prismjs/components/prism-json.js`);
 await import(`prismjs/components/prism-toml.js`);
