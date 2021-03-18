@@ -25,7 +25,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Strict-Transport-Security = "max-age=31557600"
-    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://*.eu-west-1.amazonaws.com; img-src 'self' data:; script-src 'self' 'sha256-PGbGP1uWEsRV/GEPFNgR3QPib7zeFBWgN7OqchwvxXY='; style-src 'self' 'sha256-q/VxJnWvEa0sZ5pKFgoi0eo0wGgy58G4hao9kbwURj4=' 'sha256-M7Z/R6azUsoNM77aBWHJTgS5MSuVEK3Z9MymhafpGcY=';"
+    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://*.eu-west-1.amazonaws.com; img-src 'self' data:; script-src 'self' 'sha256-PGbGP1uWEsRV/GEPFNgR3QPib7zeFBWgN7OqchwvxXY='; style-src 'self' 'sha256-7/cFHlxV/gwBm258K+18im1sV9NOjbQ9r+feu/HG54g=' 'sha256-M7Z/R6azUsoNM77aBWHJTgS5MSuVEK3Z9MymhafpGcY=';"
     Referrer-Policy = "same-origin"
 
 [[redirects]]

@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     command: >-
       zsh -c "npm install --no-save
-      && npm run build:dev
+      && npm run build:deno
       && npm start"
     networks:
       - traefik

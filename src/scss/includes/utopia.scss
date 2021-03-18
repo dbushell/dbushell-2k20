@@ -8,7 +8,81 @@
   }
 }
 
-/* @link https://utopia.fyi/generator?c=320,16,1.125,1920,19,1.333,5,0, */
+// :root {
+//   --step-ratio: (100 / 1920);
+//   --step-s: clamp(#{rem(14)}, calc(1vw * (var(--step-ratio) * 15)), #{rem(15)});
+//   --step-0: clamp(#{rem(16)}, calc(1vw * (var(--step-ratio) * 19)), #{rem(19)});
+//   --step-1: clamp(#{rem(18)}, calc(1vw * (var(--step-ratio) * 26)), #{rem(26)});
+//   --step-2: clamp(#{rem(20)}, calc(1vw * (var(--step-ratio) * 34)), #{rem(34)});
+//   --step-3: clamp(#{rem(22)}, calc(1vw * (var(--step-ratio) * 46)), #{rem(46)});
+//   --step-4: clamp(#{rem(26)}, calc(1vw * (var(--step-ratio) * 60)), #{rem(60)});
+//   --step-5: clamp(#{rem(28)}, calc(1vw * (var(--step-ratio) * 80)), #{rem(80)});
+// }
+
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,19,1.333,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1920;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 1920px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --f-0-min: 16;
+  --f-0-max: 19;
+  --step-0: calc(
+    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-1-min: 18;
+  --f-1-max: 25.33;
+  --step-1: calc(
+    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-2-min: 20.25;
+  --f-2-max: 33.76;
+  --step-2: calc(
+    ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-3-min: 22.78;
+  --f-3-max: 45;
+  --step-3: calc(
+    ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-4-min: 25.63;
+  --f-4-max: 59.99;
+  --step-4: calc(
+    ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-5-min: 28.83;
+  --f-5-max: 79.97;
+  --step-5: calc(
+    ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+      var(--fluid-bp)
+  );
+}
+
+/* @link https://utopia.fyi/generator?c=320,16,1.125,1920,19,1.333,5,0,
 
 :root {
   --umin-width: 320;
@@ -101,3 +175,4 @@
     )
   );
 }
+ */

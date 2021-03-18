@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "rollup": "npx rollup -c src/node/rollup.config.js",
-    "build": "NODE_ENV=production node src/node/index.js && NODE_ENV=production npm run rollup",
-    "build:docker": "docker exec dbushell npm run build",
+    "build:node": "NODE_ENV=production node src/node/index.js && NODE_ENV=production npm run rollup",
+    "build:deno": "bin/x86_64-unknown-linux-gnu/deno run --allow-all --no-check --unstable --import-map src/deno/imports.json src/deno/mod.js",
+    "build:docker": "docker exec dbushell npm run build:deno",
     "start": "npx http-server ./public/"
   },
   "author": "David Bushell <david@dbushell.com>",
