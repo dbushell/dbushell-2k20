@@ -51,19 +51,7 @@ It doesn't really scale well beyond mobile, [I'm working on that...](https://cod
     height="640">
 </p>
 
-And of course, Mute Swan is available on [Google Play](https://play.google.com/store/apps/details?id=app.muteswan.android):
-
-<p class="Image">
-  <a style="display: block; max-width: 200px;" target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=app.muteswan.android">
-    <img loading="lazy" srcset="
-      /images/blog/2020/google-play-badge@1x.png,
-      /images/blog/2020/google-play-badge@2x.png 2x"
-      src="/images/blog/2020/google-play-badge@1x.png"
-      alt="Get Mute Swan on Google Play"
-      width="282"
-      height="84">
-  </a>
-</p>
+~~And of course, Mute Swan is available on Google Play.~~ **Update:** no longer published.
 
 Here's how:
 
