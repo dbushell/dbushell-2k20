@@ -134,7 +134,7 @@ What make this component fancier is that it has multiple links inside. Alongside
   <img loading="lazy" srcset="
     /images/blog/2021/article-card-states-extended@1x.png,
     /images/blog/2021/article-card-states-extended@2x.png 2x"
-    src="/images/blog/2021/article-card-states@1x.png"
+    src="/images/blog/2021/article-card-states-extended@1x.png"
     alt="extended article component design states"
     width="1210"
     height="529">
