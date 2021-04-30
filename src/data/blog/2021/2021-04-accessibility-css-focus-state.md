@@ -140,7 +140,7 @@ What make this component fancier is that it has multiple links inside. Alongside
     height="529">
 </p>
 
-All links have a subtle hover underline (far left and right in the screenshot above). I've added `z-index: 1;` so that they sit above the invisible the `::after` pseudo-element.
+All links have a subtle hover underline (far left and right in the screenshot above). I've added `z-index: 1;` so that they sit above the invisible `::after` pseudo-element.
 
 The category links are also focusable (middle example above). The "read more" link however is not focusable. It's redundant and only serves as visual sugar. I've added the `tabindex="-1"` and `aria-hidden="true"` attributes.
 
