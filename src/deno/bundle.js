@@ -64,7 +64,7 @@ const create = async () => {
 
   const {files} = await Deno.emit(bundle, {
     check: false,
-    bundle: 'esm',
+    bundle: 'module',
     importMapPath: `${pwd}/imports.json`
   });
 
