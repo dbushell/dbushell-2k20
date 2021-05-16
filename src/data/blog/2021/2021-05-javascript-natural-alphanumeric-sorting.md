@@ -15,7 +15,7 @@ First a visual update on my PWA because it's all code to follow:
     src="/images/blog/2021/mesonic-v0-13-1@1x.png"
     alt="meSonic progressive web app demo screenshot"
     width="420"
-    height="568">
+    height="560">
 </p>
 
 Yes those are [Bootstrap](https://getbootstrap.com/) styles. My next blog topic.
