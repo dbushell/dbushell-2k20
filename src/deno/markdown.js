@@ -10,6 +10,7 @@ await import(`prismjs/components/prism-json.js`);
 await import(`prismjs/components/prism-toml.js`);
 await import(`prismjs/components/prism-yaml.js`);
 await import(`prismjs/components/prism-svelte.js`);
+await import(`prismjs/components/prism-sql.js`);
 
 const languages = Object.keys(Prism.languages);
 

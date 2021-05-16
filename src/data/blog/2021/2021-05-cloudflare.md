@@ -98,3 +98,7 @@ Technically it's possible to deploy an entire website to a Cloudflare Worker. So
 I'd need to read more of the fine print before I'd be confident using these Cloudflare services full time. The [free tier limits](https://developers.cloudflare.com/workers/platform/limits) are quite extensive. Initial impressions as a developer are positive. My side project will live here for now.
 
 **SvelteKit** was an off-the-cuff choice. Along with [Bootstrap 5](https://getbootstrap.com) they just happened to launch when I needed a head start in prototyping my PWA. I've found both to be delightful to work with. I plan to blog about them as I continue to code. I might show off more of the side project itself too. It's for my own use but out there if you're curious.
+
+## Related articles
+
+* [Natural Alphanumeric Sorting in JavaScript](/2021/05/17/javascript-natural-alphanumeric-sorting/)
