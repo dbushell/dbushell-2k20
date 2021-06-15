@@ -75,7 +75,9 @@ const long = new Intl.DateTimeFormat(
 });
 
 const formatDate = (date) => {
-  const days = Math.ceil((date - new Date()) / 86400000);
+  const now = new Date().setHours(0, 0, 0, 0);
+  const then = date.setHours(0, 0, 0, 0);
+  const days = (then - now) / 86400000;
   if (days > -6) {
     if (days > -2) {
       return relative.format(days, 'day');
