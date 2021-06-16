@@ -14,7 +14,7 @@ Check out [**my new demo on CodePen**](https://codepen.io/dbushell/full/yLMEogE)
 
 <p class="Image">
   <video autoplay controls loop muted playsinline preload="auto" width="340" height="350">
-    <source src="/images/blog/2021/off-canvas-navigation.mp4" type="video/mp4">
+    <source src="/images/video/2021/off-canvas-navigation.mp4" type="video/mp4">
   </video>
 </p>
 
