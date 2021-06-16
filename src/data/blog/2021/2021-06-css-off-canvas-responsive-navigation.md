@@ -13,7 +13,7 @@ Back in 2013 responsive design was not yet fully accepted as the norm. Unthinkab
 Check out [**my new demo on CodePen**](https://codepen.io/dbushell/full/yLMEogE) and video below:
 
 <p class="Image">
-  <video autoplay controls loop muted playsinline preload="auto" width="340" height="350">
+  <video controls loop muted preload="auto" width="340" height="350">
     <source src="/images/blog/2021/off-canvas-navigation.mp4" type="video/mp4">
   </video>
 </p>
