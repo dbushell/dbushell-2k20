@@ -41,9 +41,9 @@ if ('fonts' in document && document.querySelector('pre')) {
   $prism.href = `/assets/css/prism.css?v=${version}`;
   document.head.appendChild($prism);
   var fira = new FontFace(
-    'Fira Code',
-    "url('/assets/fonts/firacode-variable.woff2') format('woff2')",
-    {weight: '1 900'}
+    'Fira Code Light',
+    "url('/assets/fonts/fira-code-light.woff2') format('woff2')",
+    {weight: '300', unicodeRange: 'U+0020-007F'}
   );
   Promise.all([fira.load()]).then((fonts) => {
     fonts.forEach((font) => {

@@ -8,6 +8,8 @@
   font-display: swap;
   font-weight: 700;
   font-style: normal;
+  // Basic Latin
+  unicode-range: U+0020-007F;
 }
 
 @font-face {
@@ -16,6 +18,8 @@
   font-display: swap;
   font-weight: 1 900;
   font-style: normal;
+  // Basic Latin, Latin-1 Supplement, General Punctuation
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2000-206F;
 }
 
 @font-face {
@@ -24,14 +28,18 @@
   font-display: swap;
   font-weight: 1 900;
   font-style: italic;
+  // Basic Latin, Latin-1 Supplement, General Punctuation
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2000-206F;
 }
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('/assets/fonts/comicneue-bolditalic.woff2') format('woff2');
+  src: url('/assets/fonts/comic-neue-bold-italic.woff2') format('woff2');
   font-display: swap;
   font-weight: 600;
   font-style: italic;
+  // Basic Latin
+  unicode-range: U+0020-007F;
 }
 
 @import 'src/scss/includes/utopia.scss';
@@ -113,6 +121,10 @@ a {
     outline: var(--outline);
     outline-offset: rem(2);
     text-decoration-color: hsla(var(--color-primary), 0);
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
   }
 
   &:active {
@@ -299,7 +311,7 @@ h3 {
 
 pre,
 code {
-  font-family: 'Fira Code', monospace;
+  font-family: 'Fira Code Light', 'Fira Code', monospace;
   font-size: var(--step-s);
   font-weight: 300;
 }
