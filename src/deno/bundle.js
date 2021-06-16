@@ -62,15 +62,23 @@ const create = async () => {
   const bundle = path.resolve(`${pwd}/../svelte/app.bundle.js`);
   await Deno.writeTextFile(bundle, app);
 
-  const {files} = await Deno.emit(bundle, {
-    check: false,
-    bundle: 'module',
-    importMapPath: `${pwd}/imports.json`
+  const process = Deno.run({
+    cmd: [
+      'deno',
+      'bundle',
+      '--import-map',
+      path.resolve(`${pwd}/imports.json`),
+      bundle,
+      bundle
+    ]
   });
+  const status = await process.status();
+  process.close();
 
+  app = await Deno.readTextFile(bundle);
   await Deno.remove(bundle);
 
-  app = await terser.minify(Object.values(files)[0], {
+  app = await terser.minify(app, {
     toplevel: true
   });
 
