@@ -35,11 +35,14 @@ if ($form) {
   });
 }
 
-if ('fonts' in document && document.querySelector('pre')) {
+if (document.querySelector('pre')) {
   const $prism = document.createElement('link');
   $prism.rel = 'stylesheet';
   $prism.href = `/assets/css/prism.css?v=${version}`;
   document.head.appendChild($prism);
+}
+
+if (document.querySelector('code')) {
   var fira = new FontFace(
     'Fira Code Light',
     "url('/assets/fonts/fira-code-light.woff2') format('woff2')",
