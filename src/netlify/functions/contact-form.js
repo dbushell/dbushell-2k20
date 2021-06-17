@@ -1,7 +1,8 @@
 exports.handler = async (event) => {
   const AWS = require('aws-sdk');
 
-  const {SES_ACCESS_KEY_ID, SES_ACCESS_KEY_SECRET, SES_REGION} = process.env;
+  const {SES_ACCESS_KEY_ID, SES_ACCESS_KEY_SECRET, SES_REGION, SES_EMAIL} =
+    process.env;
 
   AWS.config.update({
     accessKeyId: SES_ACCESS_KEY_ID,
