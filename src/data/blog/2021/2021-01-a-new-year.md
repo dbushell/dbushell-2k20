@@ -6,7 +6,7 @@ description: 'The one where I try to stay positive for 2021 💪😷'
 ---
 
 <p class="Image">
-  <video loop muted playsinline preload="none" width="556" height="316" poster="/images/blog/2021/zooming.jpg">
+  <video controls loop muted playsinline preload="none" width="556" height="316" poster="/images/blog/2021/zooming.jpg">
     <source src="/images/video/2021/zooming.mp4" type="video/mp4">
   </video>
 </p>

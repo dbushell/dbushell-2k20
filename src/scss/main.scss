@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'Komika';
   src: url('/assets/fonts/komika-title.woff2') format('woff2');
-  font-display: swap;
+  font-display: fallback;
   font-weight: 700;
   font-style: normal;
   // Basic Latin
