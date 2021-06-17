@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Copyright = () => (
-  <span>Copyright &copy; {new Date().getFullYear()} </span>
+  <span>Copyright &copy; 2004–{new Date().getFullYear()} </span>
 );
 
 const Separator = () => <span>&ensp;&bull;&ensp;</span>;

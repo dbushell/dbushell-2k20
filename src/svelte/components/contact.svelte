@@ -1,8 +1,7 @@
 <script>
   import {onMount} from 'svelte';
 
-  const awsHandler =
-    'https://6rovexooub.execute-api.eu-west-1.amazonaws.com/production/contact';
+  const functionURL = '/.netlify/functions/contact-form';
 
   let isSuccess = false;
   let isError = false;
@@ -11,11 +10,15 @@
   let consentRef;
   let robotRef;
 
+  let name;
+  let replyTo;
+  let enquiry;
+
   onMount(() => {
     isLive = true;
   });
 
-  const onSubmit = (ev) => {
+  const onSubmit = async (ev) => {
     ev.preventDefault();
     if (consentRef.checked !== true) {
       return;
@@ -25,23 +28,28 @@
       return;
     }
     isLive = false;
-    const data = JSON.stringify({
-      name: document.querySelector('#contact-name').value,
-      replyTo: document.querySelector('#contact-email').value,
-      enquiry: document.querySelector('#contact-enquiry').value
-    });
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', awsHandler, true);
-    xhr.setRequestHeader('Accept', 'application/json; charset=UTF-8');
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xhr.addEventListener('loadend', (response) => {
-      if (response.target.status === 200) {
+    try {
+      const response = await fetch(functionURL, {
+        method: 'POST',
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          replyTo,
+          enquiry
+        })
+      });
+      if (response.status === 200) {
         isSuccess = true;
       } else {
         isError = true;
       }
-    });
-    xhr.send(data);
+    } catch (err) {
+      console.log(err);
+      isError = true;
+    }
   };
 </script>
 
@@ -69,7 +77,9 @@
           id="contact-name"
           name="name"
           maxlength="100"
-          disabled={!isLive} />
+          disabled={!isLive}
+          bind:value={name}
+        />
       </li>
       <li>
         <label class="Cursive" for="contact-email">Email Address</label>
@@ -81,7 +91,9 @@
           name="replyTo"
           placeholder="me@example.com…"
           maxlength="200"
-          disabled={!isLive} />
+          disabled={!isLive}
+          bind:value={replyTo}
+        />
       </li>
       <li>
         <label class="Cursive" for="contact-enquiry">Enquiry</label>
@@ -93,7 +105,9 @@
           rows="5"
           maxlength="10000"
           placeholder="Tell me about your project&hellip;"
-          disabled={!isLive} />
+          disabled={!isLive}
+          bind:value={enquiry}
+        />
       </li>
       <li>
         <h4 class="Privacy">
@@ -101,11 +115,13 @@
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            viewbox="0 0 24 24">
+            viewbox="0 0 24 24"
+          >
             <path
               d="M14 9v2h-4V9c0-1.104.897-2 2-2s2 .896 2 2zm10 3c0 6.627-5.373
               12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-8-1h-1V9a3 3
-              0 0 0-6 0v2H8v6h8v-6z" />
+              0 0 0-6 0v2H8v6h8v-6z"
+            />
           </svg>
           <span>Your data and privacy</span>
         </h4>
@@ -132,7 +148,8 @@
             id="contact-privacy"
             name="privacy"
             autocomplete="off"
-            disabled={!isLive} />
+            disabled={!isLive}
+          />
           <span>I consent to my data being used as outlined above</span>
         </label>
       </li>
@@ -151,7 +168,8 @@
           id="contact-human"
           name="whodis"
           tabindex="-1"
-          autocomplete="off" />
+          autocomplete="off"
+        />
       </li>
     </ul>
   </form>

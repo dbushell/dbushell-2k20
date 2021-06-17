@@ -6,7 +6,7 @@
   <h3 class="Hidden">Copyright and Privacy</h3>
   <p>
     <small>
-      <span>Copyright &copy; {year}</span>
+      <span>Copyright &copy; 2004–{year}</span>
       <a href="/">David Bushell</a><span>&ensp;&bull;&ensp;</span><a
         href="/privacy/">Privacy Policy</a>
     </small>

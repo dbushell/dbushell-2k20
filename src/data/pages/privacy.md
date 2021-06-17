@@ -2,17 +2,19 @@
 slug: privacy
 title: 'Privacy Policy'
 ---
-This policy explains how data is used when contacting **dbushell.com**.
+This policy explains how **dbushell.com** respects your privacy and data.
 
-💤 Last updated: 2018-05-30
+💤 Last updated: 2021-05-17
 
 #### How data is collected
 
 The [contact form](/contact/) asks for your **name** and **email address** and any information you wish to disclose pertaining to your enquiry. I may ask for more information in follow-up emails in order to adequately answer your questions.
 
+This website does not use 3rd party scripts for analytics nor tracking.
+
 #### Where data is stored
 
-When you contact me using the [contact form](/contact/) (or via email directly) all data is stored in a secure [Proton Mail](https://protonmail.com/) inbox. This inbox is encrypted with a very strong password and two-factor authentication requiring a second password or fingerprint to access. Both passwords are unique and randomly generated to over thirty characters long. Proton Mail servers are based in Switzerland.
+When you contact me using the [contact form](/contact/) (or via email directly) all data is stored in a secure [Proton Mail](https://protonmail.com/) inbox. This inbox is encrypted with a very strong password and two-factor authentication. Proton Mail servers are based in Switzerland.
 
 #### What data is used for
 
