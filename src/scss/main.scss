@@ -1,5 +1,7 @@
+@use 'sass:math';
+
 @function rem($px, $base: 16) {
-  @return ($px / $base) + rem;
+  @return (math.div($px, $base)) + rem;
 }
 
 @font-face {

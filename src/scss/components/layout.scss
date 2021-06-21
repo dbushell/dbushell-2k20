@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .Layout {
   display: block;
   margin: 0 auto;
@@ -11,7 +13,7 @@
 @media screen and (min-width: rem(400)) {
   .Layout {
     .Masthead {
-      width: percentage(1 / 1.25);
+      width: percentage(math.div(1, 1.25));
     }
   }
 }
@@ -19,7 +21,7 @@
 @media screen and (min-width: rem(600)) {
   .Layout {
     .Masthead {
-      width: percentage(1 / 1.618);
+      width: percentage(math.div(1, 1.618));
     }
   }
 }
