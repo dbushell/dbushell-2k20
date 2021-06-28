@@ -6,7 +6,6 @@ The **Fountain Dental** website reflects the clean and friendly nature of the pr
 
 The combination of photography styles and minimal interface elements add a nice depth to the design. This also provides a simple and elegant browsing experience for the visitor.
 
-[visit website](http://www.fountaindental.net)
 Website launched in May 2009
 
 [← Return to Portfolio](/showcase)
