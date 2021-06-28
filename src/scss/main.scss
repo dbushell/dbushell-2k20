@@ -44,7 +44,7 @@
   unicode-range: U+0020-007F;
 }
 
-@import 'src/scss/includes/utopia.scss';
+@import 'src/scss/components/utopia.scss';
 
 :root {
   --db-light: 40, 100%, 97%; // 255, 250, 240;
@@ -69,14 +69,14 @@ html {
   scroll-behavior: smooth;
 }
 
-.translated-rtl {
-  direction: rtl;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+}
+
+.translated-rtl {
+  direction: rtl;
 }
 
 body {
@@ -105,24 +105,26 @@ button {
 }
 
 a {
-  color: hsl(var(--color-primary));
+  --anchor-color: var(--color-primary);
+  --anchor-opacity: 0.5;
+  color: hsl(var(--anchor-color));
   text-decoration-line: underline;
   text-decoration-thickness: 5%;
   text-decoration-skip-ink: all;
-  text-decoration-color: hsla(var(--color-primary), 0.5);
-  text-underline-offset: 15%;
+  text-decoration-color: hsla(var(--anchor-color), var(--anchor-opacity));
+  text-underline-offset: 0.15em; // 15%;
   transition: color 200ms, background 200ms, text-decoration-color 200ms,
     text-decoration 200ms;
 
   &:hover {
-    color: hsl(var(--color-tertiary));
-    text-decoration-color: hsla(var(--color-primary), 0);
+    --anchor-color: var(--color-tertiary);
+    --anchor-opacity: 0;
   }
 
   &:focus {
+    --anchor-opacity: 0;
     outline: var(--outline);
     outline-offset: rem(2);
-    text-decoration-color: hsla(var(--color-primary), 0);
 
     &:not(:focus-visible) {
       outline: none;
@@ -137,12 +139,12 @@ a {
   small > &,
   p:not([class]) > & {
     &:not(:hover) {
-      color: hsl(var(--color-primary2));
+      --anchor-color: var(--color-primary2);
     }
   }
 }
 
-:is(.List, .Prose, .Star) a {
+:is(.Star, .List, .Prose, .Footer) a {
   &:not([class]) {
     background-image: linear-gradient(
       to right,
@@ -172,7 +174,8 @@ abbr {
   }
 }
 
-small {
+small,
+figcaption {
   font-size: var(--step-s);
 }
 
@@ -353,5 +356,3 @@ pre {
   word-break: normal;
   word-wrap: normal;
 }
-
-// @import 'src/scss/components/**/*.scss';

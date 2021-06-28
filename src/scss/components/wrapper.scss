@@ -13,15 +13,9 @@
 }
 
 :root {
-  --wrapper-margin: #{rem(27)};
+  --wrapper-margin: 7vw;
   --wrapper-max: calc(#{rem(1920)} - var(--wrapper-margin) * 2);
-  --wrapper-min: calc(#{rem(320)} - var(--wrapper-margin) * 2);
-}
-
-@media screen and (min-width: rem(400)) {
-  :root {
-    --wrapper-margin: 7vw;
-  }
+  --wrapper-min: calc(#{rem(280)} - var(--wrapper-margin) * 2);
 }
 
 @media screen and (min-width: rem(768)) {

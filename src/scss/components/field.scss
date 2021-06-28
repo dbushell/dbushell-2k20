@@ -1,0 +1,37 @@
+.Field {
+  --field-shadow: hsla(var(--color-primary), 0.5);
+  appearance: none;
+  background: hsla(var(--color-background2));
+  border: rem(2) solid hsl(var(--color-quaternary));
+  border-top: 0;
+  border-left: 0;
+  border-radius: rem(5);
+  box-shadow: rem(-1) rem(-1) 0 rem(1) var(--field-shadow),
+    rem(2) rem(2) 0 0 hsla(var(--db-black), 0.1);
+  color: hsl(var(--color-foreground));
+  display: block;
+  font-size: var(--step-s);
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.6;
+  outline: none;
+  padding: rem(7) rem(10);
+  transition: color 200ms, border-color 200ms, box-shadow 200ms;
+  width: 100%;
+
+  &:focus {
+    --field-shadow: hsl(var(--color-primary));
+    border-color: hsl(var(--color-primary));
+    color: hsl(var(--color-primary));
+    outline: var(--outline);
+    outline-offset: rem(4);
+  }
+
+  &[rows] {
+    resize: vertical;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

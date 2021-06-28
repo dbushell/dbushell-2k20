@@ -1,4 +1,5 @@
 .Image {
+  margin: 0;
   max-width: none;
 
   img,
@@ -11,6 +12,10 @@
       rem(4) rem(4) 0 0 hsla(var(--db-black), 0.2);
     margin: rem(36) 0;
     position: relative;
+  }
+
+  figcaption {
+    margin: rem(-18) 0 rem(27) 0;
   }
 }
 
