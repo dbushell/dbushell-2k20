@@ -25,7 +25,7 @@ It's a fluid, adaptive process.
 
 I'm proud of my work and love to share it with permission. Here's just a couple of projects I've been privileged to work on:
 
-* [A New Component Library for Parts Giant](/2021/07/01/new-component-library-for-parts-giant/)
+<!-- * [A New Component Library for Parts Giant](/2021/07/01/new-component-library-for-parts-giant/) -->
 * [Responsive Design for Uwe Wittwer](/2014/05/07/responsive-design-for-uwe-wittwer/)
 * [Responsive Design for Houden](/2015/03/18/responsive-design-for-houden/)
 
