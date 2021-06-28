@@ -2,55 +2,28 @@
 slug: showcase
 title: 'Portfolio'
 ---
-This portfolio spans my entire career and formal education. Much of my work in recent years is not as easily displayed in a neat package. [That's why I blog](/blog/) on specific topics. [Get in touch](/contact/) to discuss your web project and I can demonstrate more recent work.
 
-Selected web design and front-end development projects.
+📢 I provide [many services](/services/) and fulfil many roles.
 
-<ul class="List List--folio">
-  <li>
-    <a href="/2020/06/08/pwa-web-crypto-encryption-auto-sign-in-redux-persist/">
-      <span class="Hidden">Mute Swan PWA</span>
-      <img
-        loading="lazy"
-        srcset="/images/portfolio/muteswan@1x.png, /images/portfolio/muteswan@2x.png 2x"
-        src="/images/portfolio/muteswan@1x.png"
-        alt="Mute Swan - Progressive Web App"
-        width="330"
-        height="220"
-      />
-    </a>
-  </li>
-  <li>
-    <a href="/2016/07/14/building-a-wordpress-theme/">
-      <span class="Hidden">Base Creative / WordPress</span>
-      <img src="/images/portfolio/bcwordpress.png" alt="Building a WordPress Theme designed by Base Creative, London" loading="lazy" width="330" height="220" />
-    </a>
-  </li>
-  <li>
-    <a href="/2015/03/18/responsive-design-for-houden/">
-      <span class="Hidden">Houden</span><img  src="/images/portfolio/houden.png" alt="Houden" loading="lazy" width="330" height="220" />
-    </a>
-  </li>
-  <li>
-    <a href="/2014/05/07/responsive-design-for-uwe-wittwer/">
-      <span class="Hidden">Uwe Wittwer</span><img  src="/images/portfolio/uwewittwer.png" alt="Uwe Wittwer" loading="lazy" width="330" height="220" />
-    </a>
-  </li>
-  <li>
-    <a href="/2016/10/10/building-a-shopify-theme/">
-      <span class="Hidden">Shopify Theme</span><img  src="/images/portfolio/stshopify.png" alt="Building a Shopify Theme" loading="lazy" width="330" height="220" />
-    </a>
-  </li>
-  <li>
-    <a href="/2016/01/04/css-framework-for-partsgiant/">
-      <span class="Hidden">PartsGiant</span><img  src="/images/portfolio/partsgiant.jpg" alt="PartsGiant" loading="lazy" width="330" height="220" />
-    </a>
-  </li>
-</ul>
+It's not easy to showcase my work in a neat package. Instead I prefer to show off singular snippets that best demonstrate my expertise and contributions.
+
+<h3 class="Cursive">Discover my recent work</h3>
+
+* [Read my blog](/blog/) — I go in-depth on recent case studies and topics
+* [Follow my GitHub](https://github.com/dbushell/) — I share side projects and open-source code
+* [Follow my CodePen](https://codepen.io/dbushell/) — I experiment and have fun with code
+* [Follow my Twitter](https://twitter.com/dbushell/) — I stick to web stuff!
+
+
+Contac me if you have a project in mind and I can demonstrate related work.
+
+<a href="/contact/" class="Button">Get in Touch</a>
+
+---
 
 ## Graphic Design
 
-Print, advertising, and editorial — these projects from my university degree helped develop my understanding of fundamental design principles.
+The projects below are from my university degree (I graduated in 2008). They include print, advertising, and editorial design. This work shaped my understanding of fundamental design principles. You'll see I had a keen interest in typography and grids.
 
 <ul class="List List--folio">
   <li>
@@ -85,21 +58,30 @@ Print, advertising, and editorial — these projects from my university degree h
   </li>
 </ul>
 
-* * *
+---
 
-## Older Website Projects
+## Older Web Projects
 
-Web design and front-end development from previous agencies I’ve worked at.
+It's fun to look back and see just how much the web has changed. Although somewhat outdated I'm still proud of these projects.
 
-<ul>
-  <li><a href="/2014/02/17/introducing-tales/">Tales WordPress theme</a></li>
-  <li><a href="/2013/08/09/responsive-design-for-kings-transfer/">King’s Transfer</a></li>
-  <li><a href="/2012/06/17/passenger-focus-responsive-web-design-case-study/">Passenger Focus</a></li>
-  <li><a href="/2013/01/28/gloople-responsive-design-review/">Gloople</a></li>
-  <li><a href="/showcase/atherton-cox/">Atherton Cox</a></li>
-  <li><a href="/showcase/brucar/">Brucar</a></li>
-  <li><a href="/showcase/eden-anglo-french/">Eden Anglo French</a></li>
-  <li><a href="/showcase/my-life-listed/">MyLifeListed</a></li>
-  <li><a href="/showcase/peerless-av-europe/">Peerless AV Europe</a></li>
-  <li><a href="/showcase/shane-global/">Shane Global</a></li>
-</ul>
+Early freelance projects I featured on my blog.
+
+* [Step into my Time Machine!](/2020/08/18/step-into-my-time-machine/)
+* [Responsive Design for Uwe Wittwer](/2014/05/07/responsive-design-for-uwe-wittwer/)
+* [Building a Shopify Theme](/2016/10/10/building-a-shopify-theme/)
+* [CSS Framework for Parts Giant](/2016/01/04/css-framework-for-partsgiant/)
+* [Responsive Design for Houden](/2015/03/18/responsive-design-for-houden/)
+* [Building a WordPress theme](/2016/07/14/building-a-wordpress-theme/)
+* [Tales WordPress theme](/2014/02/17/introducing-tales/)
+* [King’s Transfer](/2013/08/09/responsive-design-for-kings-transfer/)
+
+Web design and front-end development from previous employment.
+
+* [Passenger Focus](/2012/06/17/passenger-focus-responsive-web-design-case-study/)
+* [Gloople](/2013/01/28/gloople-responsive-design-review/)
+* [Atherton Cox](/showcase/atherton-cox/)
+* [Brucar](/showcase/brucar/)
+* [Eden Anglo French](/showcase/eden-anglo-french/)
+* [My Life Listed](/showcase/my-life-listed/)
+* [Peerless AV Europe](/showcase/peerless-av-europe/)
+* [Shane Global](/showcase/shane-global/)

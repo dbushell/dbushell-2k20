@@ -18,7 +18,7 @@
 <Wrapper>
   <Masthead />
   <Main>
-    <Nav />
+    <Nav current="/blog/" />
     <Heading {title} />
     {#each articles as item (item.unix)}
       <Article key={item.unix} {...item} />

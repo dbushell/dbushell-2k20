@@ -21,12 +21,12 @@ Through coding I can deliver:
 * Templates for many frameworks
 * Pattern and component libraries
 * Build and deployment workflows
-* Front-end performance reviews
-* Progressive Web Apps
+* Performance and accessibility reviews
+* Progressive web apps
 
 Web standards are ever-evolving. I see each project as an opportunity to refresh my methods and hone my practice. I understand the quirks of old browsers and the benefits of new technology. I use progressive enhancement to deliver accessible websites based on an intrinsic knowledge of the front-end.
 
-**Favourite tools and technologies:**
+<p class="Cursive">Favourite tools and technologies:</p>
 
 <ul class="List List--columns">
   <li>HTML / CSS</li>
@@ -38,6 +38,7 @@ Web standards are ever-evolving. I see each project as an opportunity to refres
   <li>Vue.js</li>
   <li>Svelte</li>
   <li>Node</li>
+  <li>Deno</li>
   <li>Git</li>
   <li>Gulp</li>
   <li>WordPress</li>
@@ -45,7 +46,7 @@ Web standards are ever-evolving. I see each project as an opportunity to refres
   <li>Shopify</li>
   <li>Netlify</li>
   <li>Cloudflare</li>
-  <li>Service Workers</li>
+  <li>Web Workers</li>
 </ul>
 
 I'm not fussy. I can work with high-fidelity design software or back-of-the-napkin sketches. My background in design gives me an intuitive understanding to interpret, iterate upon, and best utilise visual concepts.
@@ -53,28 +54,27 @@ I'm not fussy. I can work with high-fidelity design software or back-of-the-napk
 
 ### Featured articles
 
-Whenever possible I share case studies and knowledge on [my blog](/blog/). Here's a select few of my favourite articles from years past:
+Whenever possible I share case studies and knowledge on [my blog](/blog/). Here's a select few of my favourite articles:
 
+* [Cloudflare Pages and Workers](/2021/05/14/cloudflare-dns-pages-workers/)
+* [Built with Deno](/2021/03/12/built-with-deno/)
+* [Svelte vs React](/2020/11/16/svelte-vs-react/)
+* [WordPress, Gutenberg, and Tips for ACF Blocks](/2020/10/05/wordpress-gutenberg-and-tips-for-acf-blocks/)
+* [HTTP Security Headers and Inline Resources](/2020/02/28/http-security-headers-and-inline-resources/)
 * [PWA: Progressive Web Apps](/2018/05/21/pwa-progressive-web-apps/)
-* [React as a Static Site Generator](/2017/02/13/react-as-a-static-site-generator/)
-* [CSS Framework for PartsGiant](/2016/01/04/css-framework-for-partsgiant/)
-* [CodePen Prototyping for Houden](/2015/03/18/responsive-design-for-houden/)
-* [Critical CSS and Performance](/2015/02/19/critical-css-and-performance/)
-* [Introducing Tales](/2014/02/17/introducing-tales/)
-* [Two Week Build](/2014/04/24/two-week-build/)
 
 * * *
 
-### I also do…
+<h3 class="Cursive">I also do…</h3>
 
-* <a href="/responsive-design/">Responsive Design</a>
-* <a href="/wordpress-and-cms-integration/">WordPress &amp; CMS</a>
-* <a href="/process-and-strategy/">Process &amp; Strategy</a>
+* [Responsive Design](/responsive-design/)
+* [WordPress & CMS](/wordpress-and-cms-integration/)
+* [Process & Strategy](/process-and-strategy/)
 
 * * *
 
 <h3 class="Cursive">Get a free quote</h3>
 
-Interested in working with me? <a href="/contact/">Send me an email</a> with your requirements and I’ll happily provide a free quote and let you know my availability.
+Interested in working with me? [Send me an email](/contact/) with your requirements and I’ll happily provide a free quote and let you know my availability.
 
 <a href="/contact/" class="Button">Get in Touch</a>

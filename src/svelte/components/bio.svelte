@@ -10,7 +10,7 @@
   <div>
     <p>
       Based in the UK, near Manchester, I freelance for small businesses,
-      start-ups, individuals, and fellow web agencies — all over the world.
+      start-ups, individuals, and fellow web agencies, all over the world.
     </p>
   </div>
 </div>

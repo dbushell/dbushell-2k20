@@ -2,17 +2,8 @@
 slug: responsive-design
 title: 'Responsive Design'
 ---
-<p class="Image Image--basic">
-  <img
-    src="/images/pages/responsive-design.png"
-    title="Responsive Design on a Microsoft Surface and Nexus 4"
-    alt="Responsive Design on a Microsoft Surface and Nexus 4"
-    loading="lazy"
-    width="640"
-    height="400">
-</p>
 
-The number of web-accessible devices is staggeringly wonderful. This can be a daunting canvas for design without a modern responsive approach. I specialise in embracing the web's ubiquity. It's my job to design for all experiences because successful websites remain accessible to the whole audience.
+The limitless number of web-accessible devices can be a daunting canvas for design without a modern responsive approach. I specialise in embracing the web's ubiquity. It's my job to design for all experiences because successful websites remain accessible to the whole audience.
 
 > David provided us with beautiful and cost effective templates for our CMS that surpassed our high expectations from both the design and the tech perspective.
 >
@@ -34,6 +25,7 @@ It's a fluid, adaptive process.
 
 I'm proud of my work and love to share it with permission. Here's just a couple of projects I've been privileged to work on:
 
+* [A New Component Library for Parts Giant](/2021/07/01/new-component-library-for-parts-giant/)
 * [Responsive Design for Uwe Wittwer](/2014/05/07/responsive-design-for-uwe-wittwer/)
 * [Responsive Design for Houden](/2015/03/18/responsive-design-for-houden/)
 
@@ -41,16 +33,16 @@ I'm proud of my work and love to share it with permission. Here's just a couple 
 
 * * *
 
-### I also do…
+<h3 class="Cursive">I also do…</h3>
 
-* <a href="/front-end-development/">Front-end Development</a>
-* <a href="/wordpress-and-cms-integration/">WordPress &amp; CMS</a>
-* <a href="/process-and-strategy/">Process &amp; Strategy</a>
+* [Front-end Development](/front-end-development/)
+* [WordPress & CMS](/wordpress-and-cms-integration/)
+* [Process & Strategy](/process-and-strategy/)
 
 * * *
 
 <h3 class="Cursive">Get a free quote</h3>
 
-Interested in working with me? <a href="/contact/">Send me an email</a> with your requirements and I’ll happily provide a free quote and let you know my availability.
+Interested in working with me? [Send me an email](/contact/) with your requirements and I’ll happily provide a free quote and let you know my availability.
 
 <a href="/contact/" class="Button">Get in Touch</a>

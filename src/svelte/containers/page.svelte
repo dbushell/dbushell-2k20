@@ -8,6 +8,7 @@
   import Wrapper from '../components/wrapper.svelte';
 
   export let body;
+  export let href;
   export let latest;
   export let title;
 </script>
@@ -15,7 +16,7 @@
 <Wrapper>
   <Masthead />
   <Main>
-    <Nav />
+    <Nav current={href} />
     <Heading {title} />
     <Prose innerHTML={body} />
   </Main>

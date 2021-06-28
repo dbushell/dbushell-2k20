@@ -18,7 +18,7 @@
 <Wrapper>
   <Masthead />
   <Main>
-    <Nav />
+    <Nav current="/" />
     <Heading title={h1} />
     <h3 class="Cursive">I make websites</h3>
     <div class="Prose">
@@ -26,7 +26,9 @@
         I design and build websites with a focus on standards, performance, and
         accessibility. With a decade of professional experience — in-house and
         remote — I've delivered for all types of organisations. Whether it's
-        WordPress, React, or PWAs, I have the know-how to help you.
+        WordPress, <abbr title="JavaScript, API, and Markup">JAM</abbr>Stack, or
+        <abbr title="Progressive Web Apps">PWAs</abbr>, I have the know-how to
+        help you.
       </p>
       <div class="Crane">
         <img
@@ -35,7 +37,8 @@
           width="500"
           height="520"
           loading="lazy"
-          role="presentation" />
+          role="presentation"
+        />
         <div>
           <ul class="List List--large">
             <li><a href="/front-end-development/">Front-end Development</a></li>

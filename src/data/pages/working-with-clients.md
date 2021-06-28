@@ -32,6 +32,6 @@ And if you're unsure about the technical stuff I'll help with web hosting and do
 
 <h3 class="Cursive">Get a free quote</h3>
 
-Interested in working with me? <a href="/contact/">Send me an email</a> with your requirements and I’ll happily provide a free quote and let you know my availability.
+Interested in working with me? [Send me an email](/contact/) with your requirements and I’ll happily provide a free quote and let you know my availability.
 
 <a href="/contact/" class="Button">Get in Touch</a>
