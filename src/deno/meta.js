@@ -8,4 +8,4 @@ export const generator = `deno ${Deno.version.deno} | svelte ${
 
 export const title = 'David Bushell – Freelance Web Design (UK)';
 
-export const version = '11.6.0';
+export const version = '11.7.0';

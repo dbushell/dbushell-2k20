@@ -1,21 +1,16 @@
-version: "3"
-
-volumes:
-  data:
-
 networks:
   traefik:
     external: true
+
+volumes:
+  data:
 
 services:
   dbushell:
     container_name: dbushell
     image: ghcr.io/dbushell/ubuntu
     restart: unless-stopped
-    command: >-
-      zsh -c "npm install --no-save
-      && npm run build:deno
-      && npm start"
+    command: /home/user/src/init.sh
     networks:
       - traefik
     volumes:
@@ -23,7 +18,6 @@ services:
       - ./bin:/home/user/bin
       - ./src:/home/user/src
       - ./public:/home/user/public
-      - ./package.json:/home/user/package.json
       - ./netlify.toml:/home/user/netlify.toml
     labels:
       - "traefik.enable=true"

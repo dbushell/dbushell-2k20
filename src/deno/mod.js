@@ -1,6 +1,6 @@
-import * as fs from 'https://deno.land/std/fs/mod.ts';
-import * as hash from 'https://deno.land/std/hash/mod.ts';
-import * as path from 'https://deno.land/std/path/mod.ts';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as base64 from 'base64';
 
 import * as css from './css.js';
 import * as data from './data.js';
@@ -40,7 +40,10 @@ const headData = await Deno.readTextFile(
 ).then(
   (data) => `;window.dbushell={version: '${meta.version}'};${data.trim()}`
 );
-const headHash = hash.createHash('sha256').update(headData).toString('base64');
+
+let headHash = new TextEncoder().encode(headData);
+headHash = await crypto.subtle.digest('sha-256', headHash);
+headHash = base64.encode(new Uint8Array(headHash));
 
 const saving = [];
 const locations = [];

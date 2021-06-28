@@ -1,4 +1,4 @@
-import * as datetime from 'https://deno.land/std/datetime/mod.ts';
+import * as datetime from 'datetime';
 
 const dateProps = (date = new Date()) => ({
   // YYYY-MM-DDTHH:mm:ss.sssZ

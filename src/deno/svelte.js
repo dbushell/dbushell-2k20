@@ -1,5 +1,5 @@
-import * as fs from 'https://deno.land/std/fs/mod.ts';
-import * as path from 'https://deno.land/std/path/mod.ts';
+import * as fs from 'fs';
+import * as path from 'path';
 import * as svelte from 'svelte/compiler';
 
 const {VERSION: version} = svelte;

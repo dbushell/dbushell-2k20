@@ -1,5 +1,5 @@
-import * as path from 'https://deno.land/std/path/mod.ts';
-import * as hash from 'https://deno.land/std/hash/mod.ts';
+import * as path from 'path';
+import * as base64 from 'base64';
 
 const pwd = path.dirname(new URL(import.meta.url).pathname);
 const scssPath = `${pwd}/../scss/main.scss`;
@@ -16,7 +16,7 @@ const process = async () => {
   // Expand component imports
   const components = `${scssDir}/components`;
   for await (const entry of Deno.readDir(components)) {
-    if (entry.isFile && /.scss$/.test(entry.name)) {
+    if (entry.isFile && /^[^_].+\.scss$/.test(entry.name)) {
       css += `@import '${components}/${entry.name}';\n`;
     }
   }
@@ -46,7 +46,9 @@ const process = async () => {
   await Deno.remove(`${scssDir}/tmp.scss`);
   await Deno.remove(`${scssDir}/tmp.css`);
 
-  const cssHash = hash.createHash('sha256').update(css).toString('base64');
+  let cssHash = new TextEncoder().encode(css);
+  cssHash = await crypto.subtle.digest('sha-256', cssHash);
+  cssHash = base64.encode(new Uint8Array(cssHash));
 
   console.log(`✦ Processed CSS`);
 

@@ -1,4 +1,4 @@
-import * as path from 'https://deno.land/std/path/mod.ts';
+import * as path from 'https://deno.land/std@0.99.0/path/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
 import * as terser from 'https://cdn.skypack.dev/terser';
 

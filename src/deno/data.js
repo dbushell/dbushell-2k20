@@ -1,6 +1,6 @@
-import * as fs from 'https://deno.land/std/fs/mod.ts';
-import * as path from 'https://deno.land/std/path/mod.ts';
-import * as yaml from 'https://deno.land/std/encoding/yaml.ts';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as yaml from 'yaml';
 import striptags from 'striptags';
 
 import markdown from './markdown.js';
@@ -82,7 +82,7 @@ const readArticles = async () => {
   const arr = await readGlob(`${pwd}/../data/blog/**/*.md`);
   arr.sort((a, b) => (a.unix < b.unix ? 1 : -1));
   console.log(`✦ Read ${arr.length} articles`);
-  return [arr, arr.slice(0, 7)];
+  return [arr, arr.slice(0, 10)];
 };
 
 const readPages = async () => {

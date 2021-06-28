@@ -1,5 +1,10 @@
 {
   "imports": {
+    "fs": "https://deno.land/std@0.99.0/fs/mod.ts",
+    "path": "https://deno.land/std@0.99.0/path/mod.ts",
+    "yaml": "https://deno.land/std@0.99.0/encoding/yaml.ts",
+    "base64": "https://deno.land/std@0.99.0/encoding/base64.ts",
+    "datetime": "https://deno.land/std@0.99.0/datetime/mod.ts",
     "marked": "https://cdn.skypack.dev/marked",
     "prismjs": "https://cdn.skypack.dev/prismjs",
     "prismjs/": "https://cdn.skypack.dev/prismjs/",

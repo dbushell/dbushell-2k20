@@ -1,19 +1,9 @@
 [build]
   publish = "./public"
-  command = "./src/deno/netlify.sh"
-  # command = "npm run build"
+  command = "./src/netlify/build.sh"
 
 [functions]
   directory = "./src/netlify/functions"
-
-# [context.production]
-#   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
-
-# [context.deploy-preview]
-#   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
-
-# [context.branch-deploy]
-#   environment = { NODE_ENV = "production", NODE_VERSION = "15.11" }
 
 [[headers]]
   for = "*.avif"
@@ -28,7 +18,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Strict-Transport-Security = "max-age=31557600"
-    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self'; img-src 'self' data:; script-src 'self' 'sha256-N5kelC4mILbf1FMWCbPgJT8tPLGacg59JEhz+E7lBXw='; style-src 'self' 'sha256-W7iwPEqGHhmcFXG6HZekayEWvow454067IWeHS/iaxk=' 'sha256-M7Z/R6azUsoNM77aBWHJTgS5MSuVEK3Z9MymhafpGcY=';"
+    Content-Security-Policy = "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self'; img-src 'self' data:; script-src 'self' 'sha256-EBNM/KJbAcZ+IENXduu+InfRbtXGh9uk4ZE7cnOn/bI='; style-src 'self' 'sha256-JrgX1TrbpGy4tP96c/eurIHu95z5ecTATS94APFmkGY=' 'sha256-M7Z/R6azUsoNM77aBWHJTgS5MSuVEK3Z9MymhafpGcY=';"
     Referrer-Policy = "same-origin"
     Permissions-Policy = "interest-cohort=()"
 

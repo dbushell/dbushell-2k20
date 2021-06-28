@@ -5,7 +5,6 @@
 !.lfsconfig
 !docker-compose.yml
 !netlify.toml
-!package.json
 !README.md
 !src
 !public
