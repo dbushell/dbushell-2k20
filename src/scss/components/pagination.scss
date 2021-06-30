@@ -1,11 +1,24 @@
 .Pagination {
-  margin: 0 rem(-9) rem(36) rem(-9);
+  display: flex;
+  justify-content: space-between;
 
   .Button {
-    margin: 0 rem(9);
-  }
+    align-items: center;
+    display: flex;
 
-  &:last-child {
-    margin-bottom: 0;
+    svg {
+      fill: currentColor;
+      height: rem(12);
+      stroke: currentColor;
+      width: rem(12);
+
+      &:first-child {
+        margin-inline: rem(-4) rem(6);
+      }
+
+      &:last-child {
+        margin-inline: rem(6) rem(-4);
+      }
+    }
   }
 }
