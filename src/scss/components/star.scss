@@ -16,7 +16,7 @@
   }
 }
 
-@media screen and (max-width: rem(767)) {
+@media (max-width: rem(767)) {
   .Star,
   .List li,
   .Prose ul:not([class*='List']) li {

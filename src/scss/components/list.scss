@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: rem(767)) {
+@media (max-width: rem(767)) {
   .List--ordered,
   .Prose ol:not([class]) {
     & > li {
@@ -135,11 +135,11 @@
 
   img {
     backface-visibility: hidden;
-    background-color: hsla(var(--db-black), 0.2);
+    background-color: hsl(var(--db-black), 0.2);
     border-radius: rem(9);
     border: rem(2) solid hsl(var(--color-background));
     box-shadow: rem(-4) 0 0 rem(-2) hsl(var(--color-secondary)),
-      rem(4) rem(4) 0 0 hsla(var(--db-black), 0.2);
+      rem(4) rem(4) 0 0 hsl(var(--db-black), 0.2);
     display: block;
     transform-style: preserve-3d;
     transform-origin: 50% 50%;
@@ -147,7 +147,7 @@
   }
 }
 
-@media screen and (min-width: rem(768)) {
+@media (min-width: rem(768)) {
   .List--large {
     li {
       font-size: var(--step-1);
@@ -166,7 +166,7 @@
   }
 }
 
-@media screen and (max-width: rem(767)) {
+@media (max-width: rem(767)) {
   .List--columns {
     grid-column-gap: rem(27);
   }

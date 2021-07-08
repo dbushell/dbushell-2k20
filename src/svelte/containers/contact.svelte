@@ -1,16 +1,16 @@
 <script>
+  import App from '../components/app.svelte';
   import Aside from '../components/aside.svelte';
   import Heading from '../components/heading.svelte';
   import Nav from '../components/nav.svelte';
   import Main from '../components/main.svelte';
   import Masthead from '../components/masthead.svelte';
   import Contact from '../components/contact.svelte';
-  import Wrapper from '../components/wrapper.svelte';
 
   export let latest;
 </script>
 
-<Wrapper>
+<App>
   <Masthead />
   <Main>
     <Nav current="/contact/" />
@@ -27,4 +27,4 @@
     </div>
   </Main>
   <Aside articles={latest} />
-</Wrapper>
+</App>

@@ -3,7 +3,7 @@
   --lightbulb-fill: hsl(var(--db-yellow));
   --lightbulb-rays: 1;
   height: auto;
-  left: var(--wrapper-margin);
+  left: var(--page-margin);
   padding: rem(9);
   padding-top: rem(18);
   position: absolute;
@@ -28,12 +28,16 @@
   &:hover {
     transform: translateY(0);
     --lightbulb-stroke: hsl(var(--db-blue));
-    --lightbulb-fill: hsla(var(--db-blue), 0.5);
+    --lightbulb-fill: hsl(var(--db-blue), 0.5);
     --lightbulb-rays: 0;
   }
 
   &:focus {
     outline: var(--outline);
+  }
+
+  &:not(:focus-visible) {
+    outline: none;
   }
 
   path {
@@ -52,13 +56,13 @@
     &:focus,
     &:hover {
       --lightbulb-stroke: hsl(var(--db-yellow));
-      --lightbulb-fill: hsla(var(--db-yellow, 0.5));
+      --lightbulb-fill: hsl(var(--db-yellow, 0.5));
       --lightbulb-rays: 1;
     }
   }
 }
 
-@media screen and (max-width: rem(399)) {
+@media (max-width: rem(399)) {
   .Lightbulb {
     margin-left: rem(-12);
   }

@@ -20,7 +20,7 @@
   }
 }
 
-@media screen and (max-width: rem(399)) {
+@media (max-width: rem(399)) {
   .Crane {
     img {
       max-width: 50%;
@@ -36,13 +36,13 @@
   }
 }
 
-@media screen and (min-width: rem(400)) {
+@media (min-width: rem(400)) {
   .Crane {
     grid-template-columns: minmax(auto, 50%) auto;
   }
 }
 
-@media screen and (min-width: rem(600)) {
+@media (min-width: rem(600)) {
   .Crane {
     grid-gap: rem(36);
   }

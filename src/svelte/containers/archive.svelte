@@ -1,4 +1,5 @@
 <script>
+  import App from '../components/app.svelte';
   import Article from '../components/article.svelte';
   import Aside from '../components/aside.svelte';
   import Button from '../components/button.svelte';
@@ -6,7 +7,6 @@
   import Nav from '../components/nav.svelte';
   import Main from '../components/main.svelte';
   import Masthead from '../components/masthead.svelte';
-  import Wrapper from '../components/wrapper.svelte';
 
   export let articles;
   export let latest;
@@ -15,7 +15,7 @@
   export let title;
 </script>
 
-<Wrapper>
+<App>
   <Masthead />
   <Main>
     <Nav current="/blog/" />
@@ -51,4 +51,4 @@
     {/if}
   </Main>
   <Aside articles={latest} />
-</Wrapper>
+</App>

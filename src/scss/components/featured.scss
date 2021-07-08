@@ -13,7 +13,7 @@
   }
 }
 
-@media screen and (min-width: rem(1240)) {
+@media (min-width: rem(1240)) {
   .Featured {
     display: grid;
     grid-column-gap: rem(36);

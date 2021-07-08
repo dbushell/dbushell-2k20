@@ -1,6 +1,24 @@
+:root {
+  --page-margin: 7vw;
+  --page-max: calc((var(--fluid-max-width) / 16) * 1rem);
+}
+
+@media (min-width: rem(768)) {
+  :root {
+    --page-margin: 5vw;
+  }
+}
+
+@media (min-width: rem(1920)) {
+  :root {
+    --page-margin: #{rem(100)};
+  }
+}
+
 .App {
   margin: 0 auto;
-  max-width: calc((var(--fluid-max-width) / 16) * 1rem);
+  max-width: var(--page-max);
   overflow: hidden;
+  padding: 0 var(--page-margin);
   position: relative;
 }

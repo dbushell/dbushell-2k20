@@ -3,10 +3,8 @@
   import Footer from './footer.svelte';
 </script>
 
-<div class="Wrapper">
-  <div class="Layout">
-    <slot />
-  </div>
-  <Lightbulb />
-  <Footer />
+<div class="Layout">
+  <slot />
 </div>
+<Lightbulb />
+<Footer />

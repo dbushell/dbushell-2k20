@@ -27,7 +27,7 @@
   .Logo {
     position: absolute;
     top: 21%;
-    right: calc(17% + 0.5 * var(--wrapper-margin));
+    right: calc(17% + 0.5 * var(--page-margin));
     width: 75%;
     z-index: 2;
   }
@@ -35,13 +35,13 @@
   .Sign {
     position: absolute;
     top: 5%;
-    right: calc(0.5 * var(--wrapper-margin));
+    right: calc(0.5 * var(--page-margin));
     width: 30%;
     z-index: 3;
   }
 }
 
-@media screen and (max-width: rem(399)) {
+@media (max-width: rem(399)) {
   .Masthead {
     &::after {
       height: 150%;

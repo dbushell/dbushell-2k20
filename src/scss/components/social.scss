@@ -7,7 +7,7 @@
 
   svg {
     border-radius: rem(5);
-    box-shadow: rem(1.5) rem(1.5) 0 0 hsla(var(--db-black), 0.1);
+    box-shadow: rem(1.5) rem(1.5) 0 0 hsl(var(--db-black), 0.1);
     fill: currentColor;
     height: rem(24);
     transform: var(--transform);

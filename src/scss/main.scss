@@ -111,7 +111,7 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 5%;
   text-decoration-skip-ink: all;
-  text-decoration-color: hsla(var(--anchor-color), var(--anchor-opacity));
+  text-decoration-color: hsl(var(--anchor-color), var(--anchor-opacity));
   text-underline-offset: 0.15em; // 15%;
   transition: color 200ms, background 200ms, text-decoration-color 200ms,
     text-decoration 200ms;
@@ -148,8 +148,8 @@ a {
   &:not([class]) {
     background-image: linear-gradient(
       to right,
-      hsla(var(--color-primary), 0.2),
-      hsla(var(--color-primary), 0.2)
+      hsl(var(--color-primary), 0.2),
+      hsl(var(--color-primary), 0.2)
     );
     background-position: bottom 5% left;
     background-repeat: repeat-x;
@@ -257,7 +257,7 @@ h1 {
   margin: rem(18) 0;
 }
 
-@media screen and (min-width: rem(600)) {
+@media (min-width: rem(600)) {
   h1 {
     margin: rem(36) 0;
   }
@@ -324,7 +324,7 @@ code {
 :not(pre) > code {
   background-image: linear-gradient(
     to right,
-    hsla(var(--color-secondary), 0.2) 1ch,
+    hsl(var(--color-secondary), 0.2) 1ch,
     transparent 1ch
   );
   background-position: bottom 5% left;
@@ -344,7 +344,8 @@ pre {
   -webkit-hyphens: none;
   hyphens: none;
   line-height: 1.5;
-  margin: rem(36) 0 rem(36) rem(-18);
+  margin: rem(36) 0;
+  margin-inline-start: rem(-18);
   overflow: auto;
   padding: rem(18);
   -moz-tab-size: 2;
@@ -355,4 +356,13 @@ pre {
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+}
+
+@media (max-width: rem(399)) {
+  pre {
+    margin-inline-end: calc(-1 * var(--page-margin));
+    margin-inline-start: calc(-1 * var(--page-margin));
+    padding-inline-end: var(--page-margin);
+    padding-inline-start: var(--page-margin);
+  }
 }

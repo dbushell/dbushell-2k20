@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (min-width: rem(768)) {
+@media (min-width: rem(768)) {
   .Form {
     column-gap: rem(27);
     display: grid;

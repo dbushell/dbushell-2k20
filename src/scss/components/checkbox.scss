@@ -17,8 +17,8 @@
       border-top: 0;
       border-left: 0;
       border-radius: rem(5);
-      box-shadow: rem(-1) rem(-1) 0 rem(1) hsla(var(--color-primary), 0.5),
-        rem(2) rem(2) 0 0 hsla(var(--db-black), 0.1);
+      box-shadow: rem(-1) rem(-1) 0 rem(1) hsl(var(--color-primary), 0.5),
+        rem(2) rem(2) 0 0 hsl(var(--db-black), 0.1);
       content: '';
       cursor: pointer;
       display: block;

@@ -4,6 +4,7 @@ networks:
 
 volumes:
   data:
+    name: dbushell
 
 services:
   dbushell:
