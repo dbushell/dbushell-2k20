@@ -1,6 +1,5 @@
 import * as path from 'https://deno.land/std@0.100.0/path/mod.ts';
 import * as svelte from 'https://cdn.skypack.dev/svelte/compiler.mjs';
-import * as terser from 'https://cdn.skypack.dev/terser';
 
 console.log('✧ Working JavaScript bundle');
 
@@ -10,6 +9,8 @@ const pwd = path.dirname(new URL(import.meta.url).pathname);
 const dest = path.resolve(`${pwd}/../../public`);
 
 const create = async () => {
+  const terser = await import('https://cdn.skypack.dev/terser');
+
   let app = await Deno.readTextFile(`${pwd}/../svelte/app.js`);
 
   // Extract component imports
@@ -85,7 +86,11 @@ const create = async () => {
   return app.code;
 };
 
-const app = await create();
-await Deno.writeTextFile(`${dest}/assets/js/app.min.js`, app);
+try {
+  const app = await create();
+  await Deno.writeTextFile(`${dest}/assets/js/app.min.js`, app);
+} catch (err) {
+  console.log(err);
+}
 
 self.postMessage(`✹ Bundled in ${Math.round(performance.now() - now)}ms`);
